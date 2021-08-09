@@ -78,7 +78,7 @@ export default function HeadlessMenu(props) {
                           } ${
                             props.path.includes(node.url) &&
                             `border-b-2 bg-green-200 text-black font-semibold shadow-sm `
-                          } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                          } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
                           {active ? (
                             <MenuIcon
@@ -133,8 +133,8 @@ export default function HeadlessMenu(props) {
                       <Link
                         to="/"
                         className={`${
-                          active ? "bg-blue-700 text-white" : "text-gray-900"
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                          active ? "bg-green-900 text-white" : "text-gray-900"
+                        } group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                       >
                         {active ? (
                           <FaHome className="w-5 h-5 mr-2" aria-hidden="true" />
@@ -148,31 +148,31 @@ export default function HeadlessMenu(props) {
                       </Link>
                     )}
                   </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        to="/join"
-                        className={`${
-                          active ? "bg-blue-700 text-white" : "text-gray-900"
-                        } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                      >
-                        {active ? (
-                          <FaQuestionCircle
-                            className="w-5 h-5 mr-2"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <FaQuestionCircle
-                            className="w-5 h-5 mr-2"
-                            aria-hidden="true"
-                          />
-                        )}
-                        Ask Us a Question
-                      </Link>
-                    )}
-                  </Menu.Item>
                 </>
               )}
+              <Menu.Item>
+                {({ active }) => (
+                  <Link
+                    to="/help"
+                    className={`${
+                      active ? "bg-green-900 text-white" : "text-gray-900"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-lg`}
+                  >
+                    {active ? (
+                      <FaQuestionCircle
+                        className="w-5 h-5 mr-2"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <FaQuestionCircle
+                        className="w-5 h-5 mr-2 text-green-900"
+                        aria-hidden="true"
+                      />
+                    )}
+                    Ask Us a Question
+                  </Link>
+                )}
+              </Menu.Item>
             </div>
           </Menu.Items>
         </Transition>
