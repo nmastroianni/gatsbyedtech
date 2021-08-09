@@ -3,7 +3,7 @@ import { MDXProvider } from "@mdx-js/react"
 import Navbar from "./Navbar"
 import { BsArrowReturnLeft } from "react-icons/bs"
 
-export default function Layout({ children }) {
+export default function Layout({ children, path }) {
   return (
     <MDXProvider className="relative">
       <ul id="nav-access" className="relative mx-auto">
@@ -22,7 +22,7 @@ export default function Layout({ children }) {
       </ul>
       <div className="flex flex-col min-h-screen dark:bg-gray-900">
         <header>
-          <Navbar />
+          <Navbar path={path} />
         </header>
         <main id="main-content" className="">
           {children}

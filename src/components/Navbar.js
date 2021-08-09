@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Headroom from "react-headroom"
 import HeadlessMenu from "./Menu"
 
-export default function Navbar(props) {
+export default function Navbar({ path }) {
   return (
     <Headroom className="text-white" style={{ background: "#064E3B" }}>
       <div className="flex justify-between items-center mx-auto py-3 px-6">
@@ -27,7 +27,7 @@ export default function Navbar(props) {
           </div>
         </div>
         <nav>
-          <HeadlessMenu />
+          <HeadlessMenu path={path} />
         </nav>
       </div>
     </Headroom>
