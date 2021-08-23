@@ -5,11 +5,29 @@
  */
 
 const path = require("path")
-console.log(process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY)
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Your Site Title Goes Here",
+    siteUrl: `https://longbranch.k12.nj.us`,
+    title: "LBPS EdTech",
+    description:
+      "The Educational Technology Department at Long Branch Public Schools is dedicated to help staff make the most of the digital tools at their disposal so that all stakeholders may thrive.",
+    authors: [
+      {
+        name: "Lois Alston",
+        twitterUsername: "@l_alston",
+        profileImage: "/favicon.ico",
+      },
+      {
+        name: "Neil Mastroianni",
+        twitterUsername: "@nmastroianni",
+        profileImage: "/favicon.ico",
+      },
+    ],
+    siteImage: "/favicon.ico",
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -31,9 +49,18 @@ module.exports = {
       options: {
         spreadsheetId: `1JZLh6a9in7fQdgwbZ8fN6M-f2d-AUVdbANEvFjZJqVo`,
         typePrefix: `GoogleSheet`,
-        credentials: require("./edtechsite-66cc421d94c8.json"),
+        credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS),
         filterNode: () => true,
         mapNode: node => node,
+      },
+    },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
+        linkResolver: require("./src/utils/linkResolver").linkResolver,
       },
     },
   ],
