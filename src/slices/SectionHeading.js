@@ -47,4 +47,26 @@ export const query = graphql`
       }
     }
   }
+  fragment PageDataBodySectionHeading on PrismicPageDataBodySectionHeading {
+    primary {
+      section_heading_background_color
+      section_heading_link {
+        text
+      }
+      section_heading_text {
+        raw
+      }
+    }
+  }
+  fragment PostDataBodySectionHeading on PrismicPostDataBodySectionHeading {
+    primary {
+      section_heading_background_color
+      section_heading_link {
+        text
+      }
+      section_heading_text {
+        raw
+      }
+    }
+  }
 `
