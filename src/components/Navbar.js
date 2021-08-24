@@ -12,7 +12,7 @@ export default function Navbar({ path }) {
             src="../images/lbpsSeal.png"
             alt="Long Branch Public Schools Seal/Logo"
             placeholder="blurred"
-            className="w-10 h-10 hidden sm:inline-block sm:-mt-1 md:-mt-2 mr-1 sm:mr-2 md:mr-3 lg:mr-5"
+            className=" w-0 h-0 sm:w-10 sm:h-10 sm:-mt-1 md:-mt-2 mr-1 sm:mr-2 md:mr-3 lg:mr-5"
           />
           <div>
             <span className="hidden md:inline text-xl sm:text-2xl md:text-3xl lg:text-5xl font-teko">

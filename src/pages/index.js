@@ -1,11 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-// import { RichText } from "prismic-reactjs"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
 import Hero from "../components/Hero"
-import GreenHeading from "../components/GreenHeading"
 import EdtechWave from "../components/EdtechWave"
 
 export default function Home({ data, path }) {

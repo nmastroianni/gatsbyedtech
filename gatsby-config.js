@@ -45,16 +45,6 @@ module.exports = {
       __key: `pages`,
     },
     {
-      resolve: `gatsby-source-google-spreadsheet`,
-      options: {
-        spreadsheetId: `1JZLh6a9in7fQdgwbZ8fN6M-f2d-AUVdbANEvFjZJqVo`,
-        typePrefix: `GoogleSheet`,
-        credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS),
-        filterNode: () => true,
-        mapNode: node => node,
-      },
-    },
-    {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,

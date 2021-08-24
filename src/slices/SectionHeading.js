@@ -12,7 +12,6 @@ export const SectionHeading = ({ slice }) => {
       section_heading_text,
     },
   } = slice
-  console.log(section_heading_text.raw[0].type)
   return (
     <header
       className="group py-2 sm:py-3 lg:py-5 flex justify-center items-center shadow-md dark:bg-opacity-50 text-center"

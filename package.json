@@ -1,7 +1,7 @@
 {
-  "name": "hello-tailwind",
+  "name": "lbps-edtech-gatsby-site",
   "private": true,
-  "description": "A tailwindcss-based Gatsby hello-world starter",
+  "description": "A website for the LBPS Educational Technology Department",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -11,8 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "getToken": "gatsby-source-google-docs-token"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
     "@headlessui/react": "^1.3.0",
@@ -50,9 +49,9 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/nmastroianni/hellotailwind"
+    "url": "https://github.com/nfmastroianni/gatsbyedtech"
   },
   "bugs": {
-    "url": "https://github.com/nmastroianni/hellotailwind/issues"
+    "url": "https://github.com/nfmastroianni/gatsbyedtech/issues"
   }
 }

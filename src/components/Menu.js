@@ -16,22 +16,29 @@ import {
 
 const query = graphql`
   {
-    allGoogleSheetMenuItems {
-      nodes {
-        text
-        type
-        url
-        icon
-        id
+    prismicNavigation {
+      data {
+        items: navigation_menu_items {
+          link {
+            raw
+          }
+          link_icon
+          link_label {
+            text
+          }
+        }
       }
     }
   }
 `
 
-export default function HeadlessMenu(props) {
+export default function HeadlessMenu({ path }) {
   const {
-    allGoogleSheetMenuItems: { nodes },
+    prismicNavigation: {
+      data: { items },
+    },
   } = useStaticQuery(query)
+  console.log(items)
   return (
     <div className="w-56 text-right">
       <Menu as="div" className="relative inline-block text-left">
@@ -55,7 +62,7 @@ export default function HeadlessMenu(props) {
         >
           <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 text-white">
-              {nodes.map(node => {
+              {items.map((item, i) => {
                 const icons = {
                   Tools: FaTools,
                   Video: FaVideo,
@@ -63,20 +70,22 @@ export default function HeadlessMenu(props) {
                   Code: FaCode,
                   Campground: FaCampground,
                   Blog: FaNewspaper,
+                  Home: FaHome,
+                  Question: FaQuestionCircle,
                 }
-                const MenuIcon = icons[node.icon]
-                if (node.type === "internal") {
+                const MenuIcon = icons[item.link_icon]
+                if (item.link.raw.link_type === "Document") {
                   return (
-                    <Menu.Item key={node.id}>
+                    <Menu.Item key={`topnav-${i}`}>
                       {({ active }) => (
                         <Link
-                          to={node.url}
+                          to={item.link.raw.url}
                           className={`${
                             active
                               ? "bg-green-900 hover:text-white focus:text-white"
                               : "text-gray-900 "
                           } ${
-                            props.path.includes(node.url) &&
+                            path.includes(item.link.raw.url) &&
                             `border-b-2 bg-green-200 text-black font-semibold shadow-sm `
                           } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
@@ -91,17 +100,17 @@ export default function HeadlessMenu(props) {
                               aria-hidden="true"
                             />
                           )}
-                          {node.text}
+                          {item.link_label.text}
                         </Link>
                       )}
                     </Menu.Item>
                   )
                 } else {
                   return (
-                    <Menu.Item key={node.id}>
+                    <Menu.Item key={`topnav-${i}`}>
                       {({ active }) => (
                         <a
-                          href={node.url}
+                          href={item.link.raw.url}
                           className={`${
                             active ? "bg-blue-700 text-white" : "text-gray-900"
                           } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
@@ -117,7 +126,7 @@ export default function HeadlessMenu(props) {
                               aria-hidden="true"
                             />
                           )}
-                          {node.linkText}
+                          {item.link_label.text}
                         </a>
                       )}
                     </Menu.Item>
@@ -126,7 +135,7 @@ export default function HeadlessMenu(props) {
               })}
             </div>
             <div className="px-1 py-1">
-              {props.path !== "/" && (
+              {path !== "/" && (
                 <>
                   <Menu.Item>
                     {({ active }) => (
