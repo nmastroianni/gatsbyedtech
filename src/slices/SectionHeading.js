@@ -23,7 +23,8 @@ export const SectionHeading = ({ slice }) => {
         className="text-green-900 dark:text-opacity-0 group-hover:text-opacity-100 focus:text-white focus:text-opacity-100 transition duration-300 ease-in-out group-hover:text-white inline"
         onClick={() => {}}
       >
-        <HiLink className="h-8 w-8 mx-1" />
+        <HiLink className="h-4 w-4 md:h-8 md:w-8 mx-1" />
+        <span className="sr-only">Copy heading link</span>
       </button>
       {section_heading_text.raw[0].type === "heading2" ? (
         <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-teko inline">
