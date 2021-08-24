@@ -20,6 +20,7 @@ const query = graphql`
       data {
         items: navigation_menu_items {
           link {
+            url
             raw
           }
           link_icon
@@ -38,7 +39,6 @@ export default function HeadlessMenu({ path }) {
       data: { items },
     },
   } = useStaticQuery(query)
-  console.log(items)
   return (
     <div className="w-56 text-right">
       <Menu as="div" className="relative inline-block text-left">
@@ -79,7 +79,7 @@ export default function HeadlessMenu({ path }) {
                     <Menu.Item key={`topnav-${i}`}>
                       {({ active }) => (
                         <Link
-                          to={item.link.raw.url}
+                          to={item.link.url}
                           className={`${
                             active
                               ? "bg-green-900 hover:text-white focus:text-white"
@@ -112,8 +112,8 @@ export default function HeadlessMenu({ path }) {
                         <a
                           href={item.link.raw.url}
                           className={`${
-                            active ? "bg-blue-700 text-white" : "text-gray-900"
-                          } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                            active ? "bg-green-700 text-white" : "text-gray-900"
+                          } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
                           {active ? (
                             <MenuIcon
