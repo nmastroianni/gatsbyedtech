@@ -29,6 +29,7 @@ export const query = graphql`
             slice_type
           }
           ...PostDataBodySectionHeading
+          ...PostDataBodyText
         }
       }
     }

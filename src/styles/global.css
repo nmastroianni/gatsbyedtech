@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Teko:wght@300;400;700&display=swap");
+/* Works on Firefox */
+
+* {
+  --thumbColor: #d1fae5;
+  --trackColor: #374151;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbColor);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--trackColor);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--thumbColor);
+  border-radius: 20px;
+  border: 3px solid var(--trackColor);
+}

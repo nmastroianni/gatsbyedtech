@@ -19,7 +19,7 @@ export const SectionHeading = ({ slice }) => {
       id={section_heading_link.text}
     >
       <button
-        className="text-green-900 dark:text-opacity-0 group-hover:text-opacity-100 focus:text-white focus:text-opacity-100 transition duration-300 ease-in-out group-hover:text-white inline"
+        className="text-green-900 text-opacity-0 dark:text-opacity-0 group-hover:text-opacity-100 focus:text-white focus:text-opacity-100 transition duration-300 ease-in-out group-hover:text-white inline"
         onClick={() => {}}
       >
         <HiLink className="h-4 w-4 md:h-8 md:w-8 mx-1" />

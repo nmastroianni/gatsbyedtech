@@ -23,7 +23,6 @@ export default function Home({ data, path }) {
       <div>
         <SliceZone sliceZone={document.body} />
       </div>
-      <EdtechWave />
     </Layout>
   )
 }
@@ -50,7 +49,9 @@ export const query = graphql`
             slice_type
           }
           ...HomepageDataBodyFullWidthImage
+          ...HomepageDataBodyImageHighlight
           ...HomepageDataBodySectionHeading
+          ...HomepageDataBodyText
         }
       }
     }

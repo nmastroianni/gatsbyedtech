@@ -36,11 +36,38 @@ module.exports = {
             },
           },
         },
+        dark: {
+          css: {
+            color: "rgba(255,255,255, 0.85)",
+            fontFamily: `${theme("fontFamily.source")}`,
+            fontWeight: "400",
+            h2: {
+              fontFamily: `${theme("fontFamily.teko")}`,
+              fontWeight: "300",
+              color: "rgba(167, 243, 208, 1)",
+            },
+            h3: {
+              fontFamily: `${theme("fontFamily.teko")}`,
+              fontWeight: "300",
+              color: "rgba(167, 243, 208, 1)",
+            },
+            h4: {
+              fontFamily: `${theme("fontFamily.teko")}`,
+              fontWeight: "300",
+              color: "rgba(167, 243, 208, 1)",
+            },
+            a: {
+              color: "rgba(52,211,153, 1)",
+            },
+          },
+        },
       }),
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      typography: ["dark"],
+    },
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),

@@ -1,14 +1,14 @@
 import * as React from "react"
-import { FullWidthImage, SectionHeading } from "../slices"
+import { FullWidthImage, ImageHighlight, SectionHeading, Text } from "../slices"
 
 export default function SliceZone({ sliceZone }) {
   const sliceComponents = {
     full_width_image: FullWidthImage,
     // image_gallery: ImageGallery,
-    // image_highlight: ImageHighlight,
+    image_highlight: ImageHighlight,
     // quote: Quote,
     section_heading: SectionHeading,
-    // text: Text,
+    text: Text,
     // youtube: YouTubeSingle,
   }
 

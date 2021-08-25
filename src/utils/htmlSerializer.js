@@ -57,7 +57,9 @@ const htmlSerializer = function (type, element, content, children, key) {
       return (
         <p
           key={key}
-          className={[element.label, "block-img"].filter(Boolean).join(" ")}
+          className={[element.label, "block-img flex justify-center"]
+            .filter(Boolean)
+            .join(" ")}
         >
           {linkUrl ? (
             <a
@@ -74,14 +76,15 @@ const htmlSerializer = function (type, element, content, children, key) {
       )
 
     case Elements.embed: // Embed
+      console.log(element)
       return (
         <div
+          dangerouslySetInnerHTML={{ __html: element.oembed.html }}
           key={key}
           data-oembed={element.oembed.embed_url}
           data-oembed-type={element.oembed.type}
           data-oembed-provider={element.oembed.provider_name}
-          className={element.label}
-          __dangerouslySetInnerHTML={{ __html: element.oembed.html }}
+          className="aspect-w-16 aspect-h-9"
         />
       )
 

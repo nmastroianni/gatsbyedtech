@@ -12,6 +12,7 @@ import {
   FaNewspaper,
   FaHome,
   FaQuestionCircle,
+  FaArrowLeft,
 } from "react-icons/fa"
 
 const query = graphql`
@@ -60,7 +61,7 @@ export default function HeadlessMenu({ path }) {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-white dark:bg-gray-800 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 text-white">
               {items.map((item, i) => {
                 const icons = {
@@ -72,6 +73,7 @@ export default function HeadlessMenu({ path }) {
                   Blog: FaNewspaper,
                   Home: FaHome,
                   Question: FaQuestionCircle,
+                  ArrowLeft: FaArrowLeft,
                 }
                 const MenuIcon = icons[item.link_icon]
                 if (item.link.raw.link_type === "Document") {
@@ -83,7 +85,7 @@ export default function HeadlessMenu({ path }) {
                           className={`${
                             active
                               ? "bg-green-900 hover:text-white focus:text-white"
-                              : "text-gray-900 "
+                              : "text-gray-900 dark:text-gray-50"
                           } ${
                             path.includes(item.link.raw.url) &&
                             `border-b-2 bg-green-200 text-black font-semibold shadow-sm `
@@ -96,7 +98,7 @@ export default function HeadlessMenu({ path }) {
                             />
                           ) : (
                             <MenuIcon
-                              className="w-5 h-5 mr-2 text-green-900"
+                              className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
                               aria-hidden="true"
                             />
                           )}
@@ -112,7 +114,9 @@ export default function HeadlessMenu({ path }) {
                         <a
                           href={item.link.raw.url}
                           className={`${
-                            active ? "bg-green-700 text-white" : "text-gray-900"
+                            active
+                              ? "bg-green-700 text-white"
+                              : "text-gray-900 dark:text-gray-50"
                           } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
                           {active ? (
@@ -122,7 +126,7 @@ export default function HeadlessMenu({ path }) {
                             />
                           ) : (
                             <MenuIcon
-                              className="w-5 h-5 mr-2 text-green-900"
+                              className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
                               aria-hidden="true"
                             />
                           )}
@@ -142,14 +146,16 @@ export default function HeadlessMenu({ path }) {
                       <Link
                         to="/"
                         className={`${
-                          active ? "bg-green-900 text-white" : "text-gray-900"
+                          active
+                            ? "bg-green-900 text-white"
+                            : "text-gray-900 dark:text-gray-50"
                         } group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                       >
                         {active ? (
                           <FaHome className="w-5 h-5 mr-2" aria-hidden="true" />
                         ) : (
                           <FaHome
-                            className="w-5 h-5 mr-2 text-green-900"
+                            className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
                             aria-hidden="true"
                           />
                         )}
@@ -164,7 +170,9 @@ export default function HeadlessMenu({ path }) {
                   <Link
                     to="/help"
                     className={`${
-                      active ? "bg-green-900 text-white" : "text-gray-900"
+                      active
+                        ? "bg-green-900 text-white"
+                        : "text-gray-900 dark:text-gray-50"
                     } group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                   >
                     {active ? (
@@ -174,7 +182,7 @@ export default function HeadlessMenu({ path }) {
                       />
                     ) : (
                       <FaQuestionCircle
-                        className="w-5 h-5 mr-2 text-green-900"
+                        className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
                         aria-hidden="true"
                       />
                     )}
