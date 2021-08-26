@@ -35,8 +35,8 @@ export const ImageHighlight = ({ slice }) => {
                 {image_highlight_link.link_type === "Web" ? (
                   <a
                     href={image_highlight_link.url}
-                    className="px-6 py-2 rounded-sm md:text-lg text-white hover:text-green-100 bg-green-900 hover:bg-green-800 hover:shadow-md dark:text-green-900 dark:bg-green-200 dark:hover:bg-green-300 focus:outline-none focus:ring-4 focus:ring-green-300"
-                    style={{ color: "white", textDecoration: "none" }}
+                    className="px-6 py-2 rounded-sm md:text-lg text-white hover:bg-green-700 hover:shadow-md hover:text-green-50 border border-3 border-green-700 dark:border-green-900 dark:hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    style={{ textDecoration: "none" }}
                   >
                     {image_highlight_link_text.text}
                   </a>

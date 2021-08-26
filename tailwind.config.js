@@ -36,6 +36,7 @@ module.exports = {
             },
             hr: {
               border: `3px solid #064E3B`,
+              borderRadius: `2px`,
             },
           },
         },
@@ -64,6 +65,7 @@ module.exports = {
             },
             hr: {
               border: `3px solid rgba(52,211,153, 1)`,
+              borderRadius: `2px`,
             },
           },
         },
