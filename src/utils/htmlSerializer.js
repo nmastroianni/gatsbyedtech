@@ -76,7 +76,6 @@ const htmlSerializer = function (type, element, content, children, key) {
       )
 
     case Elements.embed: // Embed
-      console.log(element)
       return (
         <div
           dangerouslySetInnerHTML={{ __html: element.oembed.html }}
