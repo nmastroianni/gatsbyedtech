@@ -34,6 +34,9 @@ module.exports = {
               fontWeight: "300",
               color: "rgba(0,0,0,0.85)",
             },
+            hr: {
+              border: `3px solid #064E3B`,
+            },
           },
         },
         dark: {
@@ -58,6 +61,9 @@ module.exports = {
             },
             a: {
               color: "rgba(52,211,153, 1)",
+            },
+            hr: {
+              border: `3px solid rgba(52,211,153, 1)`,
             },
           },
         },
