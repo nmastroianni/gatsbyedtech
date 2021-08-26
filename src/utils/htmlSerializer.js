@@ -117,7 +117,7 @@ const htmlSerializer = function (type, element, content, children, key) {
           href={url}
           target={element.data.target}
           rel={element.data.target ? "noopener" : undefined}
-          className="underline text-blue-700"
+          className="underline"
         >
           {children}
         </a>

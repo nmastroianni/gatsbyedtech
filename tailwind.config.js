@@ -69,6 +69,13 @@ module.exports = {
             },
           },
         },
+        green: {
+          css: {
+            a: {
+              color: "#065F46",
+            },
+          },
+        },
       }),
     },
   },

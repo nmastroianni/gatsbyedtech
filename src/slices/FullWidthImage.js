@@ -12,8 +12,8 @@ export const FullWidthImage = ({ slice }) => {
     },
   } = slice
   return (
-    <>
-      <section className=" bg-gray-50 shadow-sm">
+    <div className="bg-gray-50 dark:bg-gray-700 shadow-sm">
+      <section className=" bg-gray-50 dark:bg-gray-700">
         <GatsbyImage
           image={getImage(gatsbyImageData)}
           alt={`${alt !== null ? alt : `decorative image`}`}
@@ -21,13 +21,13 @@ export const FullWidthImage = ({ slice }) => {
           className="max-w-7xl mx-auto"
         />
       </section>
-      <div className="mx-auto prose prose-lg md:prose-xl p-3 md:p-4 lg:p-6">
+      <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg p-3 md:p-4 lg:p-6 text-center italic">
         <RichText
           render={full_width_image_caption.raw}
           htmlSerializer={htmlSerializer}
         />
       </div>
-    </>
+    </div>
   )
 }
 
