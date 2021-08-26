@@ -57,7 +57,7 @@ export const ImageHighlight = ({ slice }) => {
                   image={getImage(image_highlight_image.gatsbyImageData)}
                   alt={image_highlight_image.alt || "decorative image"}
                   imgClassName="aspect-w-16 aspect-h-9"
-                  className="shadow-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                  className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
                 />
               </a>
             )}
@@ -68,7 +68,7 @@ export const ImageHighlight = ({ slice }) => {
                     image={getImage(image_highlight_image.gatsbyImageData)}
                     alt={image_highlight_image.alt || "decorative image"}
                     imgClassName="aspect-w-16 aspect-h-9"
-                    className="shadow-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
                   />
                 </Link>
               )}
@@ -77,7 +77,7 @@ export const ImageHighlight = ({ slice }) => {
                 image={getImage(image_highlight_image.gatsbyImageData)}
                 alt={image_highlight_image.alt || "decorative image"}
                 imgClassName="aspect-w-16 aspect-h-9"
-                className="shadow-sm"
+                className="shadow-sm rounded-sm"
               />
             )}
           </div>
