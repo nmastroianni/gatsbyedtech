@@ -15,9 +15,9 @@ export const Text = ({ slice }) => {
     <div
       className={`${
         text_prose
-          ? `prose prose-lg prose-green md:prose-xl text-lg`
+          ? `prose prose-lg md:prose-xl prose-green md:prose-xl`
           : `px-3 text-base md:text-lg max-w-7xl`
-      } dark:prose-dark mx-auto my-2 sm:my-3 md:my-4 lg:my-6 `}
+      } dark:prose-dark mx-auto p-3 md:p-4 lg:p-6 my-2 sm:my-3 md:my-4 lg:my-6 `}
     >
       <RichText render={raw} htmlSerializer={htmlSerializer} />
     </div>
