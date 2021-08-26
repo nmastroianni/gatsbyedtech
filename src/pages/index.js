@@ -4,7 +4,6 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
 import Hero from "../components/Hero"
-import EdtechWave from "../components/EdtechWave"
 
 export default function Home({ data, path }) {
   if (!data) return null
