@@ -15,7 +15,6 @@ export const ImageHighlight = ({ slice }) => {
       image_highlight_link_text,
     },
   } = slice
-  console.log(image_highlight_image.alt)
   if (image_highlight_position) {
     // returns if Position of Image on 2 Col Layout is set to Right
     return (
@@ -52,12 +51,35 @@ export const ImageHighlight = ({ slice }) => {
             )}
           </div>
           <div className=" p-3 md:p-4 lg:p-6 w-full text-left">
-            <GatsbyImage
-              image={getImage(image_highlight_image.gatsbyImageData)}
-              alt={image_highlight_image.alt || "decorative image"}
-              imgClassName="aspect-w-16 aspect-h-9"
-              className="shadow-sm"
-            />
+            {image_highlight_link && image_highlight_link.link_type === "Web" && (
+              <a href={image_highlight_link.url}>
+                <GatsbyImage
+                  image={getImage(image_highlight_image.gatsbyImageData)}
+                  alt={image_highlight_image.alt || "decorative image"}
+                  imgClassName="aspect-w-16 aspect-h-9"
+                  className="shadow-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                />
+              </a>
+            )}
+            {image_highlight_link &&
+              image_highlight_link.link_type === "Document" && (
+                <Link to={image_highlight_link.url}>
+                  <GatsbyImage
+                    image={getImage(image_highlight_image.gatsbyImageData)}
+                    alt={image_highlight_image.alt || "decorative image"}
+                    imgClassName="aspect-w-16 aspect-h-9"
+                    className="shadow-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                  />
+                </Link>
+              )}
+            {!image_highlight_link && (
+              <GatsbyImage
+                image={getImage(image_highlight_image.gatsbyImageData)}
+                alt={image_highlight_image.alt || "decorative image"}
+                imgClassName="aspect-w-16 aspect-h-9"
+                className="shadow-sm"
+              />
+            )}
           </div>
         </div>
       </section>

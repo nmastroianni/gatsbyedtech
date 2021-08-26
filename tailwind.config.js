@@ -73,6 +73,10 @@ module.exports = {
   variants: {
     extend: {
       typography: ["dark"],
+      transitionProperty: ["focus"],
+      contrast: ["hover"],
+      saturate: ["hover"],
+      filter: ["hover"],
     },
   },
   plugins: [
