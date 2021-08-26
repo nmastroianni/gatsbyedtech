@@ -5,35 +5,109 @@ import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 
 export const ImageHighlight = ({ slice }) => {
-  return (
-    <section className="mx-auto ">
-      <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center bg-gray-50 dark:bg-gray-800">
-        <div className="prose prose-xl prose-green dark:prose-dark w-full dark:text-white">
-          <RichText
-            render={slice.primary.image_highlight_heading.raw}
-            htmlSerializer={htmlSerializer}
-          />
-          <hr />
-          <RichText render={slice.primary.image_highlight_description.raw} />
-          {/* <p>
-            <Link to={slice.primary.link.url}>
-                {RichText.asText(slice.primary.link_label.raw)}
-              </Link>
-          </p> */}
-        </div>
-        <div className=" py-3 md:py-4 lg:py-6 w-full text-left">
-          <GatsbyImage
-            image={getImage(
-              slice.primary.image_highlight_image.gatsbyImageData
+  const {
+    primary: {
+      image_highlight_heading,
+      image_highlight_description,
+      image_highlight_image,
+      image_highlight_position,
+      image_highlight_link,
+      image_highlight_link_text,
+    },
+  } = slice
+  console.log(image_highlight_image.alt)
+  if (image_highlight_position) {
+    // returns if Position of Image on 2 Col Layout is set to Right
+    return (
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center bg-gray-50 dark:bg-gray-800">
+          <div className="prose prose-lg md:prose-xl prose-green dark:prose-dark p-3 md:p-4 lg:p-6 w-full dark:text-white">
+            <div className="text-center md:text-left">
+              <RichText
+                render={image_highlight_heading.raw}
+                htmlSerializer={htmlSerializer}
+              />
+            </div>
+            <hr />
+            <RichText render={image_highlight_description.raw} />
+
+            {image_highlight_link && image_highlight_link_text ? (
+              <p className="text-center md:text-left">
+                {image_highlight_link.link_type === "Web" ? (
+                  <a
+                    href={image_highlight_link.url}
+                    className="px-6 py-2 rounded-sm md:text-lg text-white hover:text-green-100 bg-green-900 hover:bg-green-800 hover:shadow-md dark:text-green-900 dark:bg-green-200 dark:hover:bg-green-300 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    {image_highlight_link_text.text}
+                  </a>
+                ) : (
+                  <Link href={image_highlight_link.url}>
+                    {image_highlight_link_text.text}
+                  </Link>
+                )}
+              </p>
+            ) : (
+              <></>
             )}
-            alt={slice.primary.image_highlight_image.alt}
-            imgClassName="aspect-w-16 aspect-h-9"
-            className="shadow-sm"
-          />
+          </div>
+          <div className=" p-3 md:p-4 lg:p-6 w-full text-left">
+            <GatsbyImage
+              image={getImage(image_highlight_image.gatsbyImageData)}
+              alt={image_highlight_image.alt || "decorative image"}
+              imgClassName="aspect-w-16 aspect-h-9"
+              className="shadow-sm"
+            />
+          </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  } else {
+    // returns if Position of Image on 2 Col Layout is set to Left
+    return (
+      <section className="mx-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center dark:bg-gray-800">
+          <div className=" p-3 md:p-4 lg:p-6 w-full text-left">
+            <GatsbyImage
+              image={getImage(image_highlight_image.gatsbyImageData)}
+              alt={image_highlight_image.alt || "decorative image"}
+              imgClassName="aspect-w-16 aspect-h-9"
+              className="shadow-sm"
+            />
+          </div>
+          <div className="prose prose-lg md:prose-xl prose-green dark:prose-dark p-3 md:p-4 lg:p-6 w-full dark:text-white">
+            <div className="text-center md:text-left">
+              <RichText
+                render={image_highlight_heading.raw}
+                htmlSerializer={htmlSerializer}
+              />
+            </div>
+            <hr />
+            <RichText render={image_highlight_description.raw} />
+            {image_highlight_link && image_highlight_link_text ? (
+              <p className="text-center md:text-left">
+                {image_highlight_link.link_type === "Web" ? (
+                  <a
+                    href={image_highlight_link.url}
+                    className="px-6 py-2 rounded-sm md:text-lg text-white hover:text-green-100 bg-green-900 hover:bg-green-800 hover:shadow-md dark:text-green-900 dark:bg-green-200 dark:hover:bg-green-300 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    {image_highlight_link_text.text}
+                  </a>
+                ) : (
+                  <Link href={image_highlight_link.url}>
+                    {image_highlight_link_text.text}
+                  </Link>
+                )}
+              </p>
+            ) : (
+              <></>
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
 }
 
 export const query = graphql`
@@ -51,12 +125,13 @@ export const query = graphql`
       }
       image_highlight_link {
         url
-        type
+        link_type
         uid
       }
       image_highlight_link_text {
-        raw
+        text
       }
+      image_highlight_position
     }
   }
 `
