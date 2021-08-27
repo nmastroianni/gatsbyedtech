@@ -14,7 +14,7 @@ export const SectionHeading = ({ slice }) => {
   } = slice
   return (
     <header
-      className="group py-2 sm:py-3 lg:py-5 flex justify-center items-center shadow-md dark:bg-opacity-50 text-center"
+      className="mx-auto group py-2 sm:py-3 lg:py-5 px-2 sm:px-3 flex justify-center items-center shadow-md dark:bg-opacity-50 text-center"
       style={{ backgroundColor: `${section_heading_background_color}` }}
       id={section_heading_link.text}
     >
