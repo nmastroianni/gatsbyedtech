@@ -15,18 +15,6 @@ module.exports = {
     title: "LBPS EdTech",
     description:
       "The Educational Technology Department at Long Branch Public Schools is dedicated to help staff make the most of the digital tools at their disposal so that all stakeholders may thrive.",
-    authors: [
-      {
-        name: "Lois Alston",
-        twitterUsername: "@l_alston",
-        profileImage: "/favicon.ico",
-      },
-      {
-        name: "Neil Mastroianni",
-        twitterUsername: "@nmastroianni",
-        profileImage: "/favicon.ico",
-      },
-    ],
     siteImage: "/favicon.ico",
   },
   plugins: [
