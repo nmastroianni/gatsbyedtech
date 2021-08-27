@@ -42,7 +42,7 @@ module.exports = {
         },
         dark: {
           css: {
-            color: "rgba(255,255,255, 0.85)",
+            color: "rgba(255,255,255, 0.95)",
             fontFamily: `${theme("fontFamily.source")}`,
             fontWeight: "400",
             h2: {
