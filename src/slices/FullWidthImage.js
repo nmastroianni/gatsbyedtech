@@ -7,21 +7,23 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 export const FullWidthImage = ({ slice }) => {
   const {
     primary: {
-      full_width_image: { gatsbyImageData, alt },
+      full_width_image: { gatsbyImageData, alt, url },
       full_width_image_caption,
     },
   } = slice
   return (
     <div className="bg-gray-50 dark:bg-gray-700 shadow-sm">
       <section className=" bg-gray-50 dark:bg-gray-700">
-        <GatsbyImage
-          image={getImage(gatsbyImageData)}
-          alt={`${alt !== null ? alt : `decorative image`}`}
-          imgClassName=""
-          className="max-w-7xl mx-auto"
-        />
+        <a href={url}>
+          <GatsbyImage
+            image={getImage(gatsbyImageData)}
+            alt={`${alt !== null ? alt : `decorative image`}`}
+            imgClassName=""
+            className="max-w-7xl mx-auto"
+          />
+        </a>
       </section>
-      <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg p-3 md:p-4 lg:p-6 text-center italic">
+      <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg dark:prose-dark p-3 md:p-4 lg:p-6 text-center italic">
         <RichText
           render={full_width_image_caption.raw}
           htmlSerializer={htmlSerializer}
@@ -37,6 +39,7 @@ export const query = graphql`
       full_width_image {
         alt
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        url
       }
       full_width_image_caption {
         raw

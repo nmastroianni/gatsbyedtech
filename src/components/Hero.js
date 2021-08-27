@@ -13,7 +13,7 @@ export default function Hero({
       <div className="mx-auto grid grid-cols-1 md:space-x-4 md:grid-cols-2 items-center flex-wrap bg-green-50 dark:bg-transparent py-3 px-3 font-source">
         <GatsbyImage
           image={getImage(gatsbyImageData)}
-          alt={alt}
+          alt={alt ? alt : `Decorative Image`}
           className="w-4/5 md:w-3/4 lg:w-4/5 block mx-auto"
         />
         <div className=" dark:text-white my-4 md:my-0">
