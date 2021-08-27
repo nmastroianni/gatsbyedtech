@@ -21,7 +21,7 @@ export const FullWidthImage = ({ slice }) => {
           className="max-w-7xl mx-auto"
         />
       </section>
-      <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg p-3 md:p-4 lg:p-6 text-center italic">
+      <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg dark:prose-dark p-3 md:p-4 lg:p-6 text-center italic">
         <RichText
           render={full_width_image_caption.raw}
           htmlSerializer={htmlSerializer}
