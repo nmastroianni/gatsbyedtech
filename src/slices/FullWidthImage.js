@@ -46,4 +46,28 @@ export const query = graphql`
       }
     }
   }
+  fragment PageDataBodyFullWidthImage on PrismicPageDataBodyFullWidthImage {
+    primary {
+      full_width_image {
+        alt
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        url
+      }
+      full_width_image_caption {
+        raw
+      }
+    }
+  }
+  fragment PostDataBodyFullWidthImage on PrismicPostDataBodyFullWidthImage {
+    primary {
+      full_width_image {
+        alt
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        url
+      }
+      full_width_image_caption {
+        raw
+      }
+    }
+  }
 `
