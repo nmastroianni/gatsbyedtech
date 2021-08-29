@@ -30,6 +30,8 @@ export const query = graphql`
           }
           ...PostDataBodySectionHeading
           ...PostDataBodyText
+          ...PostDataBodyFullWidthImage
+          ...PostDataBodyImageHighlight
         }
       }
     }
