@@ -30,7 +30,7 @@ export const ImageHighlight = ({ slice }) => {
             <hr className="mb-0" />
             <RichText render={image_highlight_description.raw} />
 
-            {image_highlight_link && image_highlight_link_text ? (
+            {image_highlight_link.url !== null && image_highlight_link_text ? (
               <p className="text-center md:text-left">
                 {image_highlight_link.link_type === "Web" ? (
                   <a
@@ -109,7 +109,7 @@ export const ImageHighlight = ({ slice }) => {
             </div>
             <hr />
             <RichText render={image_highlight_description.raw} />
-            {image_highlight_link && image_highlight_link_text ? (
+            {image_highlight_link.url !== null && image_highlight_link_text ? (
               <p className="text-center md:text-left">
                 {image_highlight_link.link_type === "Web" ? (
                   <a
@@ -162,26 +162,52 @@ export const query = graphql`
       image_highlight_position
     }
   }
+
+  fragment PageDataBodyImageHighlight on PrismicPageDataBodyImageHighlight {
+    primary {
+      image_highlight_image {
+        alt
+        gatsbyImageData(placeholder: BLURRED)
+      }
+      image_highlight_heading {
+        raw
+      }
+      image_highlight_description {
+        raw
+      }
+      image_highlight_link {
+        url
+        link_type
+        uid
+      }
+      image_highlight_link_text {
+        text
+      }
+      image_highlight_position
+    }
+  }
+
+  fragment PostDataBodyImageHighlight on PrismicPostDataBodyImageHighlight {
+    primary {
+      image_highlight_image {
+        alt
+        gatsbyImageData(placeholder: BLURRED)
+      }
+      image_highlight_heading {
+        raw
+      }
+      image_highlight_description {
+        raw
+      }
+      image_highlight_link {
+        url
+        link_type
+        uid
+      }
+      image_highlight_link_text {
+        text
+      }
+      image_highlight_position
+    }
+  }
 `
-// fragment PageDataBodyImageHighlight on PrismicPageDataBodyImageHighlight {
-//     primary {
-//       featured_image {
-//         url
-//         alt
-//       }
-//       title {
-//         raw
-//       }
-//       description {
-//         raw
-//       }
-//       link {
-//         url
-//         type
-//         uid
-//       }
-//       link_label {
-//         raw
-//       }
-//     }
-//   }
