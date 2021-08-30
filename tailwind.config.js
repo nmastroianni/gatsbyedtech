@@ -61,7 +61,7 @@ module.exports = {
               color: "rgba(167, 243, 208, 1)",
             },
             a: {
-              color: "rgba(52,211,153, 1)",
+              color: "rgba(167, 243, 208, 1)",
             },
             hr: {
               border: `3px solid rgba(52,211,153, 1)`,

@@ -11,7 +11,9 @@ export const ToolsGrid = ({ slice }) => {
     navigate(e.url)
   }
   return (
-    <ul className={`grid grid-cols-3 gap-3 p-3 list-none`}>
+    <ul
+      className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 p-3 list-none`}
+    >
       {items.map(item => {
         const {
           tools_grid_tool: {
@@ -30,26 +32,19 @@ export const ToolsGrid = ({ slice }) => {
         } = item
         return (
           <li
-            className="bg-gray-50 rounded-sm dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source cursor-pointer focus focus:outline-none focus:ring-4 focus:ring-green-300"
+            className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source"
             key={id}
-            onClick={e => {
-              e.url = url
-              handleClick(e)
-            }}
-            onKeyDown={e => {
-              e.preventDefault()
-              console.log(e.key)
-              e.url = url
-              //handleClick(e)
-            }}
           >
             <GatsbyImage
               image={getImage(gatsbyImageData)}
               alt={alt || `${text} logo`}
-              className="w-60"
+              className="w-40"
             />
-            <h3 className="dark:text-green-200 text-xl md:text-2xl lg:text-3xl my-2 md:my-3 lg:my-6">
-              <Link to={url}>
+            <h3 className="text-green-800 dark:text-green-200 my-2 md:my-3 lg:my-6">
+              <Link
+                to={url}
+                className="mt-auto block px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
+              >
                 <span className="sr-only">Learn More About </span>
                 {text}
               </Link>
