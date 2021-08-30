@@ -53,4 +53,13 @@ export const query = graphql`
       }
     }
   }
+  fragment ToolDataBodyText on PrismicToolDataBodyText {
+    id
+    primary {
+      text_prose
+      content {
+        raw
+      }
+    }
+  }
 `

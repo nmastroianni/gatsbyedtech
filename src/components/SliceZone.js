@@ -1,5 +1,11 @@
 import * as React from "react"
-import { FullWidthImage, ImageHighlight, SectionHeading, Text } from "../slices"
+import {
+  FullWidthImage,
+  ImageHighlight,
+  SectionHeading,
+  Text,
+  ToolsGrid,
+} from "../slices"
 
 export default function SliceZone({ sliceZone }) {
   const sliceComponents = {
@@ -9,6 +15,7 @@ export default function SliceZone({ sliceZone }) {
     // quote: Quote,
     section_heading: SectionHeading,
     text: Text,
+    tool_grid: ToolsGrid,
     // youtube: YouTubeSingle,
   }
 
