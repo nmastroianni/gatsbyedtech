@@ -51,7 +51,7 @@ export const query = graphql`
           ...HomepageDataBodyImageHighlight
           ...HomepageDataBodySectionHeading
           ...HomepageDataBodyText
-          ...HomepageDataBodyToolGrid
+          ...HomepageDataBodyContentGrid
         }
       }
     }

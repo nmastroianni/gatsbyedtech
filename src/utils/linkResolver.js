@@ -8,5 +8,8 @@ exports.linkResolver = doc => {
   if (doc.type === "page") {
     return `/${doc.uid}`
   }
+  if (doc.type === "video") {
+    return `/videos/${doc.uid}`
+  }
   return "/"
 }

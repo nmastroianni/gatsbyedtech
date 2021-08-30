@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading"
 import { ImageHighlight } from "./ImageHighlight"
 // import { Quote } from "./Quote"
 import { Text } from "./Text"
-import { ToolsGrid } from "./ToolsGrid"
+import { ContentGrid } from "./ContentGrid"
 // import { YouTubeSingle } from "./YouTube-single"
 
-export { FullWidthImage, ImageHighlight, SectionHeading, Text, ToolsGrid }
+export { ContentGrid, FullWidthImage, ImageHighlight, SectionHeading, Text }
