@@ -89,10 +89,13 @@ const htmlSerializer = function (type, element, content, children, key) {
 
     case Elements.hyperlink: // Hyperlinks
       const url = PrismicLink.url(element.data, linkResolver)
-
       if (element.data.link_type === "Document") {
         return (
-          <Link key={key} to={url} className="underline text-blue-700">
+          <Link
+            key={key}
+            to={url}
+            className="underline focus:outline-none focus:ring-4 focus:ring-green-300"
+          >
             {content}
           </Link>
         )
@@ -104,7 +107,7 @@ const htmlSerializer = function (type, element, content, children, key) {
           <Link
             key={key}
             to={new URL(url).pathname}
-            className="underline text-blue-700"
+            className="underline focus:outline-none focus:ring-4 focus:ring-green-300"
           >
             {content}
           </Link>
@@ -117,7 +120,7 @@ const htmlSerializer = function (type, element, content, children, key) {
           href={url}
           target={element.data.target}
           rel={element.data.target ? "noopener" : undefined}
-          className="underline"
+          className="underline rounded-sm focus:outline-none focus:ring-4 focus:ring-green-300"
         >
           {children}
         </a>
