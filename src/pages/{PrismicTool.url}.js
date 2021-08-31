@@ -10,7 +10,6 @@ import htmlSerializer from "../utils/htmlSerializer"
 export default function Page({ data, path }) {
   if (!data) return null
   const document = data.tool.data
-  console.log(document)
   return (
     <Layout path={path}>
       <Seo title={document.tool_title.text} />

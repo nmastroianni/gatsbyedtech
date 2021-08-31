@@ -62,4 +62,13 @@ export const query = graphql`
       }
     }
   }
+  fragment VideoDataBodyText on PrismicVideoDataBodyText {
+    id
+    primary {
+      text_prose
+      content {
+        raw
+      }
+    }
+  }
 `
