@@ -96,7 +96,7 @@ export const ContentGrid = ({ slice }) => {
                       <GatsbyImage
                         image={getImage(author_profile_image.gatsbyImageData)}
                         alt="author profile"
-                        className="w-8 h-8 rounded-full mr-2 filter grayscale"
+                        className="w-8 h-8 rounded-full mr-2 filter grayscale transition duration-300 ease-in-out hover:grayscale-0"
                         title={`Authored by: ${author_title.text}`}
                         key={id}
                       />
@@ -105,7 +105,7 @@ export const ContentGrid = ({ slice }) => {
                 </div>
                 <Link
                   to={url}
-                  className="inline px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
+                  className="inline px-4 py-3 border-2 dark:text-green-200 border-green-800 dark:border-green-400 rounded-md hover:shadow-md transition duration-300 ease-in-out hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
                 >
                   Take a Look
                 </Link>
@@ -166,7 +166,7 @@ export const ContentGrid = ({ slice }) => {
               <h3 className="text-green-800 dark:text-green-200 my-2 md:my-3 lg:my-6 text-xl md:text-2xl">
                 {text}
               </h3>
-              <div className="p-3 md:p-4 bg-gray-200 rounded-md shadow-sm group transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105">
+              <div className="p-3 md:p-4 bg-gray-200 dark:bg-gray-900 rounded-md shadow-sm group transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105">
                 <Link
                   to={url}
                   className="block rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
@@ -179,7 +179,7 @@ export const ContentGrid = ({ slice }) => {
                 </Link>
               </div>
 
-              <div className="prose dark:prose-dark prose-sm italic">
+              <div className="prose dark:prose-dark prose-sm italic mt-2 md:mt-3 lg:mt-6">
                 <RichText render={raw} htmlSerializer={htmlSerializer} />
               </div>
             </li>
