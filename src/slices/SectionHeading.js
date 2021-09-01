@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import { HiLink } from "react-icons/hi"
@@ -12,15 +13,30 @@ export const SectionHeading = ({ slice }) => {
       section_heading_text,
     },
   } = slice
+  const [isCopied, setIsCopied] = useState(false)
+  const url = typeof window !== "undefined" ? window.location.href : ""
   return (
-    <header
-      className="mx-auto group py-2 sm:py-3 lg:py-5 px-2 sm:px-3 flex justify-center items-center shadow-md dark:bg-opacity-50 text-center"
+    <div
+      className="relative mx-auto group py-2 sm:py-3 lg:py-5 px-2 sm:px-3 flex justify-center items-center shadow-md dark:bg-opacity-50 text-center"
       style={{ backgroundColor: `${section_heading_background_color}` }}
       id={section_heading_link.text}
     >
+      <p
+        className={` z-10  text-white absolute bottom-0 transition duration-300 ease-in-out ${
+          isCopied ? " opacity-80 " : " opacity-0"
+        }`}
+      >
+        Link Copied!
+      </p>
       <button
         className="text-green-900 text-opacity-0 dark:text-opacity-0 group-hover:text-opacity-100 focus:text-white focus:text-opacity-100 transition duration-300 ease-in-out group-hover:text-white inline"
-        onClick={() => {}}
+        onClick={() => {
+          setIsCopied(true)
+          navigator.clipboard.writeText(`${url}#${section_heading_link.text}`)
+          setTimeout(() => {
+            setIsCopied(false)
+          }, 1000)
+        }}
       >
         <HiLink className="h-4 w-4 md:h-8 md:w-8 mx-1" />
         <span className="sr-only">Copy heading link</span>
@@ -32,7 +48,7 @@ export const SectionHeading = ({ slice }) => {
       ) : (
         <h3>{RichText.asText(section_heading_text.raw)}</h3>
       )}
-    </header>
+    </div>
   )
 }
 export const query = graphql`
