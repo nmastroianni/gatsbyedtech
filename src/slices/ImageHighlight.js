@@ -5,6 +5,7 @@ import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 
 export const ImageHighlight = ({ slice }) => {
+  // destructure the slice object
   const {
     primary: {
       image_highlight_heading,
@@ -19,22 +20,29 @@ export const ImageHighlight = ({ slice }) => {
     // returns if Position of Image on 2 Col Layout is set to Right
     return (
       <section>
+        {/* Grid Div */}
         <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center bg-gray-50 dark:bg-gray-800">
+          {/* Left Side Prose Div */}
           <div className="prose md:prose-xl prose-green dark:prose-dark p-3 md:p-4 lg:p-6 w-full dark:text-white">
+            {/* Heading Div */}
             <div className="text-center md:text-left">
               <RichText
                 render={image_highlight_heading.raw}
                 htmlSerializer={htmlSerializer}
               />
             </div>
+            {/* END HEADING DIV */}
             <hr className="mb-0" />
+            {/* Image Description */}
             <RichText
               render={image_highlight_description.raw}
               htmlSerializer={htmlSerializer}
             />
-
+            {/* END IMAGE DESCRIPTION */}
+            {/* !# Conditionally Render Link if URL provided */}
             {image_highlight_link.url !== null && image_highlight_link_text ? (
               <p className="text-center md:text-left">
+                {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
                   <a
                     href={image_highlight_link.url}
@@ -44,6 +52,7 @@ export const ImageHighlight = ({ slice }) => {
                     {image_highlight_link_text.text}
                   </a>
                 ) : (
+                  // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
                   <Link
                     href={image_highlight_link.url}
                     className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
@@ -53,10 +62,14 @@ export const ImageHighlight = ({ slice }) => {
                 )}
               </p>
             ) : (
+              // If no URL is  provided, render empty fragment
               <></>
             )}
           </div>
-          <div className=" p-3 md:p-4 lg:p-6 w-full text-left">
+          {/* END PROSE DIV (LEFT SIDE) */}
+          {/* Right Side Image Div */}
+          <div className="p-3 md:p-4 lg:p-6 w-full text-left">
+            {/* Render Linked Image using Anchor tag if link_type is "Web" */}
             {image_highlight_link && image_highlight_link.link_type === "Web" && (
               <a href={image_highlight_link.url}>
                 <GatsbyImage
@@ -67,6 +80,7 @@ export const ImageHighlight = ({ slice }) => {
                 />
               </a>
             )}
+            {/* Render Linked Image using Gatsby Link if link_type is "Document" */}
             {image_highlight_link &&
               image_highlight_link.link_type === "Document" && (
                 <Link to={image_highlight_link.url}>
@@ -78,6 +92,7 @@ export const ImageHighlight = ({ slice }) => {
                   />
                 </Link>
               )}
+            {/* If no URL/Link is provided, just render an image without the link */}
             {!image_highlight_link && (
               <GatsbyImage
                 image={getImage(image_highlight_image.gatsbyImageData)}
@@ -87,36 +102,73 @@ export const ImageHighlight = ({ slice }) => {
               />
             )}
           </div>
+          {/* END RIGHT SIDE IMAGE DIV*/}
         </div>
+        {/* END GRID DIV */}
       </section>
     )
   } else {
     // returns if Position of Image on 2 Col Layout is set to Left
     return (
-      <section className="mx-auto ">
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center dark:bg-gray-800">
-          <div className=" p-3 md:p-4 lg:p-6 w-full text-left">
-            <GatsbyImage
-              image={getImage(image_highlight_image.gatsbyImageData)}
-              alt={image_highlight_image.alt || "decorative image"}
-              imgClassName="aspect-w-16 aspect-h-9"
-              className="shadow-sm"
-            />
+      <section className="">
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center bg-gray-50 dark:bg-gray-800">
+          {/* Left Side Image Div */}
+          <div className="p-3 md:p-4 lg:p-6 w-full text-left">
+            {/* Render Linked Image using Anchor tag if link_type is "Web" */}
+            {image_highlight_link && image_highlight_link.link_type === "Web" && (
+              <a href={image_highlight_link.url}>
+                <GatsbyImage
+                  image={getImage(image_highlight_image.gatsbyImageData)}
+                  alt={image_highlight_image.alt || "decorative image"}
+                  imgClassName="aspect-w-16 aspect-h-9"
+                  className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                />
+              </a>
+            )}
+            {/* Render Linked Image using Gatsby Link if link_type is "Document" */}
+            {image_highlight_link &&
+              image_highlight_link.link_type === "Document" && (
+                <Link to={image_highlight_link.url}>
+                  <GatsbyImage
+                    image={getImage(image_highlight_image.gatsbyImageData)}
+                    alt={image_highlight_image.alt || "decorative image"}
+                    imgClassName="aspect-w-16 aspect-h-9"
+                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                  />
+                </Link>
+              )}
+            {/* If no URL/Link is provided, just render an image without the link */}
+            {!image_highlight_link && (
+              <GatsbyImage
+                image={getImage(image_highlight_image.gatsbyImageData)}
+                alt={image_highlight_image.alt || "decorative image"}
+                imgClassName="aspect-w-16 aspect-h-9"
+                className="shadow-sm rounded-sm"
+              />
+            )}
           </div>
+          {/* END LEFT SIDE IMAGE DIV*/}
+          {/* Right Side Prose Div */}
           <div className="prose md:prose-xl prose-green dark:prose-dark p-3 md:p-4 lg:p-6 w-full dark:text-white">
+            {/* Heading Div */}
             <div className="text-center md:text-left">
               <RichText
                 render={image_highlight_heading.raw}
                 htmlSerializer={htmlSerializer}
               />
             </div>
+            {/* END HEADING DIV */}
             <hr className="mb-0" />
+            {/* Image Description */}
             <RichText
               render={image_highlight_description.raw}
               htmlSerializer={htmlSerializer}
             />
+            {/* END IMAGE DESCRIPTION */}
+            {/* !# Conditionally Render Link if URL provided */}
             {image_highlight_link.url !== null && image_highlight_link_text ? (
               <p className="text-center md:text-left">
+                {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
                   <a
                     href={image_highlight_link.url}
@@ -126,6 +178,7 @@ export const ImageHighlight = ({ slice }) => {
                     {image_highlight_link_text.text}
                   </a>
                 ) : (
+                  // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
                   <Link
                     href={image_highlight_link.url}
                     className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
@@ -135,9 +188,11 @@ export const ImageHighlight = ({ slice }) => {
                 )}
               </p>
             ) : (
+              // If no URL is  provided, render empty fragment
               <></>
             )}
           </div>
+          {/* END PROSE DIV (RIGHT SIDE) */}
         </div>
       </section>
     )
