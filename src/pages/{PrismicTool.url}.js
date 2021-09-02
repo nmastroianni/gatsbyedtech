@@ -13,18 +13,12 @@ export default function Page({ data, path }) {
   return (
     <Layout path={path}>
       <Seo title={document.tool_title.text} />
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="flex justify-center items-center">
         <GatsbyImage
           image={getImage(document.tool_logo.gatsbyImageData)}
           alt={document.tool_logo.alt || "Tool Logo"}
           className="col-span-1 text-center"
         />
-        <div className="border-4 col-span-2 prose prose-green dark:prose-dark mx-auto prose-lg md:prose-xl">
-          <RichText
-            render={document.tool_description.raw}
-            htmlSerializer={htmlSerializer}
-          />
-        </div>
       </div>
       <SliceZone sliceZone={document.body} />
     </Layout>
@@ -53,6 +47,7 @@ export const query = graphql`
           ...ToolDataBodyText
           ...ToolDataBodyFullWidthImage
           ...ToolDataBodyImageHighlight
+          ...ToolDataBodyContentGrid
         }
       }
     }

@@ -279,4 +279,90 @@ export const query = graphql`
       }
     }
   }
+  fragment ToolDataBodyContentGrid on PrismicToolDataBodyContentGrid {
+    items {
+      content_items {
+        url
+        link_type
+        raw
+        slug
+        id
+        type
+        document {
+          ... on PrismicTool {
+            id
+            data {
+              tool_description {
+                raw
+              }
+              tool_title {
+                text
+              }
+              tool_logo {
+                gatsbyImageData(placeholder: BLURRED)
+                alt
+              }
+            }
+          }
+          ... on PrismicPost {
+            id
+            data {
+              post_authors {
+                post_authors_author {
+                  raw
+                  document {
+                    ... on PrismicAuthor {
+                      id
+                      data {
+                        author_title {
+                          text
+                        }
+                        author_profile_image {
+                          gatsbyImageData(placeholder: BLURRED)
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              post_featured_image {
+                alt
+                gatsbyImageData(placeholder: BLURRED)
+              }
+              post_excerpt {
+                raw
+              }
+            }
+            url
+          }
+          ... on PrismicVideo {
+            id
+            url
+            data {
+              video_description {
+                raw
+              }
+              video_embed {
+                embed_url
+                title
+                thumbnail_url
+              }
+              video_title {
+                text
+              }
+            }
+          }
+          ... on PrismicPage {
+            id
+            url
+            data {
+              page_title {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 `
