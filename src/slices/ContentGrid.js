@@ -9,7 +9,7 @@ export const ContentGrid = ({ slice }) => {
   const { items } = slice
   return (
     <ul
-      className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 p-3 list-none`}
+      className={`max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 p-3 list-none`}
     >
       {items.map(item => {
         if (item.content_items.type === "tool") {
