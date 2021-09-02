@@ -40,7 +40,7 @@ export const ImageHighlight = ({ slice }) => {
             />
             {/* END IMAGE DESCRIPTION */}
             {/* !# Conditionally Render Link if URL provided */}
-            {image_highlight_link.url !== null && image_highlight_link_text ? (
+            {image_highlight_link.url ? (
               <p className="text-center md:text-left">
                 {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
@@ -49,7 +49,9 @@ export const ImageHighlight = ({ slice }) => {
                     className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                     style={{ textDecoration: "none" }}
                   >
-                    {image_highlight_link_text.text}
+                    {image_highlight_link_text.text
+                      ? image_highlight_link_text.text
+                      : RichText.asText(image_highlight_heading.raw)}
                   </a>
                 ) : (
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
@@ -57,7 +59,9 @@ export const ImageHighlight = ({ slice }) => {
                     href={image_highlight_link.url}
                     className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                   >
-                    {image_highlight_link_text.text}
+                    {image_highlight_link_text.text
+                      ? image_highlight_link_text.text
+                      : RichText.asText(image_highlight_heading.raw)}
                   </Link>
                 )}
               </p>
@@ -177,7 +181,9 @@ export const ImageHighlight = ({ slice }) => {
                     className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                     style={{ textDecoration: "none" }}
                   >
-                    {image_highlight_link_text.text}
+                    {image_highlight_link_text.text
+                      ? image_highlight_link_text.text
+                      : RichText.asText(image_highlight_heading.raw)}
                   </a>
                 ) : (
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
@@ -185,7 +191,9 @@ export const ImageHighlight = ({ slice }) => {
                     href={image_highlight_link.url}
                     className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                   >
-                    {image_highlight_link_text.text}
+                    {image_highlight_link_text.text
+                      ? image_highlight_link_text.text
+                      : RichText.asText(image_highlight_heading.raw)}
                   </Link>
                 )}
               </p>
