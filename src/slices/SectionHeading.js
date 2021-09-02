@@ -3,7 +3,6 @@ import { useState } from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import { HiLink } from "react-icons/hi"
-// import { htmlSerializer } from "../utils/htmlSerializer"
 
 export const SectionHeading = ({ slice }) => {
   const {
@@ -41,13 +40,9 @@ export const SectionHeading = ({ slice }) => {
         <HiLink className="h-4 w-4 md:h-8 md:w-8 mx-1" />
         <span className="sr-only">Copy heading link</span>
       </button>
-      {section_heading_text.raw[0].type === "heading2" ? (
-        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-teko inline">
-          {RichText.asText(section_heading_text.raw)}
-        </h2>
-      ) : (
-        <h3>{RichText.asText(section_heading_text.raw)}</h3>
-      )}
+      <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-teko inline">
+        {RichText.asText(section_heading_text.raw)}
+      </h2>
     </div>
   )
 }
