@@ -1,14 +1,11 @@
 import * as React from "react"
-import { MDXProvider } from "@mdx-js/react"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import { BsArrowReturnLeft } from "react-icons/bs"
 
 export default function Layout({ children, path }) {
-  const components = {}
-
   return (
-    <MDXProvider components={components} className="relative">
+    <>
       <ul id="nav-access" className="relative mx-auto">
         <li>
           <a
@@ -30,6 +27,6 @@ export default function Layout({ children, path }) {
         <main id="main-content">{children}</main>
         <Footer />
       </div>
-    </MDXProvider>
+    </>
   )
 }
