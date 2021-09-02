@@ -9,9 +9,19 @@ import SliceZone from "../components/SliceZone"
 export default function Video({ data, path }) {
   if (!data) return null
   const document = data.video.data
-  const youTubeId = document.video_embed.embed_url.substring(
-    document.video_embed.embed_url.length - 11
-  )
+  const getVideoSrc = url => {
+    let id = ""
+    if (document.video_embed.provider_name === "YouTube") {
+      id = url.substring(url.length - 11)
+      return `https://www.${document.video_embed.provider_name}.com/embed/${id}`
+    } else if (document.video_embed.provider_name === "Loom") {
+      id = url.substring(url.length - 32)
+      return `https://www.${document.video_embed.provider_name}.com/embed/${id}`
+    } else if (document.video_embed.provider_name === "video.other") {
+      return document.video_embed.embed_url
+    }
+  }
+  const videoSrc = getVideoSrc(document.video_embed.embed_url)
   return (
     <Layout path={path}>
       <Seo title={document.video_title.text} />
@@ -21,19 +31,19 @@ export default function Video({ data, path }) {
             <iframe
               title={document.video_title.text}
               className="mx-auto rounded-md"
-              src={`https://www.youtube.com/embed/${youTubeId}`}
+              src={videoSrc}
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               loading="lazy"
               allowFullScreen
-              srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style>
-                            <a href=https://www.youtube.com/embed/${youTubeId}?autoplay=1>
-                              <img
-                                src=${document.video_embed.thumbnail_url}
-                                alt='${document.video_title.text}'
-                                />
-            
-                              <span>&#x25BA;</span>
-                            </a>`}
+              // srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style>
+              //               <a href=${videoSrc}>
+              //                 <img
+              //                   src=${document.video_embed.thumbnail_url}?autoplay=1
+              //                   alt='${document.video_title.text}'
+              //                   />
+
+              //                 <span>&#x25BA;</span>
+              //               </a>`}
             ></iframe>
           </div>
         </div>
@@ -52,6 +62,7 @@ export const query = graphql`
         }
         video_embed {
           embed_url
+          provider_name
           thumbnail_url
         }
         video_title {
