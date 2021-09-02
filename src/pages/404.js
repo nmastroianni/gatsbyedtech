@@ -1,6 +1,6 @@
 import * as React from "react"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
 import { Link } from "gatsby"
 import Thinker from "../components/Thinker"
 
