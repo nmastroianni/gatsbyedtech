@@ -70,18 +70,19 @@ export const ImageHighlight = ({ slice }) => {
           {/* Right Side Image Div */}
           <div className="p-3 md:p-4 lg:p-6 w-full text-left">
             {/* Render Linked Image using Anchor tag if link_type is "Web" */}
-            {image_highlight_link && image_highlight_link.link_type === "Web" && (
-              <a href={image_highlight_link.url}>
-                <GatsbyImage
-                  image={getImage(image_highlight_image.gatsbyImageData)}
-                  alt={image_highlight_image.alt || "decorative image"}
-                  imgClassName="aspect-w-16 aspect-h-9"
-                  className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
-                />
-              </a>
-            )}
+            {image_highlight_link.url &&
+              image_highlight_link.link_type === "Web" && (
+                <a href={image_highlight_link.url}>
+                  <GatsbyImage
+                    image={getImage(image_highlight_image.gatsbyImageData)}
+                    alt={image_highlight_image.alt || "decorative image"}
+                    imgClassName="aspect-w-16 aspect-h-9"
+                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                  />
+                </a>
+              )}
             {/* Render Linked Image using Gatsby Link if link_type is "Document" */}
-            {image_highlight_link &&
+            {image_highlight_link.url &&
               image_highlight_link.link_type === "Document" && (
                 <Link to={image_highlight_link.url}>
                   <GatsbyImage
@@ -93,7 +94,7 @@ export const ImageHighlight = ({ slice }) => {
                 </Link>
               )}
             {/* If no URL/Link is provided, just render an image without the link */}
-            {!image_highlight_link && (
+            {!image_highlight_link.url && (
               <GatsbyImage
                 image={getImage(image_highlight_image.gatsbyImageData)}
                 alt={image_highlight_image.alt || "decorative image"}
@@ -115,18 +116,19 @@ export const ImageHighlight = ({ slice }) => {
           {/* Left Side Image Div */}
           <div className="p-3 md:p-4 lg:p-6 w-full text-left">
             {/* Render Linked Image using Anchor tag if link_type is "Web" */}
-            {image_highlight_link && image_highlight_link.link_type === "Web" && (
-              <a href={image_highlight_link.url}>
-                <GatsbyImage
-                  image={getImage(image_highlight_image.gatsbyImageData)}
-                  alt={image_highlight_image.alt || "decorative image"}
-                  imgClassName="aspect-w-16 aspect-h-9"
-                  className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
-                />
-              </a>
-            )}
+            {image_highlight_link.url &&
+              image_highlight_link.link_type === "Web" && (
+                <a href={image_highlight_link.url}>
+                  <GatsbyImage
+                    image={getImage(image_highlight_image.gatsbyImageData)}
+                    alt={image_highlight_image.alt || "decorative image"}
+                    imgClassName="aspect-w-16 aspect-h-9"
+                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                  />
+                </a>
+              )}
             {/* Render Linked Image using Gatsby Link if link_type is "Document" */}
-            {image_highlight_link &&
+            {image_highlight_link.url &&
               image_highlight_link.link_type === "Document" && (
                 <Link to={image_highlight_link.url}>
                   <GatsbyImage
@@ -138,7 +140,7 @@ export const ImageHighlight = ({ slice }) => {
                 </Link>
               )}
             {/* If no URL/Link is provided, just render an image without the link */}
-            {!image_highlight_link && (
+            {!image_highlight_link.url && (
               <GatsbyImage
                 image={getImage(image_highlight_image.gatsbyImageData)}
                 alt={image_highlight_image.alt || "decorative image"}
