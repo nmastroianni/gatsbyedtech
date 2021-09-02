@@ -19,9 +19,9 @@ export const ImageHighlight = ({ slice }) => {
   if (image_highlight_position) {
     // returns if Position of Image on 2 Col Layout is set to Right
     return (
-      <section>
+      <section className="bg-gray-50 dark:bg-gray-800 w-full">
         {/* Grid Div */}
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center items-center">
           {/* Left Side Prose Div */}
           <div className="prose md:prose-xl prose-green dark:prose-dark p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading Div */}
@@ -115,10 +115,10 @@ export const ImageHighlight = ({ slice }) => {
   } else {
     // returns if Position of Image on 2 Col Layout is set to Left
     return (
-      <section className="">
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center items-center bg-gray-50 dark:bg-gray-800">
+      <section className="bg-gray-50 dark:bg-gray-800 w-full">
+        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center items-center">
           {/* Left Side Image Div */}
-          <div className="p-3 md:p-4 lg:p-6 w-full text-left">
+          <div className="p-3 md:p-4 lg:p-6 w-full text-center">
             {/* Render Linked Image using Anchor tag if link_type is "Web" */}
             {image_highlight_link.url &&
               image_highlight_link.link_type === "Web" && (
