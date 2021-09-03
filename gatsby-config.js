@@ -49,5 +49,17 @@ module.exports = {
         linkResolver: require("./src/utils/linkResolver").linkResolver,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `EdTech Wave`,
+        short_name: `LBPSedTech`,
+        start_url: `/`,
+        background_color: `#064E3B`,
+        theme_color: `#D1FAE5`,
+        display: `standalone`,
+        icon: `src/images/favicon-icon.png`,
+      },
+    },
   ],
 }
