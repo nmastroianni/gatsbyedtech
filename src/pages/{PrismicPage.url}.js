@@ -3,8 +3,10 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import { linkResolver } from "../utils/linkResolver"
 
-export default function Page({ data, path }) {
+const PrismicPage = ({ data, path }) => {
   if (!data) return null
   const document = data.page.data
   return (
@@ -20,6 +22,7 @@ export default function Page({ data, path }) {
 export const query = graphql`
   query PageQuery($id: String) {
     page: prismicPage(id: { eq: $id }) {
+      _previewable
       data {
         page_title {
           text
@@ -37,3 +40,9 @@ export const query = graphql`
     }
   }
 `
+export default withPrismicPreview(PrismicPage, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+  },
+])

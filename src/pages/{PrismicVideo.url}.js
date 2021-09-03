@@ -3,10 +3,12 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import { linkResolver } from "../utils/linkResolver"
 // import { RichText } from "prismic-reactjs"
 // import htmlSerializer from "../utils/htmlSerializer"
 
-export default function Video({ data, path }) {
+const PrismicVideo = ({ data, path }) => {
   if (!data) return null
   const document = data.video.data
   const getVideoSrc = url => {
@@ -78,9 +80,9 @@ export const query = graphql`
     }
   }
 `
-// body {
-//           ...VideoDataBodySectionHeading
-//           ...VideoDataBodyText
-//           ...VideoDataBodyFullWidthImage
-//           ...VideoDataBodyImageHighlight
-//         }
+export default withPrismicPreview(PrismicVideo, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+  },
+])

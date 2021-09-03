@@ -4,10 +4,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
-import { RichText } from "prismic-reactjs"
-import htmlSerializer from "../utils/htmlSerializer"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import { linkResolver } from "../utils/linkResolver"
+// import { RichText } from "prismic-reactjs"
+// import htmlSerializer from "../utils/htmlSerializer"
 
-export default function Page({ data, path }) {
+const PrismicTool = ({ data, path }) => {
   if (!data) return null
   const document = data.tool.data
   return (
@@ -28,6 +30,7 @@ export default function Page({ data, path }) {
 export const query = graphql`
   query ToolQuery($id: String) {
     tool: prismicTool(id: { eq: $id }) {
+      _previewable
       data {
         tool_title {
           text
@@ -53,3 +56,9 @@ export const query = graphql`
     }
   }
 `
+export default withPrismicPreview(PrismicTool, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+  },
+])
