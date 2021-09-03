@@ -4,8 +4,10 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
 import Hero from "../components/Hero"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import { linkResolver } from "../utils/linkResolver"
 
-export default function Home({ data, path }) {
+const PrismicHomepage = ({ data, path }) => {
   if (!data) return null
   const document = data.homepage.data
   const { banner_description, banner_image, banner_link_label, banner_title } =
@@ -29,6 +31,7 @@ export default function Home({ data, path }) {
 export const query = graphql`
   query MyQuery {
     homepage: prismicHomepage {
+      _previewable
       data {
         banner_description {
           text
@@ -57,3 +60,9 @@ export const query = graphql`
     }
   }
 `
+export default withPrismicPreview(PrismicHomepage, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+  },
+])

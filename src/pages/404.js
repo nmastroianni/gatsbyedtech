@@ -8,8 +8,8 @@ export default function NotFoundPage({ location: { pathname } }) {
   return (
     <Layout path={pathname}>
       <Seo title="Resource Not Found" />
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="max-w-md mx-auto flex flex-col justify-center items-center">
+      <div className="h-screen mt-3 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
+        <div className="max-w-md ">
           <p className="text-3xl font-semibold text-green-700 text-center">
             We're sorry! <br />
             We can't seem to find what you were looking for.
@@ -20,7 +20,7 @@ export default function NotFoundPage({ location: { pathname } }) {
           >
             Visit Our Homepage
           </Link>
-          <Thinker styles="w-full text-green-700" />
+          <Thinker styles="w-full text-green-800 dark:text-green-200 fill-current" />
         </div>
       </div>
     </Layout>

@@ -3,10 +3,13 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
+import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import { linkResolver } from "../utils/linkResolver"
 
-export default function Post({ data, path }) {
+const PrismicPost = ({ data, path }) => {
   if (!data) return null
   const document = data.post.data
+  console.log(document)
   return (
     <Layout path={path}>
       <Seo title={document.post_title.text} />
@@ -20,6 +23,7 @@ export default function Post({ data, path }) {
 export const query = graphql`
   query PostQuery($id: String) {
     post: prismicPost(id: { eq: $id }) {
+      _previewable
       data {
         post_title {
           text
@@ -37,3 +41,9 @@ export const query = graphql`
     }
   }
 `
+export default withPrismicPreview(PrismicPost, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+  },
+])
