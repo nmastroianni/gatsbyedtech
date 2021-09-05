@@ -101,7 +101,7 @@ const htmlSerializer = function (type, element, content, children, key) {
         )
       } else if (
         url.indexOf("localhost") > -1 ||
-        url.indexOf("cleveredtech.com") > -1
+        url.indexOf("edtechwave.com") > -1
       ) {
         return (
           <Link
