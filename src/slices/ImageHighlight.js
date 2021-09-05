@@ -40,13 +40,14 @@ export const ImageHighlight = ({ slice }) => {
             />
             {/* END IMAGE DESCRIPTION */}
             {/* !# Conditionally Render Link if URL provided */}
+
             {image_highlight_link.url ? (
               <p className="text-center md:text-left">
                 {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
                   <a
                     href={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                     style={{ textDecoration: "none" }}
                   >
                     {image_highlight_link_text.text
@@ -56,8 +57,8 @@ export const ImageHighlight = ({ slice }) => {
                 ) : (
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
                   <Link
-                    href={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    to={image_highlight_link.url}
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text
@@ -81,7 +82,7 @@ export const ImageHighlight = ({ slice }) => {
                     image={getImage(image_highlight_image.gatsbyImageData)}
                     alt={image_highlight_image.alt || "decorative image"}
                     imgClassName="aspect-w-16 aspect-h-9"
-                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                    className=" rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150  transform hover:scale-105"
                   />
                 </a>
               )}
@@ -93,7 +94,7 @@ export const ImageHighlight = ({ slice }) => {
                     image={getImage(image_highlight_image.gatsbyImageData)}
                     alt={image_highlight_image.alt || "decorative image"}
                     imgClassName="aspect-w-16 aspect-h-9"
-                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                    className=" rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150  transform hover:scale-105"
                   />
                 </Link>
               )}
@@ -103,7 +104,7 @@ export const ImageHighlight = ({ slice }) => {
                 image={getImage(image_highlight_image.gatsbyImageData)}
                 alt={image_highlight_image.alt || "decorative image"}
                 imgClassName="aspect-w-16 aspect-h-9"
-                className="shadow-sm rounded-sm"
+                className=" rounded-sm"
               />
             )}
           </div>
@@ -127,7 +128,7 @@ export const ImageHighlight = ({ slice }) => {
                     image={getImage(image_highlight_image.gatsbyImageData)}
                     alt={image_highlight_image.alt || "decorative image"}
                     imgClassName="aspect-w-16 aspect-h-9"
-                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                    className=" rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150  transform hover:scale-105"
                   />
                 </a>
               )}
@@ -139,7 +140,7 @@ export const ImageHighlight = ({ slice }) => {
                     image={getImage(image_highlight_image.gatsbyImageData)}
                     alt={image_highlight_image.alt || "decorative image"}
                     imgClassName="aspect-w-16 aspect-h-9"
-                    className="shadow-sm rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105"
+                    className=" rounded-sm filter saturate-100 scale-100 transition duration-500 ease-in-out hover:saturate-150  transform hover:scale-105"
                   />
                 </Link>
               )}
@@ -149,7 +150,7 @@ export const ImageHighlight = ({ slice }) => {
                 image={getImage(image_highlight_image.gatsbyImageData)}
                 alt={image_highlight_image.alt || "decorative image"}
                 imgClassName="aspect-w-16 aspect-h-9"
-                className="shadow-sm rounded-sm"
+                className=" rounded-sm"
               />
             )}
           </div>
@@ -178,7 +179,7 @@ export const ImageHighlight = ({ slice }) => {
                 {image_highlight_link.link_type === "Web" ? (
                   <a
                     href={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                     style={{ textDecoration: "none" }}
                   >
                     {image_highlight_link_text.text
@@ -188,8 +189,8 @@ export const ImageHighlight = ({ slice }) => {
                 ) : (
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
                   <Link
-                    href={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    to={image_highlight_link.url}
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text

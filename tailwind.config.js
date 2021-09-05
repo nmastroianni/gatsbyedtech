@@ -86,6 +86,7 @@ module.exports = {
       contrast: ["hover"],
       saturate: ["hover"],
       filter: ["hover"],
+      blur: ["hover"],
       grayscale: ["hover"],
     },
   },
