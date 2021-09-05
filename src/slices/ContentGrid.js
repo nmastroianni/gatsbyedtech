@@ -45,7 +45,7 @@ export const ContentGrid = ({ slice }) => {
                   {text}
                 </Link>
               </h3>
-              <div className="prose dark:prose-dark prose-lg md:prose-xl">
+              <div className="prose dark:prose-dark prose-lg md:prose-xl mt-auto">
                 <RichText
                   render={tool_description.raw}
                   htmlSerializer={htmlSerializer}

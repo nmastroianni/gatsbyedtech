@@ -112,7 +112,6 @@ export default function HeadlessMenu({ path }) {
                   (item.link.raw.url.indexOf("localhost") > -1 ||
                     item.link.raw.url.indexOf("edtechwave.com") > -1)
                 ) {
-                  console.log(item.link.raw.url.substring(22))
                   return (
                     <Menu.Item key={`topnav-${i}`}>
                       {({ active }) => (
