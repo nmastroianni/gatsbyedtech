@@ -107,6 +107,39 @@ export default function HeadlessMenu({ path }) {
                       )}
                     </Menu.Item>
                   )
+                } else if (
+                  item.link.raw.link_type === "Web" &&
+                  (item.link.raw.url.indexOf("localhost") > -1 ||
+                    item.link.raw.url.indexOf("edtechwave.com") > -1)
+                ) {
+                  console.log(item.link.raw.url.substring(22))
+                  return (
+                    <Menu.Item key={`topnav-${i}`}>
+                      {({ active }) => (
+                        <Link
+                          to={item.link.raw.url.substring(22)}
+                          className={`${
+                            active
+                              ? "bg-green-700 text-white"
+                              : "text-gray-900 dark:text-gray-50"
+                          } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
+                        >
+                          {active ? (
+                            <MenuIcon
+                              className="w-5 h-5 mr-2"
+                              aria-hidden="true"
+                            />
+                          ) : (
+                            <MenuIcon
+                              className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
+                              aria-hidden="true"
+                            />
+                          )}
+                          {item.link_label.text}
+                        </Link>
+                      )}
+                    </Menu.Item>
+                  )
                 } else {
                   return (
                     <Menu.Item key={`topnav-${i}`}>
