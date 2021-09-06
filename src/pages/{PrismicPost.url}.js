@@ -8,22 +8,65 @@ import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 import { linkResolver } from "../utils/linkResolver"
+import {
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+} from "react-icons/fa"
 
-const AuthorCard = ({ description, image, name }) => {
+const AuthorCard = ({ description, image, name, socials }) => {
   return (
-    <article className="max-w-screen-sm p-4 mx-auto border-2 dark:border-gray-700 flex space-x-3">
+    <article className="max-w-screen-sm p-4 mx-auto rounded-sm shadow-sm border dark:border-gray-700 flex space-x-3 items-center">
       <GatsbyImage
         image={getImage(image.gatsbyImageData)}
         alt={`${image.alt || `profile picture of ${name}`}`}
-        className="rounded-full w-24 h-24"
+        className="w-24 rounded-full"
       />
       <div className="flex-1">
-        <h1 className="font-teko dark:text-green-200 text-xl md:text-2xl lg:text-3xl">
+        <h1 className="font-teko text-green-800 dark:text-green-200 text-xl md:text-2xl lg:text-3xl">
           {name}
         </h1>
         <div className="prose dark:prose-dark">
           <RichText render={description.raw} htmlSerializer={htmlSerializer} />
         </div>
+        {socials.length ? (
+          <div className="flex items-center my-3 md:my-4 lg:my-6">
+            <h2 className="font-teko text-base md:text-lg lg:text-xl text-green-800 dark:text-green-200 mr-3 md:mr-4">
+              Connect with me:
+            </h2>
+            <ul className={`list-none grid grid-cols-${socials.length} gap-6`}>
+              {socials.map(social => {
+                const icons = {
+                  Twitter: FaTwitter,
+                  LinkedIn: FaLinkedin,
+                  Instagram: FaInstagram,
+                  YouTube: FaYoutube,
+                  Facebook: FaFacebook,
+                }
+                const {
+                  author_socials_link: { url },
+                  author_socials_platform,
+                } = social
+                const SocialIcon = icons[author_socials_platform]
+                console.log(social)
+                return (
+                  <li
+                    className="inline text-green-800 dark:text-green-200"
+                    key={url}
+                  >
+                    <a href={url}>
+                      <SocialIcon className="w-6 h-6 hover:text-green-900 dark:hover:text-green-100" />
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </article>
   )
@@ -32,17 +75,16 @@ const AuthorCard = ({ description, image, name }) => {
 const PrismicPost = ({ data, path }) => {
   if (!data) return null
   const document = data.post
-  console.log(document)
   const {
     data: { body, post_authors, post_featured_image, post_title },
     first_publication_date,
-    tags,
+    //tags,
   } = document
   return (
     <Layout path={path}>
       <Seo title={post_title.text} />
-      <section className="relative max-w-screen-2xl mx-auto">
-        <div className="">
+      <section className="relative bg-gray-200 dark:bg-gray-900">
+        <div className=" max-w-screen-2xl mx-auto">
           <GatsbyImage
             image={getImage(post_featured_image.gatsbyImageData)}
             alt={`${post_featured_image.alt || `deocrative image`} `}
@@ -55,8 +97,8 @@ const PrismicPost = ({ data, path }) => {
           </h2>
         </div>
       </section>
-      <div className=" max-w-screen-2xl mx-auto">
-        <h3 className=" bg-gradient-to-b from-green-900 to-gray-900 py-3 md:py-4 lg:py-6 font-teko text-center text-white text-lg md:text-xl lg:text-2xl">
+      <div className=" mx-auto">
+        <h3 className=" bg-gradient-to-b from-gray-200 dark:from-green-900 to-transparent py-3 md:py-4 lg:py-6 font-teko text-center dark:text-white text-lg md:text-xl lg:text-2xl">
           Published on {first_publication_date}
         </h3>
       </div>
@@ -64,7 +106,11 @@ const PrismicPost = ({ data, path }) => {
         <SliceZone sliceZone={body} />
       </div>
       <section id="author-info">
-        <ul>
+        <h2 className="relative text-center font-teko text-green-800 dark:text-green-200 text-2xl md:text-3xl lg:text-4xl mt-3 md:mt-4 lg:mt-6">
+          Meet the {`${post_authors.length > 1 ? `Authors` : `Author`}`} ...
+          <span className="absolute h-8 w-3 border-green-800 dark:border-green-400 animate-pulse border-r-4"></span>
+        </h2>
+        <ul className="mb-3 md:mb-4 lg:mb-6">
           {post_authors.map((author, i) => {
             const {
               post_authors_author: {
@@ -85,6 +131,7 @@ const PrismicPost = ({ data, path }) => {
                   name={author_title.text}
                   image={author_profile_image}
                   description={author_description}
+                  socials={author_socials}
                 />
               </li>
             )
