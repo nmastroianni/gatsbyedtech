@@ -36,7 +36,7 @@ const AuthorCard = ({ description, image, name, socials }) => {
             <h2 className="font-teko text-base md:text-lg lg:text-xl text-green-800 dark:text-green-200 mr-3 md:mr-4">
               Connect with me:
             </h2>
-            <ul className={`list-none grid grid-cols-${socials.length} gap-6`}>
+            <ul className={`list-none flex space-x-4`}>
               {socials.map(social => {
                 const icons = {
                   Twitter: FaTwitter,
@@ -50,14 +50,10 @@ const AuthorCard = ({ description, image, name, socials }) => {
                   author_socials_platform,
                 } = social
                 const SocialIcon = icons[author_socials_platform]
-                console.log(social)
                 return (
-                  <li
-                    className="inline text-green-800 dark:text-green-200"
-                    key={url}
-                  >
+                  <li className="text-green-800 dark:text-green-200" key={url}>
                     <a href={url}>
-                      <SocialIcon className="w-6 h-6 hover:text-green-900 dark:hover:text-green-100" />
+                      <SocialIcon className="inline w-6 h-6 hover:text-green-900 dark:hover:text-green-100" />
                     </a>
                   </li>
                 )
