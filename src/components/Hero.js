@@ -12,12 +12,14 @@ export default function Hero({
   const { alt, gatsbyImageData } = heroImage
   return (
     <>
-      <div className="mx-auto grid grid-cols-1 md:space-x-4 md:grid-cols-2 items-center flex-wrap bg-green-50 dark:bg-transparent py-3 px-3 font-source">
-        <GatsbyImage
-          image={getImage(gatsbyImageData)}
-          alt={alt ? alt : `Decorative Image`}
-          className="w-4/5 md:w-3/4 lg:w-4/5 block mx-auto"
-        />
+      <div className="mx-auto grid grid-cols-1 md:space-x-4 md:grid-cols-2 place-items-center flex-wrap bg-green-50 dark:bg-transparent py-3 px-3 font-source">
+        <div className="text-center py-3 md:py-6 lg:py-12">
+          <GatsbyImage
+            image={getImage(gatsbyImageData)}
+            alt={alt ? alt : `Decorative Image`}
+            className="w-4/5 md:w-3/4 lg:w-3/5 "
+          />
+        </div>
         <div className=" dark:text-white my-4 text-center md:text-left">
           <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-center md:text-left text-green-800 dark:text-green-200 font-teko">
             {bannerTitle}
