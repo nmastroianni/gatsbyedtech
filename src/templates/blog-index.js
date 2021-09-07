@@ -11,7 +11,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
   return (
     <article className="rounded-md shadow-md">
       <header className="relative">
-        <div className="z-10 font-teko text-xl md:text-3xl lg:text-4xl bg-green-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
+        <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-green-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
           <h2 className="text-center inline-block p-4 bg-green-900 text-white rounded-md leading-none grayscale-0">
             {title.text}
           </h2>
