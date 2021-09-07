@@ -21,6 +21,7 @@ const VideoCard = ({ title, customThumb, thumbnail, url }) => {
               image={getImage(thumbnail)}
               alt="decorative"
               className="rounded-md"
+              imgClassName="rounded-md"
             />
           </Link>
         </div>
@@ -85,7 +86,7 @@ export default function Videos({
             return (
               <li
                 key={prismicId}
-                className="rounded-md shadow-md border-2 border-gray-200 dark:border-gray-600 w-full overflow-hidden"
+                className="group rounded-md border-4 border-gray-200 dark:border-gray-600 w-full overflow-hidden"
               >
                 <VideoCard
                   title={video_title.text}

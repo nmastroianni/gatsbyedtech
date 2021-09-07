@@ -28,7 +28,7 @@ export const Pagination = ({ currentPage, pageCount, basePath }) => {
     currentPage === pageCount ? "pointer-events-none" : "enabled"
 
   return (
-    <div className="flex justify-center space-x-4 dark:text-green-200 text-xl font-source">
+    <div className="flex justify-center space-x-4 text-green-800 dark:text-green-200 text-xl font-source">
       <Link
         className={`${prevClass} dark:bg-black bg-opacity-50 px-4 py-2 rounded focus:outline-none focus:ring-4 focus:ring-green-300`}
         to={prevPagePath}
@@ -45,7 +45,7 @@ export const Pagination = ({ currentPage, pageCount, basePath }) => {
         return (
           <Link
             to={getPageNumberPath(i, basePath)}
-            className={`py-2 relative focus:outline-none focus:ring-4 focus:ring-green-300`}
+            className={`py-2 px-3 shadow rounded relative focus:outline-none focus:ring-4 focus:ring-green-300`}
             key={i + 1}
           >
             {i + 1}
