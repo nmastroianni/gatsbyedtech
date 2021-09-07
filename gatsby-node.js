@@ -43,40 +43,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     `
   )
-  // const igniteResult = await graphql(
-  //   `
-  //     {
-  //       allGoogleDocs(
-  //         filter: { template: { eq: "post" }, tags: { in: "ignite" } }
-  //         sort: { fields: date, order: DESC }
-  //       ) {
-  //         nodes {
-  //           childMdx {
-  //             excerpt
-  //             timeToRead
-  //           }
-  //           id
-  //           modifiedTime(fromNow: true)
-  //           name
-  //           slug
-  //           cover {
-  //             image {
-  //               childImageSharp {
-  //                 gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-  //               }
-  //             }
-  //           }
-  //           tags
-  //         }
-  //       }
-  //     }
-  //   `
-  // );
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-
   // Create blog-list pages
   const posts = result.data.allPrismicPost.nodes
   const postsPerPage = 10
@@ -94,22 +64,51 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
-
-  // // Create ignite-list pages
-  // const ignites = igniteResult.data.allGoogleDocs.nodes;
-  // const ignitesPerPage = 10;
-  // const ignitePages = Math.ceil(ignites.length / ignitesPerPage);
-  // Array.from({ length: ignitePages }).forEach((_, i) => {
-  //   createPage({
-  //     path: i === 0 ? `/ignite` : `/ignite/${i + 1}`,
-  //     component: path.resolve("./src/templates/ignite-index.js"),
-  //     context: {
-  //       totalPosts: ignites.length,
-  //       limit: ignitesPerPage,
-  //       skip: i * ignitesPerPage,
-  //       ignitePages,
-  //       currentPage: i + 1,
-  //     },
-  //   });
-  // });
+  const videosResult = await graphql(
+    `
+      {
+        allPrismicVideo(sort: { fields: first_publication_date, order: DESC }) {
+          nodes {
+            url
+            prismicId
+            first_publication_date(formatString: "MMMM Do, YYYY")
+            data {
+              video_title {
+                text
+              }
+              video_description {
+                raw
+              }
+              video_embed {
+                thumbnail_url
+                provider_name
+                embed_url
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  if (videosResult.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+  // Create videos-list pages
+  const videos = videosResult.data.allPrismicVideo.nodes
+  const videosPerPage = 6
+  const numVideoPages = Math.ceil(videos.length / videosPerPage)
+  Array.from({ length: numVideoPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/videos` : `/videos/${i + 1}`,
+      component: path.resolve("./src/templates/video-index.js"),
+      context: {
+        totalVideos: videos.length,
+        limit: videosPerPage,
+        skip: i * videosPerPage,
+        numVideoPages,
+        currentPage: i + 1,
+      },
+    })
+  })
 }
