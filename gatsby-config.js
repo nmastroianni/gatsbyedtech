@@ -14,7 +14,7 @@ module.exports = {
     siteUrl: `https://longbranch.k12.nj.us`,
     title: "LBPS EdTech",
     description:
-      "The Educational Technology Department at Long Branch Public Schools is dedicated to help staff make the most of the digital tools at their disposal so that all stakeholders may thrive.",
+      "The Educational Technology Department at Long Branch Public Schools is dedicated to helping staff make the most of the digital tools at their disposal so that all stakeholders may thrive.",
     siteImage: "/favicon.ico",
   },
   plugins: [

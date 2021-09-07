@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import Seo from "../components/Seo"
 import Layout from "../components/Layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Pagination } from "../components/Pagination"
 
 const VideoCard = ({ title, customThumb, thumbnail, url }) => {
   return (
@@ -12,7 +13,10 @@ const VideoCard = ({ title, customThumb, thumbnail, url }) => {
       </h2>
       {customThumb && (
         <div className="aspect-w-16 aspect-h-9">
-          <Link to={url}>
+          <Link
+            to={url}
+            className="rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+          >
             <GatsbyImage
               image={getImage(thumbnail)}
               alt="decorative"
@@ -23,7 +27,10 @@ const VideoCard = ({ title, customThumb, thumbnail, url }) => {
       )}
       {!customThumb && (
         <div className="aspect-w-16 aspect-h-9">
-          <Link to={url}>
+          <Link
+            to={url}
+            className="rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+          >
             <img src={thumbnail} alt="decorative" className="rounded-md" />
           </Link>
         </div>
@@ -34,20 +41,30 @@ const VideoCard = ({ title, customThumb, thumbnail, url }) => {
 
 export default function Videos({
   path,
-  pageContext: { currentPage, limit, numVideoPages, totalVideos },
+  pageContext: { currentPage, limit, numVideoPages, totalVideos, basePath },
   data: {
     allPrismicVideo: { nodes },
   },
 }) {
   return (
     <Layout path={path}>
-      <Seo title="Blog" locale="en-US" />
-      <div className="mx-auto mb-12 px-3">
+      <Seo title="Videos" locale="en-US" />
+      <div className="mx-auto flex flex-col justify-between">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-100 font-teko">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-200 font-teko">
             EdTech Videos
           </h1>
+          <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-green-700 dark:text-green-100 font-teko">
+            Page {currentPage} of {numVideoPages}
+          </h2>
         </header>
+        <div className="my-6">
+          <Pagination
+            currentPage={currentPage}
+            pageCount={numVideoPages}
+            basePath="/videos"
+          />
+        </div>
         <ul className="list-none mx-auto grid md:grid-cols-2 xl:grid-cols-3 place-items-center gap-3 md:gap-4 lg:gap-6">
           {nodes.map(video => {
             const {
@@ -80,15 +97,13 @@ export default function Videos({
             )
           })}
         </ul>
-        {/* {numPages > 1 && (
+        <div className="my-6">
           <Pagination
-            path={path}
-            numPages={numPages}
             currentPage={currentPage}
-            limit={nodes.length}
-            totalPosts={totalPosts}
+            pageCount={numVideoPages}
+            basePath="/videos"
           />
-        )} */}
+        </div>
       </div>
     </Layout>
   )
@@ -122,6 +137,10 @@ export const data = graphql`
             embed_url
           }
         }
+      }
+      pageInfo {
+        currentPage
+        pageCount
       }
     }
   }

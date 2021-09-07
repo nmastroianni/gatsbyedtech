@@ -108,6 +108,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         skip: i * videosPerPage,
         numVideoPages,
         currentPage: i + 1,
+        basePath: "/videos",
       },
     })
   })
