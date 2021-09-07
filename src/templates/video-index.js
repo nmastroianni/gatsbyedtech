@@ -1,14 +1,33 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { RichText } from "prismic-reactjs"
-import htmlSerializer from "../utils/htmlSerializer"
 import Seo from "../components/Seo"
 import Layout from "../components/Layout"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const VideoCard = ({ title }) => {
+const VideoCard = ({ title, customThumb, thumbnail, url }) => {
   return (
-    <article className="rounded-md shadow-md">
-      <h2>{title}</h2>
+    <article className="p-3">
+      <h2 className="my-3 text-green-800 dark:text-green-200 text-xl md:text-2xl xl:text-3xl font-teko text-center">
+        {title}
+      </h2>
+      {customThumb && (
+        <div className="aspect-w-16 aspect-h-9">
+          <Link to={url}>
+            <GatsbyImage
+              image={getImage(thumbnail)}
+              alt="decorative"
+              className="rounded-md"
+            />
+          </Link>
+        </div>
+      )}
+      {!customThumb && (
+        <div className="aspect-w-16 aspect-h-9">
+          <Link to={url}>
+            <img src={thumbnail} alt="decorative" className="rounded-md" />
+          </Link>
+        </div>
+      )}
     </article>
   )
 }
@@ -29,17 +48,34 @@ export default function Videos({
             EdTech Videos
           </h1>
         </header>
-        <ul className="list-none mx-auto grid grid-cols-3">
+        <ul className="list-none mx-auto grid md:grid-cols-2 xl:grid-cols-3 place-items-center gap-3 md:gap-4 lg:gap-6">
           {nodes.map(video => {
             const {
-              data: { video_title },
+              data: {
+                video_title,
+                video_custom_thumbnail,
+                video_embed: { thumbnail_url },
+              },
               first_publication_date,
               prismicId,
               url,
             } = video
+            let thumbnail = ""
+            const customThumb = video_custom_thumbnail.gatsbyImageData !== null
+            customThumb
+              ? (thumbnail = video_custom_thumbnail)
+              : (thumbnail = thumbnail_url)
             return (
-              <li key={prismicId} className="h-60 w-60">
-                <VideoCard title={video_title.text} />
+              <li
+                key={prismicId}
+                className="rounded-md shadow-md border-2 border-gray-200 dark:border-gray-600 w-full overflow-hidden"
+              >
+                <VideoCard
+                  title={video_title.text}
+                  customThumb={customThumb}
+                  thumbnail={thumbnail}
+                  url={url}
+                />
               </li>
             )
           })}
@@ -70,6 +106,10 @@ export const data = graphql`
         prismicId
         first_publication_date(formatString: "MMMM Do, YYYY")
         data {
+          video_custom_thumbnail {
+            alt
+            gatsbyImageData(placeholder: BLURRED)
+          }
           video_title {
             text
           }

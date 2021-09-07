@@ -5,8 +5,8 @@ import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
 import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
 import { linkResolver } from "../utils/linkResolver"
-// import { RichText } from "prismic-reactjs"
-// import htmlSerializer from "../utils/htmlSerializer"
+import { RichText } from "prismic-reactjs"
+import htmlSerializer from "../utils/htmlSerializer"
 
 const PrismicVideo = ({ data, path }) => {
   if (!data) return null
@@ -30,25 +30,32 @@ const PrismicVideo = ({ data, path }) => {
       <div className="bg-black p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 shadow-md">
         <div className="max-w-4xl mx-auto">
           <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              title={document.video_title.text}
-              className="mx-auto rounded-md"
-              src={videoSrc}
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              loading="lazy"
-              allowFullScreen
-              // srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style>
-              //               <a href=${videoSrc}>
-              //                 <img
-              //                   src=${document.video_embed.thumbnail_url}?autoplay=1
-              //                   alt='${document.video_title.text}'
-              //                   />
-
-              //                 <span>&#x25BA;</span>
-              //               </a>`}
-            ></iframe>
+            {document.video_embed.provider_name !== "video.other" && (
+              <iframe
+                title={document.video_title.text}
+                className="mx-auto rounded-md"
+                src={videoSrc}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                loading="lazy"
+                allowFullScreen
+              ></iframe>
+            )}
+            {document.video_embed.provider_name === "video.other" && (
+              <iframe
+                src={videoSrc}
+                className="mx-auto rounded-md"
+                allow="autoplay"
+                title={document.video_title.text}
+              ></iframe>
+            )}
           </div>
         </div>
+      </div>
+      <div className="prose dark:prose-dark prose-lg md:prose-xl mx-auto my-3 md:my-4 lg:my-6">
+        <RichText
+          render={document.video_description.raw}
+          htmlSerializer={htmlSerializer}
+        />
       </div>
       <SliceZone sliceZone={document.body} />
     </Layout>
