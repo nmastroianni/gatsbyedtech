@@ -5,10 +5,7 @@ import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 import Seo from "../components/Seo"
 import Layout from "../components/Layout"
-// import BlogCard from "../components/blog-card";
-// import Pagination from "../components/pagination";
-// import PageTitle from "../components/page-title";
-// import { HiNewspaper } from "react-icons/hi";
+import { Pagination } from "../components/Pagination"
 
 const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
   return (
@@ -25,6 +22,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
           alt="decorative image "
         />
       </header>
+
       <section className="dark:bg-gray-800 dark:text-white p-4">
         <div className="flex justify-center flex-wrap">
           <h3 className="font-teko text-xl dark:text-green-200 ">
@@ -79,7 +77,25 @@ export default function Blog({
           <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-100 font-teko">
             EdTech Blog
           </h1>
+          {numPages > 1 ? (
+            <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-green-700 dark:text-green-100 font-teko">
+              Page {currentPage} of {numPages}
+            </h2>
+          ) : (
+            <></>
+          )}
         </header>
+        {numPages > 1 ? (
+          <div className="my-6">
+            <Pagination
+              currentPage={currentPage}
+              pageCount={numPages}
+              basePath="/blog"
+            />
+          </div>
+        ) : (
+          <></>
+        )}
         <ul className="list-none max-w-screen-md mx-auto">
           {nodes.map(post => {
             const {
@@ -107,16 +123,18 @@ export default function Blog({
             )
           })}
         </ul>
-        {/* {numPages > 1 && (
-          <Pagination
-            path={path}
-            numPages={numPages}
-            currentPage={currentPage}
-            limit={nodes.length}
-            totalPosts={totalPosts}
-          />
-        )} */}
       </div>
+      {numPages > 1 ? (
+        <div className="my-6">
+          <Pagination
+            currentPage={currentPage}
+            pageCount={numPages}
+            basePath="/blog"
+          />
+        </div>
+      ) : (
+        <></>
+      )}
     </Layout>
   )
 }
@@ -128,6 +146,10 @@ export const data = graphql`
       limit: $limit
       skip: $skip
     ) {
+      pageInfo {
+        currentPage
+        pageCount
+      }
       nodes {
         url
         prismicId
