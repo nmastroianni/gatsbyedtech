@@ -13,7 +13,6 @@ const getPageNumberPath = (currentIndex, basePath) => {
 }
 
 export const Pagination = ({ currentPage, pageCount, basePath }) => {
-  console.log(currentPage, pageCount)
   if (!currentPage || !pageCount) return null
   // Create URL path for previous and next buttons
   const prevPagePath =
