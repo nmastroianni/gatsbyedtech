@@ -358,6 +358,10 @@ export const query = graphql`
             id
             url
             data {
+              video_custom_thumbnail {
+                alt
+                gatsbyImageData
+              }
               video_description {
                 raw
               }
