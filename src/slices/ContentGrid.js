@@ -151,6 +151,7 @@ export const ContentGrid = ({ slice }) => {
               url,
               document: {
                 data: {
+                  video_custom_thumbnail,
                   video_description: { raw },
                   video_embed: { title, thumbnail_url },
                   video_title: { text },
@@ -167,16 +168,30 @@ export const ContentGrid = ({ slice }) => {
                 {text}
               </h3>
               <div className="p-3 md:p-4 bg-gray-200 dark:bg-gray-900 rounded-md shadow-sm group transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105">
-                <Link
-                  to={url}
-                  className="block rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
-                >
-                  <img
-                    src={thumbnail_url}
-                    alt={`thumbnail for the video titled ${title}`}
-                    className="w-full max-w-lg rounded-md "
-                  />
-                </Link>
+                {video_custom_thumbnail.gatsbyImageData && (
+                  <Link
+                    to={url}
+                    className="block rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+                  >
+                    <GatsbyImage
+                      image={getImage(video_custom_thumbnail.gatsbyImageData)}
+                      alt={`thumbnail for the video titled ${title}`}
+                      className="w-full max-w-lg rounded-md "
+                    />
+                  </Link>
+                )}
+                {!video_custom_thumbnail.gatsbyImageData && (
+                  <Link
+                    to={url}
+                    className="block rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+                  >
+                    <img
+                      src={thumbnail_url}
+                      alt={`thumbnail for the video titled ${title}`}
+                      className="w-full max-w-lg rounded-md "
+                    />
+                  </Link>
+                )}
               </div>
 
               <div className="prose dark:prose-dark prose-sm italic mt-2 md:mt-3 lg:mt-6">
@@ -253,6 +268,10 @@ export const query = graphql`
             id
             url
             data {
+              video_custom_thumbnail {
+                alt
+                gatsbyImageData
+              }
               video_description {
                 raw
               }
