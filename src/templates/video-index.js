@@ -74,7 +74,6 @@ export default function Videos({
                 video_custom_thumbnail,
                 video_embed: { thumbnail_url },
               },
-              first_publication_date,
               prismicId,
               url,
             } = video
