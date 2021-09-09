@@ -19,7 +19,7 @@ export const ImageHighlight = ({ slice }) => {
   if (image_highlight_position) {
     // returns if Position of Image on 2 Col Layout is set to Right
     return (
-      <section className="bg-gray-50 dark:bg-gray-800 w-full">
+      <section className="bg-gray-100 dark:bg-gray-700 w-full">
         {/* Grid Div */}
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center items-center">
           {/* Left Side Prose Div */}
