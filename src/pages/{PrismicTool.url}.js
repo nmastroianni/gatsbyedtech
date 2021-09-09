@@ -25,10 +25,10 @@ const PrismicTool = ({ data, path }) => {
             <h1 className="text-center pl-0 md:pl-12  w-96 text-6xl text-green-800 dark:text-white font-teko">
               {document.tool_title.text}
             </h1>
-            <p className="text-center pl-0 md:pl-12 font-source text-green-700 dark:text-green-200">
+            <p className="text-sm text-center pl-0 md:pl-12 font-source text-green-700 dark:text-green-200">
               Last Updated:
             </p>
-            <p className="pl-0 md:pl-12 mb-3 md:mb-4 lg:mb-6 text-center text-green-700 dark:text-green-200">
+            <p className="text-sm pl-0 md:pl-12 mb-3 md:mb-4 lg:mb-6 text-center text-green-700 dark:text-green-200">
               {data.tool.last_publication_date}
             </p>
           </div>
