@@ -7,19 +7,24 @@ import { Pagination } from "../components/Pagination"
 
 const ToolCard = ({ title, url, description, image }) => {
   return (
-    <article className="relative group">
-      <div className="absolute -inset-0.5 bg-gradient-to-br from-green-300 to-white rounded filter blur opacity-50 transition duration-500 ease-in-out group-hover:opacity-100"></div>
-      <div className="">
-        <Link to={url}>
-          <GatsbyImage
-            image={getImage(image.gatsbyImageData)}
-            alt={`logo for ${title.text}`}
-            className="rounded w-52 md:w-full"
-            imgClassName="rounded"
-          />
-        </Link>
-      </div>
-    </article>
+    <>
+      <article className="relative group">
+        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-800 to-gray-500 dark:from-green-300 dark:to-white rounded filter blur opacity-75 transition duration-500 ease-in-out group-hover:opacity-100"></div>
+        <div className="">
+          <Link to={url}>
+            <GatsbyImage
+              image={getImage(image.gatsbyImageData)}
+              alt={`logo for ${title.text}`}
+              className="rounded w-52 md:w-full"
+              imgClassName="rounded"
+            />
+          </Link>
+        </div>
+      </article>
+      <p className="text-center font-teko my-2 md:my-3 lg:my-4 text-lg text-green-800 dark:text-green-200">
+        {title}
+      </p>
+    </>
   )
 }
 
