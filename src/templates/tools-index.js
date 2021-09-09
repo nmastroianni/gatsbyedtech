@@ -5,12 +5,18 @@ import Layout from "../components/Layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Pagination } from "../components/Pagination"
 
-const ToolCard = ({ title, url }) => {
+const ToolCard = ({ title, url, description, image }) => {
   return (
-    <article className="p-3">
-      <h2 className="my-3 text-green-800 dark:text-green-200 text-xl md:text-2xl xl:text-3xl font-teko text-center">
-        {title} | {url}
-      </h2>
+    <article className="relative group">
+      <div className="absolute -inset-0.5 bg-gradient-to-br from-green-300 to-white rounded filter blur opacity-50 transition duration-500 ease-in-out group-hover:opacity-100"></div>
+      <div className="">
+        <GatsbyImage
+          image={getImage(image.gatsbyImageData)}
+          alt={`logo for ${title.text}`}
+          className="rounded w-52 md:w-full"
+          imgClassName="rounded"
+        />
+      </div>
     </article>
   )
 }
@@ -25,7 +31,7 @@ export default function Tools({
   return (
     <Layout path={path}>
       <Seo title="Tools" locale="en-US" />
-      <div className="mx-auto flex flex-col justify-between">
+      <div className="mx-auto flex flex-col justify-between ">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-200 font-teko">
             EdTech Tools
@@ -35,13 +41,17 @@ export default function Tools({
           </h2>
         </header>
         <div className="my-6">
-          <Pagination
-            currentPage={currentPage}
-            pageCount={numPages}
-            basePath={basePath}
-          />
+          {numPages > 1 ? (
+            <Pagination
+              currentPage={currentPage}
+              pageCount={numPages}
+              basePath={basePath}
+            />
+          ) : (
+            ""
+          )}
         </div>
-        <ul className="list-none mx-auto grid md:grid-cols-2 xl:grid-cols-3 place-items-center gap-3 md:gap-4 lg:gap-6">
+        <ul className="max-w-screen-sm lg:max-w-screen-md list-none mx-auto grid md:grid-cols-2 xl:grid-cols-3 place-items-center gap-3 md:gap-4 lg:gap-6">
           {nodes.map(tool => {
             const {
               data: { tool_description, tool_logo, tool_title },
@@ -51,21 +61,27 @@ export default function Tools({
             } = tool
 
             return (
-              <li
-                key={prismicId}
-                className="rounded-md border-4 border-gray-200 dark:border-gray-600 w-full overflow-hidden"
-              >
-                <ToolCard title={tool_title.text} url={url} />
+              <li key={prismicId} className="p-8 rounded overflow-hidden">
+                <ToolCard
+                  title={tool_title.text}
+                  url={url}
+                  description={tool_description}
+                  image={tool_logo}
+                />
               </li>
             )
           })}
         </ul>
         <div className="my-6">
-          <Pagination
-            currentPage={currentPage}
-            pageCount={numPages}
-            basePath={basePath}
-          />
+          {numPages > 1 ? (
+            <Pagination
+              currentPage={currentPage}
+              pageCount={numPages}
+              basePath={basePath}
+            />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </Layout>
