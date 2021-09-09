@@ -10,12 +10,14 @@ const ToolCard = ({ title, url, description, image }) => {
     <article className="relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-br from-green-300 to-white rounded filter blur opacity-50 transition duration-500 ease-in-out group-hover:opacity-100"></div>
       <div className="">
-        <GatsbyImage
-          image={getImage(image.gatsbyImageData)}
-          alt={`logo for ${title.text}`}
-          className="rounded w-52 md:w-full"
-          imgClassName="rounded"
-        />
+        <Link to={url}>
+          <GatsbyImage
+            image={getImage(image.gatsbyImageData)}
+            alt={`logo for ${title.text}`}
+            className="rounded w-52 md:w-full"
+            imgClassName="rounded"
+          />
+        </Link>
       </div>
     </article>
   )
