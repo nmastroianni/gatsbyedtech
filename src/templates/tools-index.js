@@ -9,7 +9,7 @@ const ToolCard = ({ title, url, description, image }) => {
   return (
     <>
       <article className="relative group">
-        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-800 to-gray-500 dark:from-green-300 dark:to-white rounded filter blur opacity-75 transition duration-500 ease-in-out group-hover:opacity-100"></div>
+        <div className="absolute -inset-1 bg-gradient-to-br from-green-500 to-yellow-200 dark:from-green-300 dark:to-white rounded filter blur opacity-75 transition duration-400 ease-in-out group-hover:opacity-100"></div>
         <div className="">
           <Link to={url}>
             <GatsbyImage
