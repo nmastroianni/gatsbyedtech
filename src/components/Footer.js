@@ -18,7 +18,7 @@ export default function Footer() {
             Long Branch Public Schools
           </h2>
           <h3 className="text-xs text-center dark:text-white">
-            "Together, We Can" #juntosPodemos
+            "Together We Can" #JuntospodemosLB
           </h3>
         </div>
       </div>
