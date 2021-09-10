@@ -72,14 +72,17 @@ export default function Help({ path }) {
             <input
               name="name"
               type="text"
-              placeholder="Example: Jane Appleseed"
+              // placeholder="Example: Jane Appleseed"
               {...register("name", {
                 required: "Your name is required.",
               })}
-              className="form-input block w-full mb-3 px-0.5 font-medium border-b-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              className="form-input block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
             />
             {errors.name && (
-              <p className="text-red-700"> &uarr; {errors.name.message}</p>
+              <p className="text-red-700 dark:text-yellow-300">
+                {" "}
+                &uarr; {errors.name.message}
+              </p>
             )}
             <label
               htmlFor="email"
@@ -90,14 +93,17 @@ export default function Help({ path }) {
             <input
               name="email"
               type="email"
-              placeholder="Example: jappleseed@gomc3.org"
+              // placeholder="Example: jappleseed@gomc3.org"
               {...register("email", {
                 required: "Your email address is required.",
               })}
-              className="form-input block w-full mb-3 px-0.5 font-medium border-b-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              className="form-input block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
             />
             {errors.email && (
-              <p className="text-red-700"> &uarr; {errors.email.message}</p>
+              <p className="text-red-700 dark:text-yellow-300">
+                {" "}
+                &uarr; {errors.email.message}
+              </p>
             )}
             <label
               htmlFor="reason"
@@ -111,7 +117,7 @@ export default function Help({ path }) {
                 required: "A reason is required.",
                 pattern: "^((?!Select).)*$",
               })}
-              className="form-select text-gray-500 block w-full mb-3 px-0.5 font-medium border-b-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              className="form-select text-gray-500 block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
             >
               {selectReason.map((reason, i) => (
                 <option key={reason} value={reason}>
@@ -127,14 +133,17 @@ export default function Help({ path }) {
             </label>
             <textarea
               name="question"
-              placeholder="Enter your question or comment here..."
-              className="form-textarea block w-full mb-3 px-0.5 font-medium border-b-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              // placeholder="Enter your question or comment here..."
+              className="form-textarea block w-full mb-3 px-0.5 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
               {...register("question", {
                 required: "Your question/comment is required.",
               })}
             />
             {errors.question && (
-              <p className="text-red-700"> &uarr; {errors.question.message}</p>
+              <p className="text-red-700 dark:text-yellow-300">
+                {" "}
+                &uarr; {errors.question.message}
+              </p>
             )}
             <input
               name="submit"
