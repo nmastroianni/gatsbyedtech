@@ -30,8 +30,8 @@ export default function Help({ path }) {
     console.log("onSubmit Triggered")
   }
   return (
-    <Layout>
-      <Seo title="Help" path={path} />
+    <Layout path={path}>
+      <Seo title="Help" />
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <header className="mb-2 sm:mb-4 lg:mb-6 flex flex-col items-center">
           <div>
