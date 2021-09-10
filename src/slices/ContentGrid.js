@@ -164,7 +164,7 @@ export const ContentGrid = ({ slice }) => {
               className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source place-content-center"
               key={id}
             >
-              <h3 className="text-green-800 dark:text-green-200 my-2 md:my-3 lg:my-6 text-xl md:text-2xl">
+              <h3 className="text-green-800 dark:text-green-200 my-2 md:my-3 lg:my-6 text-xl md:text-2xl text-center">
                 {text}
               </h3>
               <div className="p-3 md:p-4 bg-gray-200 dark:bg-gray-900 rounded-md shadow-sm group transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105">
