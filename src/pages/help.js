@@ -1,6 +1,7 @@
 import * as React from "react"
+import { Helmet } from "react-helmet"
+import axios from "axios"
 import { useState } from "react"
-import ReCAPTCHA from "react-google-recaptcha"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import { useForm } from "react-hook-form"
@@ -9,6 +10,7 @@ export default function Help({ path }) {
   const [disabled, setDisabled] = useState(false)
   const [formComplete, setFormComplete] = useState(false)
   const [recaptchaPassed, setRecaptchaPassed] = useState(null)
+  const recaptchaSiteKey = process.env.RECAPTCHA_SITE_KEY
   const selectReason = [
     "Something Google Related",
     "Seesaw",
@@ -25,12 +27,59 @@ export default function Help({ path }) {
     reset,
     formState: { errors },
   } = useForm()
-  const reRef = React.useRef()
-  const onSubmit = async data => {
-    console.log("onSubmit Triggered")
+
+  const submitData = async (values, recaptchaToken) => {
+    setDisabled(true)
+    try {
+      const { name, email, reason, question } = values
+      await axios({
+        url: "/api/get-help",
+        method: "POST",
+        data: {
+          name,
+          email,
+          reason,
+          question,
+          recaptchaToken,
+        },
+      }).then(res => {
+        if (res.status === 200) {
+          reset()
+          setFormComplete(true)
+          setDisabled(false)
+        } else {
+          setRecaptchaPassed(false)
+        }
+      })
+    } catch (error) {
+      if (error.response) {
+        console.log("Server responded with non 2xx code: ", error.response.data)
+      } else if (error.request) {
+        console.log("No response received: ", error.request)
+      } else {
+        console.log("Error setting up response: ", error.message)
+      }
+    }
+  }
+  const onSubmit = async (values, actions) => {
+    // setDisabled(true)
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        .execute(recaptchaSiteKey, { action: "submit" })
+        .then(token => {
+          submitData(values, token)
+        })
+    })
   }
   return (
     <Layout path={path}>
+      <Helmet>
+        <script
+          key="recaptcha"
+          type="text/javascript"
+          src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+        />
+      </Helmet>
       <Seo title="Help" />
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <header className="mb-2 sm:mb-4 lg:mb-6 flex flex-col items-center">
@@ -47,17 +96,25 @@ export default function Help({ path }) {
         <section className="max-w-screen-sm mx-auto my-3 sm:my-4 md:my-5 lg:my-6">
           {recaptchaPassed === false && (
             <p className="text-center text-red-600 text-xl border border-red-600 p-4 rounded-md">
-              Oops! It looks like Google blocked your submission because it
-              thinks you are a robot. Your submission was not sent to us.
+              Hmm... this doesn't happen often. Google found this submission to
+              be suspicious and labled it as possible spam.
             </p>
           )}
           {formComplete && (
-            <button
-              onClick={() => setFormComplete(!formComplete)}
-              className="block mx-auto text-center items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:border-blue-600 focus:shadow-outline-blue active:bg-blue-600 transition ease-in-out duration-150"
-            >
-              Contact Us Again
-            </button>
+            <div>
+              <h2 className="text-center text-3xl font-teko text-green-800 dark:text-green-200">
+                Huzzah! Your message was received!
+              </h2>
+              <p className="prose dark:prose-dark prose-lg lg:prose-xl text-center">
+                Please give us up to 24 hours to respond.
+              </p>
+              <button
+                onClick={() => setFormComplete(!formComplete)}
+                className="mt-3 block mx-auto text-center items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-800 dark:bg-green-200 dark:text-green-900 hover:bg-green-900 dark:hover:bg-green-100 focus:outline-none focus:border-green-200 focus:shadow-outline-blue active:bg-green-200 transition ease-in-out duration-150"
+              >
+                Contact Us Again
+              </button>
+            </div>
           )}
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -151,13 +208,8 @@ export default function Help({ path }) {
               value="Submit"
               className={`w-1/3 px-6 py-3 mt-6 font-medium rounded-md text-white bg-green-800 dark:bg-green-200 dark:text-green-900 ${
                 disabled && ` opacity-40 text-gray-50 `
-              } hover:bg-green-900 dark:hover:bg-green-100 focus:outline-none focus:ring-4 focus:ring-yellow-300 rounded-sm transition duration-150 ease-in-out`}
+              } hover:bg-green-900 dark:hover:bg-green-100 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out`}
             />
-            {/* <ReCAPTCHA
-              sitekey={`6LeIMHIbAAAAAF-Eu5prLZNWXnwaadSsV8OYN1mP`}
-              size="invisible"
-              ref={reRef}
-            /> */}
           </form>
         </section>
       </div>
