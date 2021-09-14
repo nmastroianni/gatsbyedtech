@@ -41,9 +41,6 @@ const createTrelloCard = async (name, email, question, listId, members) => {
           idMembers: members,
           due: `${today.setDate(today.getDate() + 1)}`,
           idLabels: ["591af4f7ced82109ffa369cd"],
-        },
-        {
-          method: "POST",
         }
       )
       console.log("TRELLO: ", response)
