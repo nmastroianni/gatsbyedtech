@@ -11,6 +11,7 @@ export default function Help({ path }) {
   const [formComplete, setFormComplete] = useState(false)
   const [recaptchaPassed, setRecaptchaPassed] = useState(null)
   const recaptchaSiteKey = process.env.GRECAPTCHA_SITE_KEY
+  console.log(recaptchaSiteKey)
   const selectReason = [
     "Something Google Related",
     "Seesaw",
