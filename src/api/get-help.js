@@ -10,6 +10,7 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
           response: recaptchaToken,
         },
       })
+      console.log("RECAPTCHA ", response)
       return { successful: true, message: response.data.score }
     } catch (error) {
       let message
@@ -44,6 +45,7 @@ const createTrelloCard = async (name, email, question, listId, members) => {
           method: "POST",
         }
       )
+      console.log("TRELLO: ", response)
       return { successful: true, message: response }
     } catch (error) {
       console.log(error)
@@ -57,7 +59,6 @@ export default async function handler(req, res) {
     res.status(405).send("Method not allowed")
   } else {
     const { name, email, reason, question, recaptchaToken } = req.body
-    console.log(process.env.RECAPTCHA_SECRET_KEY)
     const recaptchaValidationResult = await recaptchaValidation({
       recaptchaToken,
     })
