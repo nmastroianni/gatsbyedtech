@@ -10,8 +10,6 @@ export default function Help({ path }) {
   const [disabled, setDisabled] = useState(false)
   const [formComplete, setFormComplete] = useState(false)
   const [recaptchaPassed, setRecaptchaPassed] = useState(null)
-  const recaptchaSiteKey = process.env.GRECAPTCHA_SITE_KEY
-  console.log(recaptchaSiteKey)
   const selectReason = [
     "Something Google Related",
     "Seesaw",
@@ -62,11 +60,11 @@ export default function Help({ path }) {
       }
     }
   }
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async values => {
     // setDisabled(true)
     window.grecaptcha.ready(() => {
       window.grecaptcha
-        .execute(recaptchaSiteKey, { action: "submit" })
+        .execute(process.env.GRECAPTCHA_SITE_KEY, { action: "submit" })
         .then(token => {
           submitData(values, token)
         })
@@ -78,7 +76,7 @@ export default function Help({ path }) {
         <script
           key="recaptcha"
           type="text/javascript"
-          src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.GRECAPTCHA_SITE_KEY}`}
         />
       </Helmet>
       <Seo title="Help" />
