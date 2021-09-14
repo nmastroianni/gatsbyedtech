@@ -64,7 +64,7 @@ export default function Help({ path }) {
     // setDisabled(true)
     window.grecaptcha.ready(() => {
       window.grecaptcha
-        .execute(process.env.GRECAPTCHA_SITE_KEY, { action: "submit" })
+        .execute(process.env.GATSBY_RECAPTCHA_SITE_KEY, { action: "submit" })
         .then(token => {
           submitData(values, token)
         })
@@ -76,7 +76,7 @@ export default function Help({ path }) {
         <script
           key="recaptcha"
           type="text/javascript"
-          src={`https://www.google.com/recaptcha/api.js?render=${process.env.GRECAPTCHA_SITE_KEY}`}
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`}
         />
       </Helmet>
       <Seo title="Help" />
@@ -173,7 +173,7 @@ export default function Help({ path }) {
                 required: "A reason is required.",
                 pattern: "^((?!Select).)*$",
               })}
-              className="form-select text-gray-500 block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              className="form-select text-gray-500 block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-gray-900 dark:text-white"
             >
               {selectReason.map((reason, i) => (
                 <option key={reason} value={reason}>
