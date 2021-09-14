@@ -133,13 +133,14 @@ export default async function handler(req, res) {
         //   cardMembers
         // )
         const today = new Date()
+        console.log(cardMembers)
         const axiosResponse = await axios.post(
           `https://api.trello.com/1/cards?idList=${listId}&key=${process.env.TRELLO_API_KEY}&token=${process.env.TRELLO_TOKEN}`,
           {
             name: `Question from ${name}: ${email}`,
             desc: question,
             pos: "bottom",
-            // idMembers: cardMembers,
+            idMembers: cardMembers,
             // due: `${today.setDate(today.getDate() + 1)}`,
             // idLabels: ["591af4f7ced82109ffa369cd"],
           },
