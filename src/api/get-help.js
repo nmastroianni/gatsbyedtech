@@ -57,7 +57,7 @@ export default async function handler(req, res) {
     res.status(405).send("Method not allowed")
   } else {
     const { name, email, reason, question, recaptchaToken } = req.body
-    console.log(reason)
+    console.log(process.env.RECAPTCHA_SECRET_KEY)
     const recaptchaValidationResult = await recaptchaValidation({
       recaptchaToken,
     })
