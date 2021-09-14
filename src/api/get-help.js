@@ -1,4 +1,14 @@
+/**
+ * Gatsby Cloud Function for EdTechWave.com/help
+ */
+// Import axios library for making post requests
 import axios from "axios"
+
+/**
+ * recaptchaValidation - Retrieves a score from Google based on user's interaction
+ * @param {string} recaptchaToken // This is the token received from the clientside ReCaptcha script
+ * @returns {object} // Object contains 2 properties 'successful' and 'message'
+ */
 const recaptchaValidation = async ({ recaptchaToken }) => {
   const result = await (async () => {
     try {
@@ -25,7 +35,15 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
   })()
   return result
 }
-
+/**
+ * createTrelloCard - Creates a Trello card if ReCaptcha not suspicious
+ * @param {string} name
+ * @param {string} email
+ * @param {string} question
+ * @param {string} listId
+ * @param {array} members
+ * @returns {object}
+ */
 const createTrelloCard = async (name, email, question, listId, members) => {
   const today = new Date()
   const result = await (async () => {
@@ -33,11 +51,17 @@ const createTrelloCard = async (name, email, question, listId, members) => {
       const response = await axios.post(
         `https://api.trello.com/1/cards?key=${process.env.TRELLO_API_KEY}&token=${process.env.TRELLO_TOKEN}&idList=${listId}`,
         {
+          // Card Title
           name: `Question from ${name}: ${email}`,
+          // Card Description/Body
           desc: question,
+          // Place the card at the bottom so older cards are near the top
           pos: "bottom",
+          // Assign the card to the appropriate person(s)
           idMembers: members,
+          // Give the card a 24 hour due date
           due: `${today.setDate(today.getDate() + 1)}`,
+          // Apply a red "New" label
           idLabels: ["591af4f7ced82109ffa369cd"],
         },
         {
@@ -51,26 +75,37 @@ const createTrelloCard = async (name, email, question, listId, members) => {
   })()
   return result
 }
-
+/**
+ * handler - takes the form submission and calls all other functions above
+ * @param {object} req
+ * @param {object} res
+ */
 export default async function handler(req, res) {
+  // Check if the method is post, if not set res to 405
   if (req.method !== "POST") {
     res.status(405).send("Method not allowed")
   } else {
+    // Grab the variables from the request body (sent from the form)
     const { name, email, reason, question, recaptchaToken } = req.body
+    // Check if Google thinks this interaction is suspicious
     const recaptchaValidationResult = await recaptchaValidation({
       recaptchaToken,
     })
+    // Check if Recaptcha was able to process the interaction
     if (!recaptchaValidationResult.successful) {
       // this is sent if the recaptcha was not successful
       res.status(400).send(recaptchaValidationResult.message)
     } else {
+      // Make sure the value returned is numeric
       const googleCaptchaScore = Number(recaptchaValidationResult.message)
-      // add logic for if the score is above or below desired value
+      // Arbitrarily setting the threshold of suspicion @ 0.5 adjust as needed
       if (googleCaptchaScore > 0.5) {
-        // console.log("not likely a bot! score = ", googleCaptchaScore)
-        // Do something with Trello here
+        // Since score is above 0.5, we proceed to create the Trello card
+        // Set board user ids here
         const lois = "57c8dfa7f3875581df71e4a4"
         const neil = "591ae9043510d2e9bf04bba9"
+        // Create static array of board's lists.
+        // Will need to manually update if lists are edited/added/removed
         const trelloLists = [
           {
             id: "591c41d61fb4165a2f164ecb",
@@ -113,12 +148,12 @@ export default async function handler(req, res) {
             members: [lois, neil],
           },
         ]
+        // Use the user's reason to filter the right list
+        // Grab that list's id and members
+        // Trigger the createTrelloCard function
         const selectedList = trelloLists.filter(list => list.name === reason)
-        console.log("Selected List: ", selectedList)
         const listId = selectedList[0].id
-        console.log(listId)
         const cardMembers = selectedList[0].members
-        console.log(cardMembers)
         const trelloResult = await createTrelloCard(
           name,
           email,
@@ -136,7 +171,6 @@ export default async function handler(req, res) {
             )
         }
       } else {
-        // console.log("this was likely a bot! score = ", googleCaptchaScore)
         // The ReCaptcha score was too low and we are not accepting this submission
         res.status(400).send("Action not taken, possible bot detected.")
       }
