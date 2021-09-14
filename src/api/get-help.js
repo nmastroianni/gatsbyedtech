@@ -57,7 +57,6 @@ export default async function handler(req, res) {
     res.status(405).send("Method not allowed")
   } else {
     const { name, email, reason, question, recaptchaToken } = req.body
-    console.log(reason)
     const recaptchaValidationResult = await recaptchaValidation({
       recaptchaToken,
     })
@@ -73,10 +72,6 @@ export default async function handler(req, res) {
         const lois = process.env.TRELLO_LOIS_ID
         const neil = process.env.TRELLO_NEIL_ID
         const trelloLists = [
-          {
-            id: "61389ace5bc13974fd861cc7",
-            name: "Site Content Ideas",
-          },
           {
             id: "591c41d61fb4165a2f164ecb",
             name: "Something Google Related",
@@ -117,14 +112,13 @@ export default async function handler(req, res) {
             name: "Other...",
             members: [lois, neil],
           },
-          {
-            id: "591c41e30f7dd29e350662f6",
-            name: "Completed",
-          },
         ]
         const selectedList = trelloLists.filter(list => list.name === reason)
+        console.log("Selected List: ", selectedList)
         const listId = selectedList[0].id
+        console.log(listId)
         const cardMembers = selectedList[0].members
+        console.log(cardMembers)
         const trelloResult = await createTrelloCard(
           name,
           email,
