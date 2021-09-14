@@ -36,9 +36,9 @@ const createTrelloCard = async (name, email, question, listId, members) => {
           name: `Question from ${name}: ${email}`,
           desc: question,
           pos: "bottom",
-          idMembers: members,
+          // idMembers: members,
           due: `${today.setDate(today.getDate() + 1)}`,
-          idLabels: ["591af4f7ced82109ffa369cd"],
+          // idLabels: ["591af4f7ced82109ffa369cd"],
         },
         {
           method: "POST",
@@ -125,32 +125,15 @@ export default async function handler(req, res) {
         const selectedList = trelloLists.filter(list => list.name === reason)
         const listId = selectedList[0].id
         const cardMembers = selectedList[0].members
-        // const trelloResult = await createTrelloCard(
-        //   name,
-        //   email,
-        //   question,
-        //   listId,
-        //   cardMembers
-        // )
-        const today = new Date()
-        console.log(cardMembers)
-        const axiosResponse = await axios.post(
-          `https://api.trello.com/1/cards?idList=${listId}&key=${process.env.TRELLO_API_KEY}&token=${process.env.TRELLO_TOKEN}`,
-          {
-            name: `Question from ${name}: ${email}`,
-            desc: question,
-            pos: "bottom",
-            idMembers: cardMembers,
-            // due: `${today.setDate(today.getDate() + 1)}`,
-            // idLabels: ["591af4f7ced82109ffa369cd"],
-          },
-          {
-            method: "POST",
-          }
+        const trelloResult = await createTrelloCard(
+          name,
+          email,
+          question,
+          listId,
+          cardMembers
         )
-        console.log(axiosResponse.status)
-        if (axiosResponse.status === 200) {
-          res.status(200).send("Card Created")
+        if (trelloResult.message.status === 200) {
+          res.status(200).send("Action taken")
         } else {
           res
             .status(400)
