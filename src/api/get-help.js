@@ -139,9 +139,9 @@ export default async function handler(req, res) {
             name: `Question from ${name}: ${email}`,
             desc: question,
             pos: "bottom",
-            idMembers: cardMembers,
-            due: `${today.setDate(today.getDate() + 1)}`,
-            idLabels: ["591af4f7ced82109ffa369cd"],
+            // idMembers: cardMembers,
+            // due: `${today.setDate(today.getDate() + 1)}`,
+            // idLabels: ["591af4f7ced82109ffa369cd"],
           },
           {
             method: "POST",
