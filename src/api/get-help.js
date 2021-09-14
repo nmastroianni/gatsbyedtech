@@ -10,7 +10,7 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
           response: recaptchaToken,
         },
       })
-      console.log("RECAPTCHA ", response)
+      console.log("RECAPTCHA ", response.data.score)
       return { successful: true, message: response.data.score }
     } catch (error) {
       let message
@@ -29,6 +29,7 @@ const recaptchaValidation = async ({ recaptchaToken }) => {
 
 const createTrelloCard = async (name, email, question, listId, members) => {
   const today = new Date()
+  console.log("DATE CREATED: ", today)
   const result = await (async () => {
     try {
       const response = await axios.post(
@@ -48,7 +49,7 @@ const createTrelloCard = async (name, email, question, listId, members) => {
       console.log("TRELLO: ", response)
       return { successful: true, message: response }
     } catch (error) {
-      console.log(error)
+      console.log("TRELLO ERROR: ", error)
     }
   })()
   return result
