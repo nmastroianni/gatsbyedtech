@@ -36,9 +36,9 @@ const createTrelloCard = async (name, email, question, listId, members) => {
           name: `Question from ${name}: ${email}`,
           desc: question,
           pos: "bottom",
-          // idMembers: members,
+          idMembers: members,
           due: `${today.setDate(today.getDate() + 1)}`,
-          // idLabels: ["591af4f7ced82109ffa369cd"],
+          idLabels: ["591af4f7ced82109ffa369cd"],
         },
         {
           method: "POST",
@@ -69,8 +69,8 @@ export default async function handler(req, res) {
       if (googleCaptchaScore > 0.5) {
         // console.log("not likely a bot! score = ", googleCaptchaScore)
         // Do something with Trello here
-        const lois = process.env.TRELLO_LOIS_ID
-        const neil = process.env.TRELLO_NEIL_ID
+        const lois = "57c8dfa7f3875581df71e4a4"
+        const neil = "591ae9043510d2e9bf04bba9"
         const trelloLists = [
           {
             id: "591c41d61fb4165a2f164ecb",
