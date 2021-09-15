@@ -55,6 +55,7 @@ export const query = graphql`
           ...HomepageDataBodySectionHeading
           ...HomepageDataBodyText
           ...HomepageDataBodyContentGrid
+          ...HomepageDataBodyYoutubeHighlight
         }
       }
     }

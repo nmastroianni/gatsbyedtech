@@ -4,6 +4,13 @@ import { ImageHighlight } from "./ImageHighlight"
 // import { Quote } from "./Quote"
 import { Text } from "./Text"
 import { ContentGrid } from "./ContentGrid"
-// import { YouTubeSingle } from "./YouTube-single"
+import { YouTubeHighlight } from "./YouTubeHighlight"
 
-export { ContentGrid, FullWidthImage, ImageHighlight, SectionHeading, Text }
+export {
+  ContentGrid,
+  FullWidthImage,
+  ImageHighlight,
+  SectionHeading,
+  Text,
+  YouTubeHighlight,
+}

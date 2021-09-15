@@ -5,6 +5,7 @@ import {
   ImageHighlight,
   SectionHeading,
   Text,
+  YouTubeHighlight,
 } from "../slices"
 
 export default function SliceZone({ sliceZone }) {
@@ -16,7 +17,7 @@ export default function SliceZone({ sliceZone }) {
     // quote: Quote,
     section_heading: SectionHeading,
     text: Text,
-    // youtube: YouTubeSingle,
+    youtube_highlight: YouTubeHighlight,
   }
 
   const sliceZoneContent = sliceZone.map((slice, index) => {
