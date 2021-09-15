@@ -11,7 +11,7 @@ require("dotenv").config({
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    siteUrl: `https://longbranch.k12.nj.us`,
+    siteUrl: `https://edtechwave.com`,
     title: "LBPS EdTech",
     description:
       "The Educational Technology Department at Long Branch Public Schools is dedicated to helping staff make the most of the digital tools at their disposal so that all stakeholders may thrive.",
