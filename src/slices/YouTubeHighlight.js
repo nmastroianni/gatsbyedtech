@@ -37,7 +37,11 @@ export const YouTubeHighlight = ({ slice }) => {
             <div className="bg-gradient-to-b from-black to-gray-900 aspect-w-16 aspect-h-9 rounded-md">
               {provider_name !== "video.other" && (
                 <iframe
-                  title={RichText.asText(youtube_title.raw)}
+                  title={
+                    youtube_title.raw
+                      ? RichText.asText(youtube_title.raw)
+                      : title
+                  }
                   className="rounded-md"
                   src={video}
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -46,7 +50,11 @@ export const YouTubeHighlight = ({ slice }) => {
                   srcDoc={`<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style>
                         <a href=${video}>
                           <img
-                            src=${youtube_thumbnail.url}
+                            src=${
+                              youtube_thumbnail.url
+                                ? youtube_thumbnail.url
+                                : thumbnail_url
+                            }
                             srcset=${getSrcSet(
                               youtube_thumbnail.gatsbyImageData
                             )}
@@ -70,7 +78,7 @@ export const YouTubeHighlight = ({ slice }) => {
           {/* BEGIN RIGHT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
             <h2 className="text-center text-green-800 dark:text-green-200 font-teko text-3xl md:text-4xl">
-              {RichText.asText(youtube_title.raw)}
+              {youtube_title.raw ? RichText.asText(youtube_title.raw) : title}
             </h2>
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
             <div className="prose prose-green lg:prose-xl dark:prose-dark">
@@ -91,7 +99,7 @@ export const YouTubeHighlight = ({ slice }) => {
           {/* BEGIN LEFT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
             <h2 className="text-center text-green-800 dark:text-green-200 font-teko text-3xl md:text-4xl">
-              {RichText.asText(youtube_title.raw)}
+              {youtube_title.raw ? RichText.asText(youtube_title.raw) : title}
             </h2>
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
             <div className="prose prose-green lg:prose-xl dark:prose-dark">
@@ -107,7 +115,11 @@ export const YouTubeHighlight = ({ slice }) => {
             <div className="bg-gradient-to-b from-black to-gray-900 aspect-w-16 aspect-h-9 rounded-md">
               {provider_name !== "video.other" && (
                 <iframe
-                  title={RichText.asText(youtube_title.raw)}
+                  title={
+                    youtube_title.raw
+                      ? RichText.asText(youtube_title.raw)
+                      : title
+                  }
                   className="rounded-md"
                   src={video}
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -146,6 +158,72 @@ export const YouTubeHighlight = ({ slice }) => {
 
 export const query = graphql`
   fragment HomepageDataBodyYoutubeHighlight on PrismicHomepageDataBodyYoutubeHighlight {
+    id
+    primary {
+      youtube_description {
+        raw
+      }
+      youtube_embed {
+        embed_url
+        provider_name
+        thumbnail_url
+        title
+      }
+      youtube_position
+      youtube_thumbnail {
+        gatsbyImageData(srcSetMinWidth: 320)
+        url
+      }
+      youtube_title {
+        raw
+      }
+    }
+  }
+  fragment PageDataBodyYoutubeHighlight on PrismicPageDataBodyYoutubeHighlight {
+    id
+    primary {
+      youtube_description {
+        raw
+      }
+      youtube_embed {
+        embed_url
+        provider_name
+        thumbnail_url
+        title
+      }
+      youtube_position
+      youtube_thumbnail {
+        gatsbyImageData(srcSetMinWidth: 320)
+        url
+      }
+      youtube_title {
+        raw
+      }
+    }
+  }
+  fragment PostDataBodyYoutubeHighlight on PrismicPostDataBodyYoutubeHighlight {
+    id
+    primary {
+      youtube_description {
+        raw
+      }
+      youtube_embed {
+        embed_url
+        provider_name
+        thumbnail_url
+        title
+      }
+      youtube_position
+      youtube_thumbnail {
+        gatsbyImageData(srcSetMinWidth: 320)
+        url
+      }
+      youtube_title {
+        raw
+      }
+    }
+  }
+  fragment ToolDataBodyYoutubeHighlight on PrismicToolDataBodyYoutubeHighlight {
     id
     primary {
       youtube_description {

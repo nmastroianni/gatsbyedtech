@@ -35,6 +35,8 @@ export const query = graphql`
           ...PageDataBodyText
           ...PageDataBodyFullWidthImage
           ...PageDataBodyImageHighlight
+          ...PageDataBodyYoutubeHighlight
+          ...PageDataBodyContentGrid
         }
       }
     }

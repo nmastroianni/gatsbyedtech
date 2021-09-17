@@ -187,6 +187,8 @@ export const query = graphql`
           ...PostDataBodyText
           ...PostDataBodyFullWidthImage
           ...PostDataBodyImageHighlight
+          ...PostDataBodyYoutubeHighlight
+          ...PostDataBodyContentGrid
         }
       }
     }
