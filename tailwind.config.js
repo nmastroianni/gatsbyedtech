@@ -74,6 +74,9 @@ module.exports = {
             a: {
               color: "#065F46",
             },
+            h2: {
+              color: "#065F46",
+            },
           },
         },
       }),
