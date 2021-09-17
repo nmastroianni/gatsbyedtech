@@ -23,7 +23,7 @@ export const ImageHighlight = ({ slice }) => {
         {/* Grid Div */}
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center items-center">
           {/* Left Side Prose Div */}
-          <div className="prose md:prose-xl prose-green dark:prose-dark p-3 md:p-4 lg:p-6 w-full dark:text-white">
+          <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading Div */}
             <div className="text-center md:text-left">
               <RichText
@@ -156,7 +156,7 @@ export const ImageHighlight = ({ slice }) => {
           </div>
           {/* END LEFT SIDE IMAGE DIV*/}
           {/* Right Side Prose Div */}
-          <div className="prose md:prose-xl prose-green dark:prose-dark p-3 md:p-4 lg:p-6 w-full dark:text-white">
+          <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading Div */}
             <div className="text-center md:text-left">
               <RichText
