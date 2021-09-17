@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getSrcSet } from "gatsby-plugin-image"
 import htmlSerializer from "../utils/htmlSerializer"
 
 export const YouTubeHighlight = ({ slice }) => {
@@ -14,6 +14,7 @@ export const YouTubeHighlight = ({ slice }) => {
       youtube_title,
     },
   } = slice
+  console.log(getSrcSet(youtube_thumbnail.gatsbyImageData))
   // Get the proper video data based on the video source
   let video
   let videoPosition
@@ -47,17 +48,12 @@ export const YouTubeHighlight = ({ slice }) => {
                         <a href=${video}>
                           <img
                             src=${youtube_thumbnail.url}
+                            srcset=${getSrcSet(
+                              youtube_thumbnail.gatsbyImageData
+                            )}
                             alt='Decortaive' />
                           <span>&#x25BA;</span>
-                          ${
-                            youtube_thumbnail.alt && (
-                              <GatsbyImage
-                                image={getImage(
-                                  youtube_thumbnail.gatsbyImageData
-                                )}
-                              />
-                            )
-                          }
+                          
                         </a>`}
                 ></iframe>
               )}
@@ -119,6 +115,7 @@ export const query = graphql`
       }
       youtube_position
       youtube_thumbnail {
+        gatsbyImageData(srcSetMinWidth: 320)
         url
       }
       youtube_title {
