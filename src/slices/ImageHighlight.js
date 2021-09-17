@@ -23,21 +23,20 @@ export const ImageHighlight = ({ slice }) => {
         {/* Grid Div */}
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center items-center">
           {/* Left Side Prose Div */}
-          <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
-            {/* Heading Div */}
-            <div className="text-center md:text-left">
+          <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
+            {/* Heading */}
+            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-green-800 dark:text-green-200">
+              {RichText.asText(image_highlight_heading.raw)}
+            </h2>
+            {/* END HEADING DIV */}
+            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
+            {/* Image Description */}
+            <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
-                render={image_highlight_heading.raw}
+                render={image_highlight_description.raw}
                 htmlSerializer={htmlSerializer}
               />
             </div>
-            {/* END HEADING DIV */}
-            <hr className="mb-0" />
-            {/* Image Description */}
-            <RichText
-              render={image_highlight_description.raw}
-              htmlSerializer={htmlSerializer}
-            />
             {/* END IMAGE DESCRIPTION */}
             {/* !# Conditionally Render Link if URL provided */}
 
@@ -156,21 +155,20 @@ export const ImageHighlight = ({ slice }) => {
           </div>
           {/* END LEFT SIDE IMAGE DIV*/}
           {/* Right Side Prose Div */}
-          <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
-            {/* Heading Div */}
-            <div className="text-center md:text-left">
+          <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
+            {/* Heading */}
+            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-green-800 dark:text-green-200">
+              {RichText.asText(image_highlight_heading.raw)}
+            </h2>
+            {/* END HEADING DIV */}
+            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
+            {/* Image Description */}
+            <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
-                render={image_highlight_heading.raw}
+                render={image_highlight_description.raw}
                 htmlSerializer={htmlSerializer}
               />
             </div>
-            {/* END HEADING DIV */}
-            <hr className="mb-0" />
-            {/* Image Description */}
-            <RichText
-              render={image_highlight_description.raw}
-              htmlSerializer={htmlSerializer}
-            />
             {/* END IMAGE DESCRIPTION */}
             {/* !# Conditionally Render Link if URL provided */}
             {image_highlight_link.url !== null && image_highlight_link_text ? (
