@@ -3,8 +3,15 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import { Link } from "gatsby"
 import Thinker from "../components/Thinker"
+import {
+  withPrismicUnpublishedPreview,
+  componentResolverFromMap,
+} from "gatsby-plugin-prismic-previews"
+import { linkResolver } from "../utils/linkResolver"
+import PageTemplate from "./{PrismicPage.url}"
+import PostTemplate from "./{PrismicPost.url}"
 
-export default function NotFoundPage({ location: { pathname } }) {
+const NotFoundPage = ({ location: { pathname } }) => {
   return (
     <Layout path={pathname}>
       <Seo title="Resource Not Found" />
@@ -26,3 +33,14 @@ export default function NotFoundPage({ location: { pathname } }) {
     </Layout>
   )
 }
+
+export default withPrismicUnpublishedPreview(NotFoundPage, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+    componentResolver: componentResolverFromMap({
+      post: PostTemplate,
+      page: PageTemplate,
+    }),
+  },
+])
