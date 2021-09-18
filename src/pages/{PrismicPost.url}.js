@@ -6,7 +6,10 @@ import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
 import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
-import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import {
+  withPrismicPreview,
+  useMergePrismicPreviewData,
+} from "gatsby-plugin-prismic-previews"
 import { linkResolver } from "../utils/linkResolver"
 import {
   FaLinkedin,
@@ -69,8 +72,9 @@ const AuthorCard = ({ description, image, name, socials }) => {
 }
 
 const PrismicPost = ({ data, path }) => {
+  const queryData = useMergePrismicPreviewData(data)
   if (!data) return null
-  const document = data.post
+  const document = queryData.data.prismicPost
   const {
     data: { body, post_authors, post_featured_image, post_title },
     first_publication_date,
@@ -140,7 +144,7 @@ const PrismicPost = ({ data, path }) => {
 
 export const query = graphql`
   query PostQuery($id: String) {
-    post: prismicPost(id: { eq: $id }) {
+    prismicPost(id: { eq: $id }) {
       _previewable
       first_publication_date(formatString: "MMMM Do, YYYY")
       tags
