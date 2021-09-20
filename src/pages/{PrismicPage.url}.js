@@ -3,12 +3,16 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
-import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import {
+  withPrismicPreview,
+  useMergePrismicPreviewData,
+} from "gatsby-plugin-prismic-previews"
 import { linkResolver } from "../utils/linkResolver"
 
 const PrismicPage = ({ data, path }) => {
+  const queryData = useMergePrismicPreviewData(data)
   if (!data) return null
-  const document = data.page.data
+  const document = queryData.data.page.data
   return (
     <Layout path={path}>
       <Seo title={document.page_title.text} />

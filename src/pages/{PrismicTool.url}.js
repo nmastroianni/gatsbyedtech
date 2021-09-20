@@ -4,12 +4,17 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
-import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
+import {
+  withPrismicPreview,
+  useMergePrismicPreviewData,
+} from "gatsby-plugin-prismic-previews"
 import { linkResolver } from "../utils/linkResolver"
 
 const PrismicTool = ({ data, path }) => {
+  const queryData = useMergePrismicPreviewData(data)
+  console.log(queryData)
   if (!data) return null
-  const document = data.tool.data
+  const document = queryData.data.tool.data
   return (
     <Layout path={path}>
       <Seo title={document.tool_title.text} />

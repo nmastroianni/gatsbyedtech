@@ -10,6 +10,7 @@ import {
 import { linkResolver } from "../utils/linkResolver"
 import PageTemplate from "./{PrismicPage.url}"
 import PostTemplate from "./{PrismicPost.url}"
+import ToolTemplate from "./{PrismicTool.url}"
 
 const NotFoundPage = ({ location: { pathname } }) => {
   return (
@@ -41,6 +42,7 @@ export default withPrismicUnpublishedPreview(NotFoundPage, [
     componentResolver: componentResolverFromMap({
       post: PostTemplate,
       page: PageTemplate,
+      tool: ToolTemplate,
     }),
   },
 ])
