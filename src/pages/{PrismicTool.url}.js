@@ -12,7 +12,6 @@ import { linkResolver } from "../utils/linkResolver"
 
 const PrismicTool = ({ data, path }) => {
   const queryData = useMergePrismicPreviewData(data)
-  console.log(queryData)
   if (!data) return null
   const document = queryData.data.tool.data
   return (
