@@ -67,6 +67,9 @@ module.exports = {
               border: `3px solid rgba(52,211,153, 1)`,
               borderRadius: `2px`,
             },
+            strong: {
+              color: "#34D399",
+            },
           },
         },
         green: {
