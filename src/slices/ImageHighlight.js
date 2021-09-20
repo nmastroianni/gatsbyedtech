@@ -41,7 +41,7 @@ export const ImageHighlight = ({ slice }) => {
             {/* !# Conditionally Render Link if URL provided */}
 
             {image_highlight_link.url ? (
-              <p className="text-center md:text-left">
+              <p className="font-source text-center md:text-left">
                 {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
                   <a
@@ -172,7 +172,7 @@ export const ImageHighlight = ({ slice }) => {
             {/* END IMAGE DESCRIPTION */}
             {/* !# Conditionally Render Link if URL provided */}
             {image_highlight_link.url !== null && image_highlight_link_text ? (
-              <p className="text-center md:text-left">
+              <p className="font-source text-center md:text-left">
                 {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
                   <a
