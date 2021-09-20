@@ -17,7 +17,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
           alt="decorative image "
         />
         <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-green-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
-          <h2 className="text-center inline-block p-4 bg-green-900 text-white rounded-md leading-none grayscale-0">
+          <h2 className="text-center absolute -top-4 p-4 bg-green-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
             {title.text}
           </h2>
         </div>
@@ -53,7 +53,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
       <footer className=" dark:bg-gray-800 dark:text-white py-8 rounded-b-md text-center">
         <Link
           to={url}
-          className=" px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
+          className="font-source px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
         >
           Read This Article
         </Link>
@@ -110,7 +110,7 @@ export default function Blog({
               url,
             } = post
             return (
-              <li key={prismicId}>
+              <li key={prismicId} className="my-8">
                 <BlogCard
                   title={post_title}
                   authors={post_authors}
