@@ -22,6 +22,7 @@
     "gatsby": "^3.10.1",
     "gatsby-plugin-gatsby-cloud": "^3.1.0",
     "gatsby-plugin-google-gtag": "^3.10.0",
+    "gatsby-plugin-google-tagmanager": "^3.14.0",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-manifest": "^3.13.0",
     "gatsby-plugin-postcss": "^4.10.0",
