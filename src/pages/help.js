@@ -72,13 +72,13 @@ export default function Help({ path }) {
   }
   return (
     <Layout path={path}>
-      <Helmet>
+      {/* <Helmet>
         <script
           key="recaptcha"
           type="text/javascript"
           src={`https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`}
         />
-      </Helmet>
+      </Helmet> */}
       <Seo title="Help" />
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <header className="mb-2 sm:mb-4 lg:mb-6 flex flex-col items-center">
