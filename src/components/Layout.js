@@ -26,7 +26,10 @@ export default function Layout({ children, path }) {
           <Link to="/privacy">Learn more</Link>
         </div>
         <div className="grid grid-cols-2 text-green-800 dark:text-green-200">
-          <button className="px-2 py-3 border border-green-800 dark:border-green-400 transition duration-300 ease-in-out dark:hover:text-green-300 hover:bg-green-200 dark:hover:bg-gray-800 hover:bg-opacity-50 rounded mr-3">
+          <button
+            id="decline-tracking"
+            className="px-2 py-3 border border-green-800 dark:border-green-400 transition duration-300 ease-in-out dark:hover:text-green-300 hover:bg-green-200 dark:hover:bg-gray-800 hover:bg-opacity-50 rounded mr-3"
+          >
             <HiThumbDown className="inline" /> Decline
           </button>
           <button
