@@ -23,7 +23,29 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
-    //`gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://edtechwave.com/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {},
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://edtechwave.com/`,
+        sitemap: `https://edtechwave.com/sitemap/sitemap-index.xml`,
+        policy: [
+          {
+            userAgent: "*",
+            allow: "/",
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -66,6 +88,12 @@ module.exports = {
       options: {
         id: "GTM-TPP7P3V",
         includeInDevelopment: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-force-trailing-slashes`,
+      options: {
+        excludePaths: [`/404.html`],
       },
     },
   ],
