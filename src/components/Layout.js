@@ -17,7 +17,7 @@ export default function Layout({ children, path }) {
     <div className="relative">
       <div
         id="tracking-consent"
-        className="fixed opacity-0 transition duration-700 ease-in-out bg-gray-200 dark:bg-gray-700 rounded p-3 md:p-4 lg:p-6 w-full md:w-1/2 lg:w-1/3 left-1/2 transform -translate-x-1/2 top-10 z-50"
+        className="fixed border-4 border-double border-yellow-300 opacity-0 transition duration-700 ease-in-out bg-gray-200 dark:bg-gray-700 rounded p-3 md:p-4 lg:p-6 w-full md:w-1/2 lg:w-1/3 left-1/2 transform -translate-x-1/2 top-10 z-50"
       >
         <header className="prose dark:prose-dark">
           This site uses cookies to measure how visitors use our site.
