@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import axios from "axios"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import { useForm } from "react-hook-form"
@@ -70,15 +70,19 @@ export default function Help({ path }) {
         })
     })
   }
+  useEffect(() => {
+    const badge = document.querySelector(".grecaptcha-badge")
+    badge.classList.add("invisible")
+  }, [])
   return (
     <Layout path={path}>
-      {/* <Helmet>
+      <Helmet>
         <script
           key="recaptcha"
           type="text/javascript"
           src={`https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`}
         />
-      </Helmet> */}
+      </Helmet>
       <Seo title="Help" />
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <header className="mb-2 sm:mb-4 lg:mb-6 flex flex-col items-center">
@@ -209,6 +213,17 @@ export default function Help({ path }) {
                 disabled && ` opacity-40 text-gray-50 `
               } hover:bg-green-900 dark:hover:bg-green-100 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out`}
             />
+            <div className="mt-3 md:mt-4 lg:mt-6 prose prose-sm dark:prose-dark">
+              <p>
+                This site is protected by reCAPTCHA and the{" "}
+                <a href="https://policies.google.com/privacy">
+                  Google Privacy Policy
+                </a>{" "}
+                and{" "}
+                <a href="https://policies.google.com/terms">Terms of Service</a>{" "}
+                apply.
+              </p>
+            </div>
           </form>
         </section>
       </div>
