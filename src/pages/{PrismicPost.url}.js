@@ -76,13 +76,24 @@ const PrismicPost = ({ data, path }) => {
   if (!data) return null
   const document = queryData.data.prismicPost
   const {
-    data: { body, post_authors, post_featured_image, post_title },
+    data: { body, post_authors, post_featured_image, post_title, post_excerpt },
     first_publication_date,
     //tags,
   } = document
   return (
     <Layout path={path}>
-      <Seo title={post_title.text} />
+      <Seo
+        title={post_title.text}
+        description={post_excerpt.text ? post_excerpt.text : ""}
+        image={
+          post_featured_image.gatsbyImageData
+            ? `${
+                getImage(post_featured_image.gatsbyImageData).images.fallback
+                  .src
+              }`
+            : `${data.site.siteMetadata.siteUrl}${data.site.siteMetadata.siteImage}`
+        }
+      />
       <section className="relative bg-gray-200 dark:bg-gray-900">
         <div className=" max-w-screen-2xl mx-auto">
           <GatsbyImage
@@ -152,6 +163,9 @@ export const query = graphql`
         post_title {
           text
         }
+        post_excerpt {
+          text
+        }
         post_featured_image {
           alt
           gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
@@ -194,6 +208,11 @@ export const query = graphql`
           ...PostDataBodyYoutubeHighlight
           ...PostDataBodyContentGrid
         }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }
