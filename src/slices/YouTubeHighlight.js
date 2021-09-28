@@ -5,7 +5,6 @@ import { getSrcSet } from "gatsby-plugin-image"
 import htmlSerializer from "../utils/htmlSerializer"
 
 export const YouTubeHighlight = ({ slice }) => {
-  console.log(slice)
   const {
     primary: {
       youtube_description,
