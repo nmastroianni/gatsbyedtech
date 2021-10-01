@@ -22,17 +22,17 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
           />
 
           <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-green-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
-            <h2 className="text-center absolute -top-4 p-4 bg-green-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
+            <h1 className="text-center absolute -top-4 p-4 bg-green-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
               {title.text}
-            </h2>
+            </h1>
           </div>
         </header>
       </Link>
       <div className="dark:bg-gray-800 dark:text-white p-4">
         <div className="flex justify-center flex-wrap">
-          <h3 className="font-teko text-xl dark:text-green-200 ">
+          <p className="font-teko text-xl dark:text-green-200 ">
             Published on {date} by{" "}
-          </h3>
+          </p>
           <ul className="list-none font-teko text-xl dark:text-green-200 ml-1">
             {authors.map((author, i) => {
               return (
@@ -83,9 +83,9 @@ export default function Blog({
             EdTech Blog
           </h1>
           {numPages > 1 ? (
-            <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-green-700 dark:text-green-100 font-teko">
+            <p className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-green-700 dark:text-green-100 font-teko">
               Page {currentPage} of {numPages}
-            </h2>
+            </p>
           ) : (
             <></>
           )}
