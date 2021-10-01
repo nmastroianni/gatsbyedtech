@@ -10,20 +10,25 @@ import { Pagination } from "../components/Pagination"
 const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
   return (
     <article className="rounded-md shadow-md">
-      <header className="relative">
-        <GatsbyImage
-          className="inset-0 z-0 h-60 rounded-t-md filter grayscale"
-          image={getImage(image.gatsbyImageData)}
-          alt="decorative image "
-        />
-        <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-green-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
-          <h2 className="text-center absolute -top-4 p-4 bg-green-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
-            {title.text}
-          </h2>
-        </div>
-      </header>
+      <Link
+        to={url}
+        className="focus:outline-none focus:ring-4 focus:ring-green-300 block rounded-t"
+      >
+        <header className="relative">
+          <GatsbyImage
+            className="inset-0 z-0 h-60 rounded-t-md filter grayscale"
+            image={getImage(image.gatsbyImageData)}
+            alt=""
+          />
 
-      <section className="dark:bg-gray-800 dark:text-white p-4">
+          <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-green-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
+            <h2 className="text-center absolute -top-4 p-4 bg-green-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
+              {title.text}
+            </h2>
+          </div>
+        </header>
+      </Link>
+      <div className="dark:bg-gray-800 dark:text-white p-4">
         <div className="flex justify-center flex-wrap">
           <h3 className="font-teko text-xl dark:text-green-200 ">
             Published on {date} by{" "}
@@ -49,7 +54,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
         <div className="prose prose-lg dark:prose-dark mx-auto">
           <RichText render={excerpt.raw} htmlSerializer={htmlSerializer} />
         </div>
-      </section>
+      </div>
       <footer className=" dark:bg-gray-800 dark:text-white py-8 rounded-b-md text-center">
         <Link
           to={url}
