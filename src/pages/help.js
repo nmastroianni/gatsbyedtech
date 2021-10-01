@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import axios from "axios"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import { useForm } from "react-hook-form"
@@ -70,10 +70,12 @@ export default function Help({ path }) {
         })
     })
   }
-  useEffect(() => {
-    const badge = document.querySelector(".grecaptcha-badge")
-    badge.classList.add("invisible")
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const badge = document.querySelector(".grecaptcha-badge")
+  //     badge.classList.add("invisible")
+  //   }, 200)
+  // }, [])
   return (
     <Layout path={path}>
       <Helmet>
