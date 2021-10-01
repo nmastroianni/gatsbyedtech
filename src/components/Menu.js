@@ -81,7 +81,7 @@ export default function HeadlessMenu({ path }) {
                     <Menu.Item key={`topnav-${i}`}>
                       {({ active }) => (
                         <Link
-                          to={item.link.url}
+                          to={`${item.link.url}/`}
                           className={`${
                             active
                               ? "bg-green-900 hover:text-white focus:text-white"
@@ -119,7 +119,7 @@ export default function HeadlessMenu({ path }) {
                           to={item.link.raw.url.substring(22)}
                           className={`${
                             active
-                              ? "bg-green-700 text-white"
+                              ? "bg-green-900 text-white"
                               : "text-gray-900 dark:text-gray-50"
                           } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
@@ -200,7 +200,7 @@ export default function HeadlessMenu({ path }) {
               <Menu.Item>
                 {({ active }) => (
                   <Link
-                    to="/help"
+                    to="/help/"
                     className={`${
                       active
                         ? "bg-green-900 text-white"
