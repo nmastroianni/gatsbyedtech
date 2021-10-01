@@ -30,10 +30,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {},
-    },
-    {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://edtechwave.com/`,
@@ -94,6 +90,12 @@ module.exports = {
       resolve: `gatsby-plugin-force-trailing-slashes`,
       options: {
         excludePaths: [`/404.html`],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: ["/preview/"],
       },
     },
   ],
