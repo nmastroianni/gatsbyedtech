@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
@@ -16,7 +16,11 @@ const PrismicTool = ({ data, path }) => {
   const document = queryData.data.tool.data
   return (
     <Layout path={path}>
-      <Seo title={document.tool_title.text} />
+      <Seo
+        title={document.tool_title.text}
+        description={document.tool_description.text}
+        image={getSrc(document.tool_logo.gatsbyImageData)}
+      />
       <header>
         <div className="flex flex-col justify-center items-center md:flex-row md:divide-x-4 divide-green-700 dark:divide-green-200 py-6">
           <GatsbyImage
@@ -58,6 +62,7 @@ export const query = graphql`
         }
         tool_description {
           raw
+          text
         }
         body {
           ... on PrismicSliceType {

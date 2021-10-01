@@ -37,7 +37,11 @@ export default function Tools({
 }) {
   return (
     <Layout path={path}>
-      <Seo title="Tools" locale="en-US" />
+      <Seo
+        title="Tools"
+        locale="en-US"
+        description="There are many EdTech tools out there. Take a look at some of the ones we think are great."
+      />
       <div className="mx-auto flex flex-col justify-between ">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
           <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-200 font-teko">

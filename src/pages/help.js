@@ -61,7 +61,6 @@ export default function Help({ path }) {
     }
   }
   const onSubmit = async values => {
-    // setDisabled(true)
     window.grecaptcha.ready(() => {
       window.grecaptcha
         .execute(process.env.GATSBY_RECAPTCHA_SITE_KEY, { action: "submit" })
@@ -70,12 +69,7 @@ export default function Help({ path }) {
         })
     })
   }
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     const badge = document.querySelector(".grecaptcha-badge")
-  //     badge.classList.add("invisible")
-  //   }, 200)
-  // }, [])
+
   return (
     <Layout path={path}>
       <Helmet>
@@ -85,12 +79,15 @@ export default function Help({ path }) {
           src={`https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`}
         />
       </Helmet>
-      <Seo title="Help" />
+      <Seo
+        title="Help"
+        description="Tell us how we can help you. We are waiting to hear from you!"
+      />
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <header className="mb-2 sm:mb-4 lg:mb-6 flex flex-col items-center">
           <div>
             <h1 className="font-teko text-6xl my-3 md:my-4 lg:my-6 text-green-800 dark:text-green-200">
-              GET HELP
+              Get Help
             </h1>
           </div>
           <h2 className="text-sm dark:text-green-200 text-gray-700 max-w-screen-sm">

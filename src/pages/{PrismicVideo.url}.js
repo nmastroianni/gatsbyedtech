@@ -26,7 +26,15 @@ const PrismicVideo = ({ data, path }) => {
   const videoSrc = getVideoSrc(document.video_embed.embed_url)
   return (
     <Layout path={path}>
-      <Seo title={document.video_title.text} />
+      <Seo
+        title={document.video_title.text}
+        description={document.video_description.text}
+        image={
+          document.video_embed.thumbnail_url
+            ? document.video_embed.thumbnail_url
+            : null
+        }
+      />
       <div className="bg-black p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 shadow-md">
         <div className="max-w-4xl mx-auto">
           <div className="aspect-w-16 aspect-h-9">
@@ -68,6 +76,7 @@ export const query = graphql`
       data {
         video_description {
           raw
+          text
         }
         video_embed {
           embed_url

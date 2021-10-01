@@ -15,7 +15,7 @@ module.exports = {
     title: "LBPS EdTech",
     description:
       "The Educational Technology Department at Long Branch Public Schools is dedicated to helping staff make the most of the digital tools at their disposal so that all stakeholders may thrive.",
-    siteImage: "/favicon.ico",
+    siteImage: "/defaultSiteImage.png",
   },
   plugins: [
     `gatsby-plugin-postcss`,
