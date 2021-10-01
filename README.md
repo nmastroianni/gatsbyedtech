@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.edtechwave.com">
-    <img alt="EdTechWave.com" src="https://www.edtechwave.com/defaultSiteImage.png" width="" />
+    <img alt="EdTechWave.com" src="./static/defaultSiteImage.png" width="" />
   </a>
 </p>
 <h1 align="center">
