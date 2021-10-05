@@ -26,6 +26,7 @@ const AuthorCard = ({ description, image, name, socials }) => {
         image={getImage(image.gatsbyImageData)}
         alt={`${image.alt || `profile picture of ${name}`}`}
         className="w-24 rounded-full"
+        imgClassName="rounded-full"
       />
       <div className="flex-1">
         <h1 className="font-teko text-green-800 dark:text-green-200 text-xl md:text-2xl lg:text-3xl">
