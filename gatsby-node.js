@@ -53,7 +53,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
       component: path.resolve("./src/templates/blog-index.js"),
       context: {
         totalPosts: posts.length,
@@ -101,7 +101,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const numVideoPages = Math.ceil(videos.length / videosPerPage)
   Array.from({ length: numVideoPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/videos` : `/videos/${i + 1}`,
+      path: i === 0 ? `/videos/` : `/videos/${i + 1}`,
       component: path.resolve("./src/templates/video-index.js"),
       context: {
         totalVideos: videos.length,
@@ -150,7 +150,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const numToolPages = Math.ceil(tools.length / toolsPerPage)
   Array.from({ length: numToolPages }).forEach((_, i) => {
     createPage({
-      path: i === 0 ? `/tools` : `/tools/${i + 1}`,
+      path: i === 0 ? `/tools/` : `/tools/${i + 1}`,
       component: path.resolve("./src/templates/tools-index.js"),
       context: {
         totalPosts: tools.length,
