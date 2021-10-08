@@ -28,6 +28,7 @@ export default function Layout({ children, path }) {
         >
           <button id="close-consent" className="absolute right-2 top-2">
             <HiX className="text-gray-800 dark:text-white" />
+            <span className="sr-only">Close this consent window</span>
           </button>
           <header className="prose dark:prose-dark">
             This site uses cookies to measure how visitors use our site.
