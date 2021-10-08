@@ -11,10 +11,10 @@ export default function Layout({ children, path }) {
     if (process.env.NODE_ENV === "production") {
       const consentModal = document.querySelector("#tracking-consent")
       setTimeout(() => {
-        consentModal.classList.remove("hidden")
+        consentModal.classList.remove("invisible")
         const closeButton = document.querySelector("#close-consent")
         closeButton.addEventListener("click", () => {
-          consentModal.classList.add("hidden")
+          consentModal.classList.add("invisible")
         })
       }, 1200)
     }
@@ -24,7 +24,7 @@ export default function Layout({ children, path }) {
       {process.env.NODE_ENV === "production" ? (
         <div
           id="tracking-consent"
-          className="fixed border-4 border-double border-yellow-300 transition duration-700 ease-in-out bg-gray-200 dark:bg-gray-700 rounded p-3 md:p-4 lg:p-6 w-full md:w-1/2 lg:w-1/3 left-1/2 transform -translate-x-1/2 top-10 z-50 hidden"
+          className="fixed border-4 border-double border-yellow-300 transition duration-700 ease-in-out bg-gray-200 dark:bg-gray-700 rounded p-3 md:p-4 lg:p-6 w-full md:w-1/2 lg:w-1/3 left-1/2 transform -translate-x-1/2 top-10 z-50 invisible"
         >
           <button id="close-consent" className="absolute right-2 top-2">
             <HiX className="text-gray-800 dark:text-white" />
