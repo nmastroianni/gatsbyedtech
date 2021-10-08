@@ -4,14 +4,18 @@ import { Link } from "gatsby"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import { BsArrowReturnLeft } from "react-icons/bs"
-import { HiThumbDown, HiThumbUp } from "react-icons/hi"
+import { HiThumbDown, HiThumbUp, HiX } from "react-icons/hi"
 
 export default function Layout({ children, path }) {
   useEffect(() => {
     if (process.env.NODE_ENV === "production") {
       const consentModal = document.querySelector("#tracking-consent")
       setTimeout(() => {
-        consentModal.classList.add("opacity-100")
+        consentModal.classList.remove("hidden")
+        const closeButton = document.querySelector("#close-consent")
+        closeButton.addEventListener("click", () => {
+          consentModal.classList.add("hidden")
+        })
       }, 1200)
     }
   })
@@ -20,13 +24,16 @@ export default function Layout({ children, path }) {
       {process.env.NODE_ENV === "production" ? (
         <div
           id="tracking-consent"
-          className="fixed border-4 border-double border-yellow-300 opacity-0 transition duration-700 ease-in-out bg-gray-200 dark:bg-gray-700 rounded p-3 md:p-4 lg:p-6 w-full md:w-1/2 lg:w-1/3 left-1/2 transform -translate-x-1/2 top-10 z-50"
+          className="fixed border-4 border-double border-yellow-300 transition duration-700 ease-in-out bg-gray-200 dark:bg-gray-700 rounded p-3 md:p-4 lg:p-6 w-full md:w-1/2 lg:w-1/3 left-1/2 transform -translate-x-1/2 top-10 z-50 hidden"
         >
+          <button id="close-consent" className="absolute right-2 top-2">
+            <HiX className="text-gray-800 dark:text-white" />
+          </button>
           <header className="prose dark:prose-dark">
             This site uses cookies to measure how visitors use our site.
           </header>
           <div className="text-xs text-green-800 dark:text-green-200 mb-3 md:mb-4 lg:mb-6">
-            <Link to="/privacy">Learn more</Link>
+            <Link to="/privacy/">View Our Privacy Policy</Link>
           </div>
           <div className="grid grid-cols-2 text-green-800 dark:text-green-200">
             <button
