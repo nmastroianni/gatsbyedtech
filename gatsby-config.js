@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: `https://edtechwave.com/`,
+        siteUrl: `https://edtechwave.com`,
       },
     },
     {
