@@ -50,6 +50,7 @@ export default function Videos({
   return (
     <Layout path={path}>
       <Seo
+        path={path}
         title="Videos"
         locale="en-US"
         description="Explore our video library. We just might have the EdTech tutorial you've been looking for."

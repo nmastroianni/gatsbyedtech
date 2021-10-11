@@ -27,6 +27,7 @@ const PrismicVideo = ({ data, path }) => {
   return (
     <Layout path={path}>
       <Seo
+        path={path}
         title={document.video_title.text}
         description={document.video_description.text}
         image={

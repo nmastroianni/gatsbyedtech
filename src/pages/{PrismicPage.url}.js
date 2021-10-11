@@ -18,6 +18,7 @@ const PrismicPage = ({ data, path }) => {
       <Seo
         title={document.page_title.text}
         description={`Check out our page about ${document.page_title.text}.`}
+        path={path}
       />
       <div>
         <h1 className="font-teko text-4xl md:text-5xl lg:text-7xl text-center py-3 md:py-4 lg:py-6 border-b-2 text-green-800 dark:text-green-200">

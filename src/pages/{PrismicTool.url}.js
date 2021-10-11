@@ -17,6 +17,7 @@ const PrismicTool = ({ data, path }) => {
   return (
     <Layout path={path}>
       <Seo
+        path={path}
         title={document.tool_title.text}
         description={document.tool_description.text}
         image={getSrc(document.tool_logo.gatsbyImageData)}

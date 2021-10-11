@@ -14,7 +14,7 @@ const PrismicHomepage = ({ data, path }) => {
     document
   return (
     <Layout path={path}>
-      <Seo title="Home" />
+      <Seo title="Home" url="https://edtechwave.com" path={path}/>
       <Hero
         heroImage={banner_image}
         bannerTitle={banner_title.text}
@@ -30,6 +30,11 @@ const PrismicHomepage = ({ data, path }) => {
 
 export const query = graphql`
   query MyQuery {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     homepage: prismicHomepage {
       _previewable
       data {
