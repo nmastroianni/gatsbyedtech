@@ -11,24 +11,23 @@ export const FullWidthImage = ({ slice }) => {
       full_width_image_caption,
     },
   } = slice
+  console.log(full_width_image_caption);
   return (
     <div className="bg-gray-50 dark:bg-gray-700 shadow-sm">
-      <section className=" bg-gray-50 dark:bg-gray-700">
-        <a href={url}>
+      <div className="text-center bg-gray-50 dark:bg-gray-700">
+        <a href={url} className="">
           <GatsbyImage
             image={getImage(gatsbyImageData)}
-            alt={`${alt !== null ? alt : `decorative image`}`}
-            imgClassName=""
-            className="max-w-7xl mx-auto"
+            alt={`${alt !== null ? alt : `decorative`}`}
           />
         </a>
-      </section>
-      <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg dark:prose-dark p-3 md:p-4 lg:p-6 text-center italic">
+      </div>
+      {full_width_image_caption.raw.length ? (<div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg dark:prose-dark p-3 md:p-4 lg:p-6 text-center italic">
         <RichText
           render={full_width_image_caption.raw}
           htmlSerializer={htmlSerializer}
         />
-      </div>
+      </div>): ''}
     </div>
   )
 }
