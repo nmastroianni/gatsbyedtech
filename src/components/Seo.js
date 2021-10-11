@@ -21,7 +21,7 @@ export default function Seo({
   children,
   url,
   image,
-  path
+  path,
 }) {
   const {
     site: {
@@ -29,8 +29,10 @@ export default function Seo({
     },
   } = useStaticQuery(query)
   // Check if last character is slash, remove trailing slash
-  const lastChar = path[path.length-1];
-  lastChar === "/" && (path = path.slice(0,-1))
+  if (path) {
+    const lastChar = path[path.length - 1]
+    lastChar === "/" && (path = path.slice(0, -1))
+  }
 
   const metaDescription = description || siteDescription
   const metaTitle = title || siteTitle
@@ -44,7 +46,7 @@ export default function Seo({
         {
           rel: "canonical",
           href: metaUrl,
-        }
+        },
       ]}
       meta={[
         {
@@ -79,7 +81,6 @@ export default function Seo({
           property: "twitter:image",
           content: metaImage,
         },
-        
       ]}
     >
       {children}
