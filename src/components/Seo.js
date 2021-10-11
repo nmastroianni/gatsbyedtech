@@ -21,20 +21,31 @@ export default function Seo({
   children,
   url,
   image,
+  path
 }) {
   const {
     site: {
       siteMetadata: { siteDescription, siteUrl, siteTitle, siteImage },
     },
   } = useStaticQuery(query)
+  // Check if last character is slash, remove trailing slash
+  const lastChar = path[path.length-1];
+  lastChar === "/" && (path = path.slice(0,-1))
+
   const metaDescription = description || siteDescription
   const metaTitle = title || siteTitle
-  const metaUrl = url || siteUrl
+  const metaUrl = url || `${siteUrl}${path}`
   const metaImage = image || `${siteUrl}${siteImage}`
   return (
     <Helmet
       title={`${title} - ${siteTitle}`}
       htmlAttributes={locale ? { lang: locale } : { lang: "en-US" }}
+      link={[
+        {
+          rel: "canonical",
+          href: metaUrl,
+        }
+      ]}
       meta={[
         {
           name: "description",
@@ -68,6 +79,7 @@ export default function Seo({
           property: "twitter:image",
           content: metaImage,
         },
+        
       ]}
     >
       {children}

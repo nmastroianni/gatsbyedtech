@@ -38,6 +38,7 @@ export default function Tools({
   return (
     <Layout path={path}>
       <Seo
+        path={path}
         title="Tools"
         locale="en-US"
         description="There are many EdTech tools out there. Take a look at some of the ones we think are great."

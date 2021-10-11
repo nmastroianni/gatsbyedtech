@@ -77,6 +77,7 @@ export default function Blog({
   return (
     <Layout path={path}>
       <Seo
+        path={path}
         title="Blog"
         locale="en-US"
         description="Check out our latest blog posts on all kinds of Educational Technology topics."

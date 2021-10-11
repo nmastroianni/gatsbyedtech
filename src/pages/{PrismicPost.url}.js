@@ -84,6 +84,7 @@ const PrismicPost = ({ data, path }) => {
   return (
     <Layout path={path}>
       <Seo
+        path={path}
         title={post_title.text}
         description={post_excerpt.text ? post_excerpt.text : ""}
         image={
