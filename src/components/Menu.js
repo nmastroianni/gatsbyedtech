@@ -81,7 +81,7 @@ export default function HeadlessMenu({ path }) {
                     <Menu.Item key={`topnav-${i}`}>
                       {({ active }) => (
                         <Link
-                          to={`${item.link.url}`}
+                          to={`${item.link.url}/`}
                           className={`${
                             active
                               ? "bg-green-900 hover:text-white focus:text-white"
@@ -200,7 +200,7 @@ export default function HeadlessMenu({ path }) {
               <Menu.Item>
                 {({ active }) => (
                   <Link
-                    to="/help"
+                    to="/help/"
                     className={`${
                       active
                         ? "bg-green-900 text-white"
