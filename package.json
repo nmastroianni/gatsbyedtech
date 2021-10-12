@@ -20,6 +20,7 @@
     "autoprefixer": "^10.3.1",
     "axios": "^0.21.4",
     "gatsby": "^3.10.1",
+    "gatsby-plugin-disqus": "^1.2.3",
     "gatsby-plugin-gatsby-cloud": "^3.1.0",
     "gatsby-plugin-google-gtag": "^3.10.0",
     "gatsby-plugin-google-tagmanager": "^3.14.0",

@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Disqus } from "gatsby-plugin-disqus"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
@@ -79,8 +80,13 @@ const PrismicPost = ({ data, path }) => {
   const {
     data: { body, post_authors, post_featured_image, post_title, post_excerpt },
     first_publication_date,
-    //tags,
+    uid,
   } = document
+  let disqusConfig = {
+    url: `${queryData.data.site.siteMetadata.siteUrl}${path}/`,
+    identifier: uid,
+    title: post_title,
+  }
   return (
     <Layout path={path}>
       <Seo
@@ -151,6 +157,15 @@ const PrismicPost = ({ data, path }) => {
           })}
         </ul>
       </section>
+      <div className="max-w-screen-md mx-auto">
+        <h2 className="font-teko text-green-800 text-3xl md:text-4xl lg:text-6xl dark:text-green-200 text-center">
+          Have Thoughts or Questions?
+        </h2>
+        <p className="font-source text-xl md:text-2xl lg:text-3xl text-center mb-2 md:mb-3 lg:mb-6">
+          Leave Us a Comment
+        </p>
+        <Disqus config={disqusConfig} />
+      </div>
     </Layout>
   )
 }
@@ -161,6 +176,7 @@ export const query = graphql`
       _previewable
       first_publication_date(formatString: "MMMM Do, YYYY")
       tags
+      uid
       data {
         post_title {
           text

@@ -81,6 +81,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `edtechwave`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         excludes: ["/preview/"],
