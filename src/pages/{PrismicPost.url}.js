@@ -157,11 +157,11 @@ const PrismicPost = ({ data, path }) => {
           })}
         </ul>
       </section>
-      <div className="max-w-screen-md mx-auto">
+      <div className="max-w-screen-md mx-auto px-3">
         <h2 className="font-teko text-green-800 text-3xl md:text-4xl lg:text-6xl dark:text-green-200 text-center">
           Have Thoughts or Questions?
         </h2>
-        <p className="font-source text-xl md:text-2xl lg:text-3xl text-center mb-2 md:mb-3 lg:mb-6">
+        <p className="font-source text-xl md:text-2xl lg:text-3xl text-center mb-2 md:mb-3 lg:mb-6 dark:text-white">
           Leave Us a Comment
         </p>
         <Disqus config={disqusConfig} />
