@@ -110,14 +110,14 @@ const PrismicPost = ({ data, path }) => {
             className="w-full"
           />
         </div>
-        <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 rounded-t-md w-11/12">
-          <h2 className="font-teko text-center text-3xl md:text-4xl lg:text-5xl bg-green-900 text-white p-3 rounded-t-md">
+        <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0  w-full">
+          <h2 className="font-teko text-center text-4xl md:text-6xl lg:text-7xl bg-green-900 text-white pt-3 pb-1.5">
             {post_title.text}
           </h2>
         </div>
       </section>
       <div className=" mx-auto">
-        <h3 className=" bg-gradient-to-b from-gray-200 dark:from-green-900 to-transparent py-3 md:py-4 lg:py-6 font-teko text-center dark:text-white text-lg md:text-xl lg:text-2xl">
+        <h3 className="py-3 md:py-4 lg:py-6 font-teko text-center dark:text-white text-lg md:text-xl lg:text-2xl">
           Published on {first_publication_date}
         </h3>
       </div>
