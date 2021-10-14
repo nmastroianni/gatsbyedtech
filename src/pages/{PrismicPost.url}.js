@@ -82,10 +82,18 @@ const PrismicPost = ({ data, path }) => {
     first_publication_date,
     uid,
   } = document
+  /**
+   * 10/13/2021 - Noticed unpublished previews won't bring in the site { siteMetadata: {...}} query data
+   * Providing hard coded values if isPreview === true
+   */
   let disqusConfig = {
-    url: `${queryData.data.site.siteMetadata.siteUrl}${path}/`,
+    url: `${
+      !queryData.isPreview
+        ? queryData.data.site.siteMetadata.siteUrl
+        : `https://edtechwave.com`
+    }${path}/`,
     identifier: uid,
-    title: post_title,
+    title: post_title.text,
   }
   return (
     <Layout path={path}>
@@ -99,7 +107,15 @@ const PrismicPost = ({ data, path }) => {
                 getImage(post_featured_image.gatsbyImageData).images.fallback
                   .src
               }`
-            : `${data.site.siteMetadata.siteUrl}${data.site.siteMetadata.siteImage}`
+            : `${
+                !queryData.isPreview
+                  ? data.site.siteMetadata.siteUrl
+                  : `https://edtechwave.com`
+              }${
+                !queryData.isPreview
+                  ? data.site.siteMetadata.siteImage
+                  : `defaultSiteImage.png`
+              }`
         }
       />
       <section className="relative bg-gray-200 dark:bg-gray-900">
@@ -172,6 +188,11 @@ const PrismicPost = ({ data, path }) => {
 
 export const query = graphql`
   query PostQuery($id: String) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     prismicPost(id: { eq: $id }) {
       _previewable
       first_publication_date(formatString: "MMMM Do, YYYY")
@@ -226,11 +247,6 @@ export const query = graphql`
           ...PostDataBodyYoutubeHighlight
           ...PostDataBodyContentGrid
         }
-      }
-    }
-    site {
-      siteMetadata {
-        siteUrl
       }
     }
   }
