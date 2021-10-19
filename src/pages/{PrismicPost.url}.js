@@ -59,6 +59,9 @@ const AuthorCard = ({ description, image, name, socials }) => {
                   <li className="text-green-800 dark:text-green-200" key={url}>
                     <a href={url}>
                       <SocialIcon className="inline w-6 h-6 hover:text-green-900 dark:hover:text-green-100" />
+                      <span className="sr-only">
+                        {`Connect with ${name} on ${author_socials_platform}`}
+                      </span>
                     </a>
                   </li>
                 )
