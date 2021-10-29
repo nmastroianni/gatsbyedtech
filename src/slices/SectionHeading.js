@@ -46,7 +46,7 @@ export const SectionHeading = ({ slice }) => {
         </button>
       </div>
       <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-teko inline">
-        {RichText.asText(section_heading_text.raw)}
+        {RichText.asText(section_heading_text.richText)}
       </h2>
     </div>
   )
@@ -59,7 +59,7 @@ export const query = graphql`
         text
       }
       section_heading_text {
-        raw
+        richText
       }
     }
   }
@@ -70,7 +70,7 @@ export const query = graphql`
         text
       }
       section_heading_text {
-        raw
+        richText
       }
     }
   }
@@ -81,7 +81,7 @@ export const query = graphql`
         text
       }
       section_heading_text {
-        raw
+        richText
       }
     }
   }
@@ -92,7 +92,7 @@ export const query = graphql`
         text
       }
       section_heading_text {
-        raw
+        richText
       }
     }
   }

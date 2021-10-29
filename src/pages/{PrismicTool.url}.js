@@ -4,16 +4,10 @@ import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
-import {
-  withPrismicPreview,
-  useMergePrismicPreviewData,
-} from "gatsby-plugin-prismic-previews"
-import { linkResolver } from "../utils/linkResolver"
 
 const PrismicTool = ({ data, path }) => {
-  const queryData = useMergePrismicPreviewData(data)
   if (!data) return null
-  const document = queryData.data.tool.data
+  const document = data.tool.data
   return (
     <Layout path={path}>
       <Seo
@@ -51,7 +45,6 @@ const PrismicTool = ({ data, path }) => {
 export const query = graphql`
   query ToolQuery($id: String) {
     tool: prismicTool(id: { eq: $id }) {
-      _previewable
       last_publication_date(formatString: "MMMM Do, YYYY")
       data {
         tool_title {
@@ -62,7 +55,7 @@ export const query = graphql`
           gatsbyImageData(placeholder: BLURRED)
         }
         tool_description {
-          raw
+          richText
           text
         }
         body {
@@ -80,9 +73,4 @@ export const query = graphql`
     }
   }
 `
-export default withPrismicPreview(PrismicTool, [
-  {
-    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-    linkResolver,
-  },
-])
+export default PrismicTool

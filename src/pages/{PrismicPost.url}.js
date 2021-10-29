@@ -8,11 +8,6 @@ import SliceZone from "../components/SliceZone"
 import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 import {
-  withPrismicPreview,
-  useMergePrismicPreviewData,
-} from "gatsby-plugin-prismic-previews"
-import { linkResolver } from "../utils/linkResolver"
-import {
   FaLinkedin,
   FaTwitter,
   FaInstagram,
@@ -34,7 +29,10 @@ const AuthorCard = ({ description, image, name, socials }) => {
           {name}
         </h1>
         <div className="prose dark:prose-dark">
-          <RichText render={description.raw} htmlSerializer={htmlSerializer} />
+          <RichText
+            render={description.richText}
+            htmlSerializer={htmlSerializer}
+          />
         </div>
         {socials.length ? (
           <div className="flex items-center my-3 md:my-4 lg:my-6">
@@ -77,9 +75,8 @@ const AuthorCard = ({ description, image, name, socials }) => {
 }
 
 const PrismicPost = ({ data, path }) => {
-  const queryData = useMergePrismicPreviewData(data)
   if (!data) return null
-  const document = queryData.data.prismicPost
+  const document = data.prismicPost
   const {
     data: { body, post_authors, post_featured_image, post_title, post_excerpt },
     first_publication_date,
@@ -91,8 +88,8 @@ const PrismicPost = ({ data, path }) => {
    */
   let disqusConfig = {
     url: `${
-      !queryData.isPreview
-        ? queryData.data.site.siteMetadata.siteUrl
+      !data.isPreview
+        ? data.site.siteMetadata.siteUrl
         : `https://edtechwave.com`
     }${path}/`,
     identifier: uid,
@@ -111,11 +108,11 @@ const PrismicPost = ({ data, path }) => {
                   .src
               }`
             : `${
-                !queryData.isPreview
+                !data.isPreview
                   ? data.site.siteMetadata.siteUrl
                   : `https://edtechwave.com`
               }${
-                !queryData.isPreview
+                !data.isPreview
                   ? data.site.siteMetadata.siteImage
                   : `defaultSiteImage.png`
               }`
@@ -197,7 +194,6 @@ export const query = graphql`
       }
     }
     prismicPost(id: { eq: $id }) {
-      _previewable
       first_publication_date(formatString: "MMMM Do, YYYY")
       tags
       uid
@@ -219,7 +215,7 @@ export const query = graphql`
                 id
                 data {
                   author_description {
-                    raw
+                    richText
                   }
                   author_profile_image {
                     alt
@@ -254,9 +250,4 @@ export const query = graphql`
     }
   }
 `
-export default withPrismicPreview(PrismicPost, [
-  {
-    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-    linkResolver,
-  },
-])
+export default PrismicPost

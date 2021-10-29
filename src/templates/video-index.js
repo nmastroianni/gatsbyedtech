@@ -134,7 +134,7 @@ export const data = graphql`
             text
           }
           video_description {
-            raw
+            richText
           }
           video_embed {
             thumbnail_url

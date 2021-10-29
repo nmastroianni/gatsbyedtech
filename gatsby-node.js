@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 alt
               }
               post_excerpt {
-                raw
+                richText
               }
               post_authors {
                 post_authors_author {
@@ -78,7 +78,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 text
               }
               video_description {
-                raw
+                richText
               }
               video_embed {
                 thumbnail_url
@@ -126,7 +126,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             url
             data {
               tool_description {
-                raw
+                richText
               }
               tool_logo {
                 gatsbyImageData(placeholder: BLURRED)

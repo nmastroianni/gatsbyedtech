@@ -3,21 +3,13 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import { Link } from "gatsby"
 import Thinker from "../components/Thinker"
-import {
-  withPrismicUnpublishedPreview,
-  componentResolverFromMap,
-} from "gatsby-plugin-prismic-previews"
-import { linkResolver } from "../utils/linkResolver"
-import PageTemplate from "./{PrismicPage.url}"
-import PostTemplate from "./{PrismicPost.url}"
-import ToolTemplate from "./{PrismicTool.url}"
 
-const NotFoundPage = ({ location: { pathname } }) => {
+export default function NotFoundPage({ location: { pathname } }) {
   return (
     <Layout path={pathname}>
       <Seo title="Resource Not Found" />
-      <div className="h-screen mt-3 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
-        <div className="max-w-md ">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="max-w-md mx-auto flex flex-col justify-center items-center">
           <p className="text-3xl font-semibold text-green-700 text-center">
             We're sorry! <br />
             We can't seem to find what you were looking for.
@@ -28,21 +20,9 @@ const NotFoundPage = ({ location: { pathname } }) => {
           >
             Visit Our Homepage
           </Link>
-          <Thinker styles="w-full text-green-800 dark:text-green-200 fill-current" />
+          <Thinker styles="w-full text-green-700" />
         </div>
       </div>
     </Layout>
   )
 }
-
-export default withPrismicUnpublishedPreview(NotFoundPage, [
-  {
-    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-    linkResolver,
-    componentResolver: componentResolverFromMap({
-      post: PostTemplate,
-      page: PageTemplate,
-      tool: ToolTemplate,
-    }),
-  },
-])

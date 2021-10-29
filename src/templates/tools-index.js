@@ -116,7 +116,7 @@ export const data = graphql`
         url
         data {
           tool_description {
-            raw
+            richText
           }
           tool_logo {
             gatsbyImageData(placeholder: BLURRED)

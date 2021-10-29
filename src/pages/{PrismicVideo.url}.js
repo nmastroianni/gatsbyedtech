@@ -3,8 +3,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import SliceZone from "../components/SliceZone"
-import { withPrismicPreview } from "gatsby-plugin-prismic-previews"
-import { linkResolver } from "../utils/linkResolver"
 import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 
@@ -62,7 +60,7 @@ const PrismicVideo = ({ data, path }) => {
       </div>
       <div className="prose dark:prose-dark prose-lg md:prose-xl mx-auto my-3 md:my-4 lg:my-6">
         <RichText
-          render={document.video_description.raw}
+          render={document.video_description.richText}
           htmlSerializer={htmlSerializer}
         />
       </div>
@@ -76,7 +74,7 @@ export const query = graphql`
     video: prismicVideo(id: { eq: $id }) {
       data {
         video_description {
-          raw
+          richText
           text
         }
         video_embed {
@@ -97,9 +95,4 @@ export const query = graphql`
     }
   }
 `
-export default withPrismicPreview(PrismicVideo, [
-  {
-    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-    linkResolver,
-  },
-])
+export default PrismicVideo

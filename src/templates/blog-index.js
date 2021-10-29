@@ -52,7 +52,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
         </div>
 
         <div className="prose prose-lg dark:prose-dark mx-auto">
-          <RichText render={excerpt.raw} htmlSerializer={htmlSerializer} />
+          <RichText render={excerpt.richText} htmlSerializer={htmlSerializer} />
         </div>
       </div>
       <footer className=" dark:bg-gray-800 dark:text-white py-8 rounded-b-md text-center">
@@ -173,7 +173,7 @@ export const data = graphql`
             alt
           }
           post_excerpt {
-            raw
+            richText
           }
           post_authors {
             post_authors_author {

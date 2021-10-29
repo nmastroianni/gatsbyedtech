@@ -11,7 +11,7 @@ export const FullWidthImage = ({ slice }) => {
       full_width_image_caption,
     },
   } = slice
-  console.log(full_width_image_caption);
+  console.log(full_width_image_caption)
   return (
     <div className="bg-gray-50 dark:bg-gray-700 shadow-sm">
       <div className="text-center bg-gray-50 dark:bg-gray-700">
@@ -22,12 +22,16 @@ export const FullWidthImage = ({ slice }) => {
           />
         </a>
       </div>
-      {full_width_image_caption.raw.length ? (<div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg dark:prose-dark p-3 md:p-4 lg:p-6 text-center italic">
-        <RichText
-          render={full_width_image_caption.raw}
-          htmlSerializer={htmlSerializer}
-        />
-      </div>): ''}
+      {full_width_image_caption.richText.length ? (
+        <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg dark:prose-dark p-3 md:p-4 lg:p-6 text-center italic">
+          <RichText
+            render={full_width_image_caption.richText}
+            htmlSerializer={htmlSerializer}
+          />
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   )
 }
@@ -41,7 +45,7 @@ export const query = graphql`
         url
       }
       full_width_image_caption {
-        raw
+        richText
       }
     }
   }
@@ -53,7 +57,7 @@ export const query = graphql`
         url
       }
       full_width_image_caption {
-        raw
+        richText
       }
     }
   }
@@ -65,7 +69,7 @@ export const query = graphql`
         url
       }
       full_width_image_caption {
-        raw
+        richText
       }
     }
   }
@@ -77,7 +81,7 @@ export const query = graphql`
         url
       }
       full_width_image_caption {
-        raw
+        richText
       }
     }
   }

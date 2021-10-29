@@ -7,7 +7,7 @@ export const Text = ({ slice }) => {
   const {
     primary: {
       text_prose,
-      content: { raw },
+      content: { richText },
     },
   } = slice
 
@@ -19,7 +19,7 @@ export const Text = ({ slice }) => {
           : `px-3 text-base md:text-lg max-w-7xl`
       } dark:prose-dark mx-auto p-3 md:p-4 lg:p-6 my-2 sm:my-3 md:my-4 lg:my-6 `}
     >
-      <RichText render={raw} htmlSerializer={htmlSerializer} />
+      <RichText render={richText} htmlSerializer={htmlSerializer} />
     </div>
   )
 }
@@ -29,7 +29,7 @@ export const query = graphql`
     primary {
       text_prose
       content {
-        raw
+        richText
       }
     }
   }
@@ -39,7 +39,7 @@ export const query = graphql`
     primary {
       text_prose
       content {
-        raw
+        richText
       }
     }
   }
@@ -49,7 +49,7 @@ export const query = graphql`
     primary {
       text_prose
       content {
-        raw
+        richText
       }
     }
   }
@@ -58,7 +58,7 @@ export const query = graphql`
     primary {
       text_prose
       content {
-        raw
+        richText
       }
     }
   }
@@ -67,7 +67,7 @@ export const query = graphql`
     primary {
       text_prose
       content {
-        raw
+        richText
       }
     }
   }

@@ -47,7 +47,7 @@ export const ContentGrid = ({ slice }) => {
               </h3>
               <div className="prose dark:prose-dark prose-lg md:prose-xl mt-auto">
                 <RichText
-                  render={tool_description.raw}
+                  render={tool_description.richText}
                   htmlSerializer={htmlSerializer}
                 />
               </div>
@@ -60,7 +60,7 @@ export const ContentGrid = ({ slice }) => {
               url,
               document: {
                 data: {
-                  post_excerpt: { raw },
+                  post_excerpt: { richText },
                   post_authors,
                   post_featured_image,
                 },
@@ -79,7 +79,7 @@ export const ContentGrid = ({ slice }) => {
                 className="w-3/4"
               />
               <div className="prose dark:prose-dark w-full">
-                <RichText render={raw} htmlSerializer={htmlSerializer} />
+                <RichText render={richText} htmlSerializer={htmlSerializer} />
               </div>
               <div className="w-full mt-auto flex justify-between items-center">
                 <div>
@@ -152,7 +152,7 @@ export const ContentGrid = ({ slice }) => {
               document: {
                 data: {
                   video_custom_thumbnail,
-                  video_description: { raw },
+                  video_description: { richText },
                   video_embed: { title, thumbnail_url },
                   video_title: { text },
                 },
@@ -195,7 +195,7 @@ export const ContentGrid = ({ slice }) => {
               </div>
 
               <div className="prose dark:prose-dark prose-sm italic mt-2 md:mt-3 lg:mt-6">
-                <RichText render={raw} htmlSerializer={htmlSerializer} />
+                <RichText render={richText} htmlSerializer={htmlSerializer} />
               </div>
             </li>
           )
@@ -222,7 +222,7 @@ export const query = graphql`
             id
             data {
               tool_description {
-                raw
+                richText
               }
               tool_title {
                 text
@@ -259,7 +259,7 @@ export const query = graphql`
                 gatsbyImageData(placeholder: BLURRED)
               }
               post_excerpt {
-                raw
+                richText
               }
             }
             url
@@ -273,7 +273,7 @@ export const query = graphql`
                 gatsbyImageData
               }
               video_description {
-                raw
+                richText
               }
               video_embed {
                 embed_url
@@ -312,7 +312,7 @@ export const query = graphql`
             id
             data {
               tool_description {
-                raw
+                richText
               }
               tool_title {
                 text
@@ -349,7 +349,7 @@ export const query = graphql`
                 gatsbyImageData(placeholder: BLURRED)
               }
               post_excerpt {
-                raw
+                richText
               }
             }
             url
@@ -363,7 +363,7 @@ export const query = graphql`
                 gatsbyImageData
               }
               video_description {
-                raw
+                richText
               }
               video_embed {
                 embed_url
@@ -402,7 +402,7 @@ export const query = graphql`
             id
             data {
               tool_description {
-                raw
+                richText
               }
               tool_title {
                 text
@@ -439,7 +439,7 @@ export const query = graphql`
                 gatsbyImageData(placeholder: BLURRED)
               }
               post_excerpt {
-                raw
+                richText
               }
             }
             url
@@ -453,7 +453,7 @@ export const query = graphql`
                 gatsbyImageData
               }
               video_description {
-                raw
+                richText
               }
               video_embed {
                 embed_url
@@ -492,7 +492,7 @@ export const query = graphql`
             id
             data {
               tool_description {
-                raw
+                richText
               }
               tool_title {
                 text
@@ -529,7 +529,7 @@ export const query = graphql`
                 gatsbyImageData(placeholder: BLURRED)
               }
               post_excerpt {
-                raw
+                richText
               }
             }
             url
@@ -543,7 +543,7 @@ export const query = graphql`
                 gatsbyImageData
               }
               video_description {
-                raw
+                richText
               }
               video_embed {
                 embed_url

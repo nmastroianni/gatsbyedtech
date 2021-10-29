@@ -38,8 +38,8 @@ export const YouTubeHighlight = ({ slice }) => {
               {provider_name !== "video.other" && (
                 <iframe
                   title={
-                    youtube_title.raw
-                      ? RichText.asText(youtube_title.raw)
+                    youtube_title.richText
+                      ? RichText.asText(youtube_title.richText)
                       : title
                   }
                   className="rounded-md"
@@ -71,7 +71,7 @@ export const YouTubeHighlight = ({ slice }) => {
                   src={video}
                   className="mx-auto rounded-md"
                   allow="autoplay"
-                  title={RichText.asText(youtube_title.raw)}
+                  title={RichText.asText(youtube_title.richText)}
                 ></iframe>
               )}
             </div>
@@ -80,12 +80,14 @@ export const YouTubeHighlight = ({ slice }) => {
           {/* BEGIN RIGHT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
             <h2 className="text-green-800 dark:text-green-200 font-teko text-3xl md:text-4xl">
-              {youtube_title.raw ? RichText.asText(youtube_title.raw) : title}
+              {youtube_title.richText
+                ? RichText.asText(youtube_title.richText)
+                : title}
             </h2>
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
             <div className="prose prose-green lg:prose-xl dark:prose-dark">
               <RichText
-                render={youtube_description.raw}
+                render={youtube_description.richText}
                 htmlSerializer={htmlSerializer}
               />
             </div>
@@ -101,12 +103,14 @@ export const YouTubeHighlight = ({ slice }) => {
           {/* BEGIN LEFT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
             <h2 className="text-green-800 dark:text-green-200 font-teko text-3xl md:text-4xl">
-              {youtube_title.raw ? RichText.asText(youtube_title.raw) : title}
+              {youtube_title.richText
+                ? RichText.asText(youtube_title.richText)
+                : title}
             </h2>
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
             <div className="prose prose-green lg:prose-xl dark:prose-dark">
               <RichText
-                render={youtube_description.raw}
+                render={youtube_description.richText}
                 htmlSerializer={htmlSerializer}
               />
             </div>
@@ -118,8 +122,8 @@ export const YouTubeHighlight = ({ slice }) => {
               {provider_name !== "video.other" && (
                 <iframe
                   title={
-                    youtube_title.raw
-                      ? RichText.asText(youtube_title.raw)
+                    youtube_title.richText
+                      ? RichText.asText(youtube_title.richText)
                       : title
                   }
                   className="rounded-md"
@@ -151,7 +155,7 @@ export const YouTubeHighlight = ({ slice }) => {
                   src={video}
                   className="mx-auto rounded-md"
                   allow="autoplay"
-                  title={RichText.asText(youtube_title.raw)}
+                  title={RichText.asText(youtube_title.richText)}
                 ></iframe>
               )}
             </div>
@@ -169,7 +173,7 @@ export const query = graphql`
     id
     primary {
       youtube_description {
-        raw
+        richText
       }
       youtube_embed {
         embed_url
@@ -183,7 +187,7 @@ export const query = graphql`
         url
       }
       youtube_title {
-        raw
+        richText
       }
     }
   }
@@ -191,7 +195,7 @@ export const query = graphql`
     id
     primary {
       youtube_description {
-        raw
+        richText
       }
       youtube_embed {
         embed_url
@@ -205,7 +209,7 @@ export const query = graphql`
         url
       }
       youtube_title {
-        raw
+        richText
       }
     }
   }
@@ -213,7 +217,7 @@ export const query = graphql`
     id
     primary {
       youtube_description {
-        raw
+        richText
       }
       youtube_embed {
         embed_url
@@ -227,7 +231,7 @@ export const query = graphql`
         url
       }
       youtube_title {
-        raw
+        richText
       }
     }
   }
@@ -235,7 +239,7 @@ export const query = graphql`
     id
     primary {
       youtube_description {
-        raw
+        richText
       }
       youtube_embed {
         embed_url
@@ -249,7 +253,7 @@ export const query = graphql`
         url
       }
       youtube_title {
-        raw
+        richText
       }
     }
   }

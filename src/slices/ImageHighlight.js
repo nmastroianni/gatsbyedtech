@@ -26,14 +26,14 @@ export const ImageHighlight = ({ slice }) => {
           <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading */}
             <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-green-800 dark:text-green-200">
-              {RichText.asText(image_highlight_heading.raw)}
+              {RichText.asText(image_highlight_heading.richText)}
             </h2>
             {/* END HEADING DIV */}
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
             {/* Image Description */}
             <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
-                render={image_highlight_description.raw}
+                render={image_highlight_description.richText}
                 htmlSerializer={htmlSerializer}
               />
             </div>
@@ -51,7 +51,7 @@ export const ImageHighlight = ({ slice }) => {
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text
-                      : RichText.asText(image_highlight_heading.raw)}
+                      : RichText.asText(image_highlight_heading.richText)}
                   </a>
                 ) : (
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
@@ -61,7 +61,7 @@ export const ImageHighlight = ({ slice }) => {
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text
-                      : RichText.asText(image_highlight_heading.raw)}
+                      : RichText.asText(image_highlight_heading.richText)}
                   </Link>
                 )}
               </p>
@@ -158,14 +158,14 @@ export const ImageHighlight = ({ slice }) => {
           <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading */}
             <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-green-800 dark:text-green-200">
-              {RichText.asText(image_highlight_heading.raw)}
+              {RichText.asText(image_highlight_heading.richText)}
             </h2>
             {/* END HEADING DIV */}
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
             {/* Image Description */}
             <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
-                render={image_highlight_description.raw}
+                render={image_highlight_description.richText}
                 htmlSerializer={htmlSerializer}
               />
             </div>
@@ -182,7 +182,7 @@ export const ImageHighlight = ({ slice }) => {
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text
-                      : RichText.asText(image_highlight_heading.raw)}
+                      : RichText.asText(image_highlight_heading.richText)}
                   </a>
                 ) : (
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
@@ -192,7 +192,7 @@ export const ImageHighlight = ({ slice }) => {
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text
-                      : RichText.asText(image_highlight_heading.raw)}
+                      : RichText.asText(image_highlight_heading.richText)}
                   </Link>
                 )}
               </p>
@@ -216,10 +216,10 @@ export const query = graphql`
         gatsbyImageData(placeholder: BLURRED)
       }
       image_highlight_heading {
-        raw
+        richText
       }
       image_highlight_description {
-        raw
+        richText
       }
       image_highlight_link {
         url
@@ -240,10 +240,10 @@ export const query = graphql`
         gatsbyImageData(placeholder: BLURRED)
       }
       image_highlight_heading {
-        raw
+        richText
       }
       image_highlight_description {
-        raw
+        richText
       }
       image_highlight_link {
         url
@@ -264,10 +264,10 @@ export const query = graphql`
         gatsbyImageData(placeholder: BLURRED)
       }
       image_highlight_heading {
-        raw
+        richText
       }
       image_highlight_description {
-        raw
+        richText
       }
       image_highlight_link {
         url
@@ -287,10 +287,10 @@ export const query = graphql`
         gatsbyImageData(placeholder: BLURRED)
       }
       image_highlight_heading {
-        raw
+        richText
       }
       image_highlight_description {
-        raw
+        richText
       }
       image_highlight_link {
         url

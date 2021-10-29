@@ -4,7 +4,7 @@ import * as React from "react"
 import { withPrismicPreviewResolver } from "gatsby-plugin-prismic-previews"
 
 // Update the path to your Link Resolver
-import { linkResolver } from "../utils/linkResolver"
+// import { linkResolver } from "../utils/linkResolver"
 
 const PreviewPage = () => {
   return (
@@ -14,9 +14,4 @@ const PreviewPage = () => {
   )
 }
 
-export default withPrismicPreviewResolver(PreviewPage, [
-  {
-    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-    linkResolver,
-  },
-])
+export default withPrismicPreviewResolver(PreviewPage)
