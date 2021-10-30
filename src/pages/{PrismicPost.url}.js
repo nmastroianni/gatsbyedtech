@@ -81,6 +81,7 @@ const PrismicPost = ({ data, path }) => {
     data: { body, post_authors, post_featured_image, post_title, post_excerpt },
     first_publication_date,
     uid,
+    url,
   } = document
   /**
    * 10/13/2021 - Noticed unpublished previews won't bring in the site { siteMetadata: {...}} query data
@@ -95,10 +96,11 @@ const PrismicPost = ({ data, path }) => {
     identifier: uid,
     title: post_title.text,
   }
+  const canonical = `${data.site.siteMetadata.siteUrl}${url}`
   return (
     <Layout path={path}>
       <Seo
-        path={path}
+        url={canonical}
         title={post_title.text}
         description={post_excerpt.text ? post_excerpt.text : ""}
         image={
@@ -197,6 +199,7 @@ export const query = graphql`
       first_publication_date(formatString: "MMMM Do, YYYY")
       tags
       uid
+      url
       data {
         post_title {
           text

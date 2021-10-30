@@ -12,7 +12,7 @@ const PrismicPage = ({ data, path }) => {
       <Seo
         title={document.page_title.text}
         description={`Check out our page about ${document.page_title.text}.`}
-        path={path}
+        url={`${data.site.siteMetadata.siteUrl}${data.page.url}`}
       />
       <div>
         <h1 className="font-teko text-4xl md:text-5xl lg:text-7xl text-center py-3 md:py-4 lg:py-6 border-b-2 text-green-800 dark:text-green-200">
@@ -27,6 +27,7 @@ const PrismicPage = ({ data, path }) => {
 export const query = graphql`
   query PageQuery($id: String) {
     page: prismicPage(id: { eq: $id }) {
+      url
       data {
         page_title {
           text
@@ -42,6 +43,11 @@ export const query = graphql`
           ...PageDataBodyYoutubeHighlight
           ...PageDataBodyContentGrid
         }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

@@ -35,10 +35,14 @@ export default function Tools({
     allPrismicTool: { nodes },
   },
 }) {
+  const canonical =
+    currentPage === 1
+      ? `https://edtechwave.com${basePath}/`
+      : `https://edtechwave.com${basePath}/${currentPage}/`
   return (
     <Layout path={path}>
       <Seo
-        path={path}
+        url={canonical}
         title="Tools"
         locale="en-US"
         description="There are many EdTech tools out there. Take a look at some of the ones we think are great."

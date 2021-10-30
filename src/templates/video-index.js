@@ -47,10 +47,15 @@ export default function Videos({
     allPrismicVideo: { nodes },
   },
 }) {
+  const canonical =
+    currentPage === 1
+      ? `https://edtechwave.com${basePath}/`
+      : `https://edtechwave.com${basePath}/${currentPage}/`
+
   return (
     <Layout path={path}>
       <Seo
-        path={path}
+        url={canonical}
         title="Videos"
         locale="en-US"
         description="Explore our video library. We just might have the EdTech tutorial you've been looking for."
