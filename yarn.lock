@@ -23,7 +23,14 @@
   dependencies:
     "@babel/highlight" "^7.10.4"
 
-"@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.14.0", "@babel/code-frame@^7.14.5", "@babel/code-frame@^7.15.8", "@babel/code-frame@^7.5.5":
+"@babel/code-frame@^7.0.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.16.0.tgz#0dfc80309beec8411e65e706461c408b0bb9b431"
+  integrity sha512-IF4EOMEV+bfYwOmNxGzSnjR2EmQod7f1UXOpZM3l4i4o4QNwzjtJAu/HxdjHq0aYBvdqMuQEY1eg0nqW9ZPORA==
+  dependencies:
+    "@babel/highlight" "^7.16.0"
+
+"@babel/code-frame@^7.10.4", "@babel/code-frame@^7.14.0", "@babel/code-frame@^7.14.5", "@babel/code-frame@^7.15.8", "@babel/code-frame@^7.5.5":
   version "7.15.8"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.15.8.tgz#45990c47adadb00c03677baa89221f7cc23d2503"
   integrity sha512-2IAnmn8zbvC/jKYhq5Ki9I+DwjlrtMPUCH/CpHvqI4dNnlwHwsxoIhlc8WcYY5LSYknXQtAlFYuHfqAFCvQ4Wg==
@@ -299,12 +306,21 @@
     "@babel/traverse" "^7.15.4"
     "@babel/types" "^7.15.4"
 
-"@babel/highlight@^7.10.4", "@babel/highlight@^7.14.5":
+"@babel/highlight@^7.10.4":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.14.5.tgz#6861a52f03966405001f6aa534a01a24d99e8cd9"
   integrity sha512-qf9u2WFWVV0MppaL877j2dBtQIDgmidgjGk5VIMw3OadXvYaXn66U1BFlH2t4+t3i+8PhedppRv+i40ABzd+gg==
   dependencies:
     "@babel/helper-validator-identifier" "^7.14.5"
+    chalk "^2.0.0"
+    js-tokens "^4.0.0"
+
+"@babel/highlight@^7.14.5", "@babel/highlight@^7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.16.0.tgz#6ceb32b2ca4b8f5f361fb7fd821e3fddf4a1725a"
+  integrity sha512-t8MH41kUQylBtu2+4IQA3atqevA2lRgqA2wyVB/YiWmsDSuylZZuXOUy9ric30hfzauEFfdsuk/eXTRrGrfd0g==
+  dependencies:
+    "@babel/helper-validator-identifier" "^7.15.7"
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
@@ -999,7 +1015,14 @@
     core-js-pure "^3.16.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.13", "@babel/runtime@^7.15.4", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.13", "@babel/runtime@^7.15.4":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.0.tgz#e27b977f2e2088ba24748bf99b5e1dece64e4f0b"
+  integrity sha512-Nht8L0O8YCktmsDV6FqFue7vQLRx3Hb0B37lS5y0jDRqRxlBG4wIJHnf9/bgSE2UyipKFA01YtS+npRdTWBUyw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
   version "7.15.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
   integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
@@ -1694,10 +1717,10 @@
     schema-utils "^2.6.5"
     source-map "^0.7.3"
 
-"@prismicio/client@^6.0.0-beta.0":
-  version "6.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-6.0.0-beta.1.tgz#ba86f8d71a978491eac69c4b16c31bf6634bb435"
-  integrity sha512-hxVfYHs8Vzrqs/Opg9tZ7njhnYd+EIEfwADievk6Dd3yMsLrQupAQjRGnla1fjdVS/LprdbCCGud9spnbxsqew==
+"@prismicio/client@^6.0.0-beta.2":
+  version "6.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-6.0.0-beta.2.tgz#4089b65aca48141b7d245d8c1cdcb15d3c3ebc46"
+  integrity sha512-VBBNwmsm1DisoIp5jKa2f+tIBVNLb1M3a4S/++63XhTsf4prATIGPREHdMFIdj70k9Jq51CqGiIyUUY+2OHZyQ==
   dependencies:
     "@prismicio/helpers" "^2.0.0-beta.0"
     "@prismicio/types" "^0.1.15"
@@ -1708,49 +1731,45 @@
   integrity sha512-/QeHmNzEtOMtEAZF7ZfRSSosSXGhA4dzQm7vczhxdBGIT23Bbj+h0I4hNlpJZ4n0UzmIYWtd45jYCguVo3hfqQ==
 
 "@prismicio/helpers@^2.0.0-beta.0":
-  version "2.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.0.0-beta.0.tgz#493d07f81bde06d76928af94e99672ac9f429962"
-  integrity sha512-2WLXcS9Q/8JU7maNo/3cUSsUKnjUMpuZTxVxCSaDxDcBACrXR3T2nSJKvzcO5jS5zzpAkJG6zCdjP3dQVRwPmw==
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.0.0-beta.1.tgz#80b5dc50065451f12ace5f0347372067fa04d292"
+  integrity sha512-b7NzhmDqxbIqWKl6PkFiuxanuAaVZhCyxl6QVu472sGXFpHBlgDzltgk2m+AHWaGNdFpOyppOi4DpCSrNrcG8g==
   dependencies:
-    "@prismicio/richtext" "^2.0.0-beta"
-    "@prismicio/types" "^0.1.13"
+    "@prismicio/richtext" "^2.0.0-beta.0"
+    "@prismicio/types" "^0.1.15"
     escape-html "^1.0.3"
 
-"@prismicio/richtext@^2.0.0-beta":
-  version "2.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-2.0.0-beta.0.tgz#f653c75b69d40619236b6b4f968662e5f5f32e57"
-  integrity sha512-C1VAyJyzKqxpqB4qL0PRNCiYZSifirvbK3PsvberupR59J3oswZegy9DlZprV1pGBoaUaDz+/OTPNBX94q3uqw==
+"@prismicio/richtext@^2.0.0-beta.0":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-2.0.0-beta.1.tgz#2487f071a80f486d6b20d1badfce25ca3f3ccea3"
+  integrity sha512-9LA+dcEtncprfjpPdQWsRThuFpDA0ID1Ne0yJJHVlKKl9qUDDfV7fbN714W2dxEV2zWRip/lyLlnfMOAABjE/w==
   dependencies:
-    "@prismicio/types" "^0.1.13"
+    "@prismicio/types" "^0.1.15"
 
-"@prismicio/types@^0.1.13":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.1.14.tgz#acfbf222617e57a20d58443c298a7bfa4c6e4cce"
-  integrity sha512-48SiWHj6TNRXQRNw1Cxd4IYb4JD6Tw6xAchvkWdzHM6O5jjvASpjRbsPI0hwhjXSaJy018UQzk1VXE6H/wYrYQ==
-
-"@prismicio/types@^0.1.15":
+"@prismicio/types@^0.1.13", "@prismicio/types@^0.1.15":
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.1.15.tgz#7680ab6cc8f5f0c3ff4d3efc8cddd07e5907306f"
   integrity sha512-KSjiPBGRJ+FTvjkU6uxkz9/JxMS09JamVgkwVILevukFd3XuedIqZl1KCREqpSXDKjZmKeQenQdJ7uvOneIrkg==
 
 "@reach/dialog@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@reach/dialog/-/dialog-0.16.0.tgz#66651868bb6b149fac923f40952355252da05d53"
-  integrity sha512-EsQ6wPafXHkny7ATihGCCJuVb6bo8MzzFvsDY+BNLeUt4XN3Kcq1oe5xJbXfxbm1Ljzs80bqF3E/Q16O12fPng==
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@reach/dialog/-/dialog-0.16.2.tgz#567e6f59d0a6dabe84b2ba4c456404efa6cb7d03"
+  integrity sha512-qq8oX0cROgTb8LjOKWzzNm4SqaN9b89lJHr7UyVo2aQ6WbeNzZBxqXhGywFP7dkR+hNqOJnrA59PXFWhfttA9A==
   dependencies:
-    "@reach/portal" "0.16.0"
+    "@reach/portal" "0.16.2"
     "@reach/utils" "0.16.0"
     prop-types "^15.7.2"
     react-focus-lock "^2.5.2"
     react-remove-scroll "^2.4.3"
     tslib "^2.3.0"
 
-"@reach/portal@0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.16.0.tgz#1544531d978b770770b718b2872b35652a11e7e3"
-  integrity sha512-vXJ0O9T+72HiSEWHPs2cx7YbSO7pQsTMhgqPc5aaddIYpo2clJx1PnYuS0lSNlVaDO0IxQhwYq43evXaXnmviw==
+"@reach/portal@0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.16.2.tgz#ca83696215ee03acc2bb25a5ae5d8793eaaf2f64"
+  integrity sha512-9ur/yxNkuVYTIjAcfi46LdKUvH0uYZPfEp4usWcpt6PIp+WDF57F/5deMe/uGi/B/nfDweQu8VVwuMVrCb97JQ==
   dependencies:
     "@reach/utils" "0.16.0"
+    tiny-warning "^1.0.3"
     tslib "^2.3.0"
 
 "@reach/utils@0.16.0":
@@ -5271,9 +5290,9 @@ fp-ts-contrib@^0.1.18:
   integrity sha512-gi0COTH1xmN0dS9Vc2rgAmotQy8ab4z7CEVRhXxRNMhiuEEMx/Mvd0eLqAiV+hQZjI8xQct00w4Ywwacak35dA==
 
 fp-ts@^2.10.5, fp-ts@^2.9.3:
-  version "2.11.4"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.11.4.tgz#ad78a0d8eafb0dcfc835a0fb200f6da6422c27f0"
-  integrity sha512-lhV7tGEbs2qoVw4vmqOovChS7CAoIYU0gdiPEF8Vc4bLZct+PAMMeXrCqRyBNEo33XOvwvAmFDEDIrHPWH2/fg==
+  version "2.11.5"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.11.5.tgz#97cceb26655b1452d7088d6fb0864f84cceffbe4"
+  integrity sha512-OqlwJq1BdpB83BZXTqI+dNcA6uYk6qk4u9Cgnt64Y+XS7dwdbp/mobx8S2KXf2AXH+scNmA/UVK3SEFHR3vHZA==
 
 fraction.js@^4.1.1:
   version "4.1.1"
@@ -5391,22 +5410,6 @@ gatsby-cli@^4.0.0:
     yargs "^15.4.1"
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
-
-gatsby-core-utils@^2.14.0:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-2.14.0.tgz#ad0030d11776073cdc6a119f4b81e150f3921aef"
-  integrity sha512-HDMb1XMqysup9raLYWB0wIQU568R9qPounF7iAwjf2esFUVV5mdBTvxEpune/7yG0RmwhNPhgrEZo2rBHeJf7A==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    file-type "^16.5.3"
-    fs-extra "^10.0.0"
-    got "^11.8.2"
-    node-object-hash "^2.3.9"
-    proper-lockfile "^4.1.2"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
 
 gatsby-core-utils@^3.0.0:
   version "3.0.0"
@@ -5561,12 +5564,12 @@ gatsby-plugin-postcss@^5.0.0:
     postcss-loader "^4.3.0"
 
 gatsby-plugin-prismic-previews@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-prismic-previews/-/gatsby-plugin-prismic-previews-5.0.0.tgz#35dd9e520ba9582eb88a435d38765fa659f5c1bc"
-  integrity sha512-rASu0PD+/UgVknF0cpnyRjpw5kUQkuQm2hw/VgysOyNCgEPs6owxKNbScnlJpPSqRRmChgq1KK2b9MEUiemHVg==
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-prismic-previews/-/gatsby-plugin-prismic-previews-5.0.2.tgz#782ea5282f13d65ba2284b7171a2f95c1c4bf651"
+  integrity sha512-LzWfDb2yY4mfFe6ufzlzCqJZOtZL+V+kwH6MY7WQtBgouMTAP7JSMn5zok7hLu17sq9huKCqJEcwFWhs9luU5g==
   dependencies:
     "@imgix/gatsby" "^1.6.13"
-    "@prismicio/client" "^6.0.0-beta.0"
+    "@prismicio/client" "^6.0.0-beta.2"
     "@prismicio/helpers" "^2.0.0-beta.0"
     "@prismicio/types" "^0.1.13"
     "@reach/dialog" "^0.16.0"
@@ -5720,25 +5723,6 @@ gatsby-recipes@^1.0.0:
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
 
-gatsby-source-filesystem@^3.11.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-3.14.0.tgz#ae2b930091a932b33270cb9cc2d9caaf0abc1742"
-  integrity sha512-Gg5GGxiWXhjapWMYdXOGk7zp+ajYowS+xNmaDUkL1gH+IQLvE18XbvKh00B/HiFaHm4azJfS2QRrRI/mPTZX+w==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    chokidar "^3.5.2"
-    fastq "^1.11.1"
-    file-type "^16.5.3"
-    fs-extra "^10.0.0"
-    gatsby-core-utils "^2.14.0"
-    got "^9.6.0"
-    md5-file "^5.0.0"
-    mime "^2.5.2"
-    pretty-bytes "^5.4.1"
-    progress "^2.0.3"
-    valid-url "^1.0.9"
-    xstate "^4.14.0"
-
 gatsby-source-filesystem@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-4.0.0.tgz#08fb8679f535e7c60c915c227d8c3a037a1424a8"
@@ -5759,19 +5743,19 @@ gatsby-source-filesystem@^4.0.0:
     xstate "^4.14.0"
 
 gatsby-source-prismic@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-prismic/-/gatsby-source-prismic-5.0.0.tgz#c236564a9990284ce71c95a55f3f33baf5b176d3"
-  integrity sha512-Y+n2U6twE/ScK+LneLZ03JeU2ZwHb+vIAyXemiHJnhRZuyBrRhwmvcc+PjODoGLZGQZv6h+bJLJ10A1uC1djQA==
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-source-prismic/-/gatsby-source-prismic-5.0.2.tgz#8c77c4ad09316ed10dbc607c70787f0afb74187f"
+  integrity sha512-DIuMEqSuc99glIfsTuKlu4OzMo6G8JbLDLhSLTf4X+uV4zth8eDZZGbiEQ4HVY+u2E1Yx2SLVm55Zdw0y5vziQ==
   dependencies:
     "@imgix/gatsby" "^1.6.13"
-    "@prismicio/client" "^6.0.0-beta.0"
+    "@prismicio/client" "^6.0.0-beta.2"
     "@prismicio/custom-types-client" "^0.0.6"
     "@prismicio/helpers" "^2.0.0-beta.0"
     "@prismicio/types" "^0.1.13"
     camel-case "^4.1.2"
     fp-ts "^2.10.5"
     gatsby-node-helpers "^1.2.1"
-    gatsby-source-filesystem "^3.11.0"
+    gatsby-source-filesystem "^4.0.0"
     node-fetch "^2.6.5"
     tiny-hashes "^1.0.1"
 
