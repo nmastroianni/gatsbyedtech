@@ -11,7 +11,6 @@ export const FullWidthImage = ({ slice }) => {
       full_width_image_caption,
     },
   } = slice
-  console.log(full_width_image_caption)
   return (
     <div className="bg-gray-50 dark:bg-gray-700 shadow-sm">
       <div className="text-center bg-gray-50 dark:bg-gray-700">

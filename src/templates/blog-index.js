@@ -69,15 +69,19 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
 
 export default function Blog({
   path,
-  pageContext: { currentPage, limit, numPages, totalPosts },
+  pageContext: { currentPage, limit, numPages, totalPosts, basePath },
   data: {
     allPrismicPost: { nodes },
   },
 }) {
+  const canonical =
+    currentPage === 1
+      ? `https://edtechwave.com${basePath}/`
+      : `https://edtechwave.com${basePath}/${currentPage}/`
   return (
     <Layout path={path}>
       <Seo
-        path={path}
+        url={canonical}
         title="Blog"
         locale="en-US"
         description="Check out our latest blog posts on all kinds of Educational Technology topics."

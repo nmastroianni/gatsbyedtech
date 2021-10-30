@@ -22,10 +22,11 @@ const PrismicVideo = ({ data, path }) => {
     }
   }
   const videoSrc = getVideoSrc(document.video_embed.embed_url)
+  const canonical = `${data.site.siteMetadata.siteUrl}${data.video.url}`
   return (
     <Layout path={path}>
       <Seo
-        path={path}
+        url={canonical}
         title={document.video_title.text}
         description={document.video_description.text}
         image={
@@ -71,7 +72,13 @@ const PrismicVideo = ({ data, path }) => {
 
 export const query = graphql`
   query VideoQuery($id: String) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     video: prismicVideo(id: { eq: $id }) {
+      url
       data {
         video_description {
           richText

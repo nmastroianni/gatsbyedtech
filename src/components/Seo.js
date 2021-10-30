@@ -21,7 +21,6 @@ export default function Seo({
   children,
   url,
   image,
-  path,
 }) {
   const {
     site: {
@@ -31,13 +30,15 @@ export default function Seo({
 
   const metaDescription = description || siteDescription
   const metaTitle = title || siteTitle
-  const metaUrl = url || `${siteUrl}${path}`
+  const metaUrl = url || null
   const metaImage = image || `${siteUrl}${siteImage}`
-
   return (
     <Helmet
       title={`${title} - ${siteTitle}`}
       htmlAttributes={locale ? { lang: locale } : { lang: "en-US" }}
+      link={
+        metaUrl ? [{ rel: "canonical", key: metaUrl, href: `${metaUrl}` }] : []
+      }
       meta={[
         {
           name: "description",
@@ -73,7 +74,6 @@ export default function Seo({
         },
       ]}
     >
-      {path !== undefined ? <link rel="canonical" href={metaUrl} /> : ""}
       {children}
     </Helmet>
   )

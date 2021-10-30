@@ -80,7 +80,7 @@ export default function Help({ path }) {
         />
       </Helmet>
       <Seo
-        path={path}
+        url="https://edtechwave.com/help"
         title="Help"
         description="Tell us how we can help you. We are waiting to hear from you!"
       />

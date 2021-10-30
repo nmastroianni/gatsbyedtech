@@ -8,10 +8,11 @@ import SliceZone from "../components/SliceZone"
 const PrismicTool = ({ data, path }) => {
   if (!data) return null
   const document = data.tool.data
+  const canonical = `${data.site.siteMetadata.siteUrl}${data.tool.url}`
   return (
     <Layout path={path}>
       <Seo
-        path={path}
+        url={canonical}
         title={document.tool_title.text}
         description={document.tool_description.text}
         image={getSrc(document.tool_logo.gatsbyImageData)}
@@ -44,7 +45,13 @@ const PrismicTool = ({ data, path }) => {
 
 export const query = graphql`
   query ToolQuery($id: String) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     tool: prismicTool(id: { eq: $id }) {
+      url
       last_publication_date(formatString: "MMMM Do, YYYY")
       data {
         tool_title {
