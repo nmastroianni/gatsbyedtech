@@ -15,7 +15,7 @@ export const Text = ({ slice }) => {
     <div
       className={`${
         text_prose
-          ? `prose prose-lg md:prose-xl prose-green md:prose-xl lg:prose-2xl`
+          ? `prose prose-green prose-lg md:prose-xl lg:prose-2xl`
           : `px-3 text-base md:text-lg max-w-7xl`
       } dark:prose-dark mx-auto p-3 md:p-4 lg:p-6 my-2 sm:my-3 md:my-4 lg:my-6 `}
     >
