@@ -85,7 +85,7 @@ export const YouTubeHighlight = ({ slice }) => {
                 : title}
             </h2>
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
-            <div className="prose prose-green lg:prose-xl dark:prose-dark">
+            <div className="prose prose-green md:prose-xl lg:prose-2xl dark:prose-dark">
               <RichText
                 render={youtube_description.richText}
                 htmlSerializer={htmlSerializer}
@@ -108,7 +108,7 @@ export const YouTubeHighlight = ({ slice }) => {
                 : title}
             </h2>
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
-            <div className="prose prose-green lg:prose-xl dark:prose-dark">
+            <div className="prose prose-green md:prose-xl lg:prose-2xl dark:prose-dark">
               <RichText
                 render={youtube_description.richText}
                 htmlSerializer={htmlSerializer}
