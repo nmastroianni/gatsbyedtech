@@ -34,7 +34,7 @@ export const YouTubeHighlight = ({ slice }) => {
         <div className="max-w-screen-2xl mx-auto grid md:grid-cols-2 p-4 gap-y-4 divide-y md:divide-y-0 md:gap-x-4">
           {/* BEGIN LEFT SIDE VIDEO EMBED */}
           <div className="bg-black p-3 rounded-md relative">
-            <div className="aboslute inset-0 aspect-w-16 aspect-h-9 rounded-md">
+            <div className="md:absolute md:inset-0 aspect-w-16 aspect-h-9 rounded-md">
               {provider_name !== "video.other" && (
                 <iframe
                   title={
@@ -118,7 +118,7 @@ export const YouTubeHighlight = ({ slice }) => {
           {/* END LEFTSIDE VIDEO DESCRIPTION */}
           {/* BEGIN RIGHT SIDE VIDEO EMBED */}
           <div className="bg-black p-3 rounded-md relative">
-            <div className="absolute inset-0 aspect-w-16 aspect-h-9 rounded-md">
+            <div className="md:absolute md:inset-0 aspect-w-16 aspect-h-9 rounded-md">
               {provider_name !== "video.other" && (
                 <iframe
                   title={
