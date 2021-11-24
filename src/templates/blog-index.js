@@ -11,7 +11,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
   return (
     <article className="rounded-md shadow-md">
       <Link
-        to={`${url}/`}
+        to={`${url}`}
         className="focus:outline-none focus:ring-4 focus:ring-green-300 block rounded-t"
       >
         <header className="relative">
@@ -57,7 +57,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
       </div>
       <footer className=" dark:bg-gray-800 dark:text-white py-8 rounded-b-md text-center">
         <Link
-          to={`${url}/`}
+          to={`${url}`}
           className="font-source px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
         >
           Read This Article
