@@ -12,7 +12,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
     <article className="rounded-md shadow-md">
       <Link
         to={`${url}`}
-        className="focus:outline-none focus:ring-4 focus:ring-green-300 block rounded-t"
+        className="focus:outline-none focus:ring-4 focus:ring-emerald-300 block rounded-t"
       >
         <header className="relative">
           <GatsbyImage
@@ -21,8 +21,8 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
             alt=""
           />
 
-          <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-green-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
-            <h1 className="text-center absolute -top-4 p-4 bg-green-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
+          <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-emerald-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
+            <h1 className="text-center absolute -top-4 p-4 bg-emerald-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
               {title.text}
             </h1>
           </div>
@@ -30,10 +30,10 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
       </Link>
       <div className="dark:bg-gray-800 dark:text-white p-4">
         <div className="flex justify-center flex-wrap">
-          <p className="font-teko text-xl dark:text-green-200 ">
+          <p className="font-teko text-xl dark:text-emerald-200 ">
             Published on {date} by{" "}
           </p>
-          <ul className="list-none font-teko text-xl dark:text-green-200 ml-1">
+          <ul className="list-none font-teko text-xl dark:text-emerald-200 ml-1">
             {authors.map((author, i) => {
               return (
                 <li
@@ -58,7 +58,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
       <footer className=" dark:bg-gray-800 dark:text-white py-8 rounded-b-md text-center">
         <Link
           to={`${url}`}
-          className="font-source px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
+          className="font-source px-4 py-3 border-2 border-emerald-800 dark:border-emerald-400 rounded-md hover:shadow-md hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-emerald-300"
         >
           Read This Article
         </Link>
@@ -88,11 +88,11 @@ export default function Blog({
       />
       <div className="mx-auto mb-12 px-3">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-100 font-teko">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-100 font-teko">
             EdTech Blog
           </h1>
           {numPages > 1 ? (
-            <p className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-green-700 dark:text-green-100 font-teko">
+            <p className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 font-teko">
               Page {currentPage} of {numPages}
             </p>
           ) : (

@@ -14,7 +14,7 @@ export default function Footer() {
           className="w-12 mr-3"
         />
         <div>
-          <h2 className="text-center font-bold text-green-900 dark:text-green-100">
+          <h2 className="text-center font-bold text-emerald-900 dark:text-emerald-100">
             Long Branch Public Schools
           </h2>
           <h3 className="text-xs text-center dark:text-white">

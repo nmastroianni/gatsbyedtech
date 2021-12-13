@@ -8,14 +8,14 @@ import { Pagination } from "../components/Pagination"
 const VideoCard = ({ title, customThumb, thumbnail, url }) => {
   return (
     <article className="p-3">
-      <h2 className="my-3 text-green-800 dark:text-green-200 text-xl md:text-2xl xl:text-3xl font-teko text-center">
+      <h2 className="my-3 text-emerald-800 dark:text-emerald-200 text-xl md:text-2xl xl:text-3xl font-teko text-center">
         {title}
       </h2>
       {customThumb && (
         <div className="aspect-w-16 aspect-h-9">
           <Link
             to={url}
-            className="rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+            className="rounded-md focus:outline-none focus:ring-4 focus:ring-emerald-300"
           >
             <GatsbyImage
               image={getImage(thumbnail)}
@@ -30,7 +30,7 @@ const VideoCard = ({ title, customThumb, thumbnail, url }) => {
         <div className="aspect-w-16 aspect-h-9">
           <Link
             to={url}
-            className="rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+            className="rounded-md focus:outline-none focus:ring-4 focus:ring-emerald-300"
           >
             <img src={thumbnail} alt="decorative" className="rounded-md" />
           </Link>
@@ -62,10 +62,10 @@ export default function Videos({
       />
       <div className="mx-auto flex flex-col justify-between">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-200 font-teko">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-200 font-teko">
             EdTech Videos
           </h1>
-          <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-green-700 dark:text-green-100 font-teko">
+          <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 font-teko">
             Page {currentPage} of {numVideoPages}
           </h2>
         </header>

@@ -33,19 +33,19 @@ export default function Layout({ children, path }) {
           <header className="prose dark:prose-dark">
             This site uses cookies to measure how visitors use our site.
           </header>
-          <div className="text-xs text-green-800 dark:text-green-200 mb-3 md:mb-4 lg:mb-6">
+          <div className="text-xs text-emerald-800 dark:text-emerald-200 mb-3 md:mb-4 lg:mb-6">
             <Link to="/privacy/">View Our Privacy Policy</Link>
           </div>
-          <div className="grid grid-cols-2 text-green-800 dark:text-green-200">
+          <div className="grid grid-cols-2 text-emerald-800 dark:text-emerald-200">
             <button
               id="decline-tracking"
-              className="px-2 py-3 border border-green-800 dark:border-green-400 transition duration-300 ease-in-out dark:hover:text-green-300 hover:bg-green-200 dark:hover:bg-gray-800 hover:bg-opacity-50 rounded mr-3"
+              className="px-2 py-3 border border-emerald-800 dark:border-emerald-400 transition duration-300 ease-in-out dark:hover:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-gray-800 hover:bg-opacity-50 rounded mr-3"
             >
               <HiThumbDown className="inline" /> Decline
             </button>
             <button
               id="accept-tracking"
-              className="px-2 py-3 border border-green-800 dark:border-green-400 transition duration-300 ease-in-out dark:hover:text-green-200 hover:bg-green-100 dark:hover:bg-gray-600 hover:bg-opacity-50 rounded ml-3"
+              className="px-2 py-3 border border-emerald-800 dark:border-emerald-400 transition duration-300 ease-in-out dark:hover:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-gray-600 hover:bg-opacity-50 rounded ml-3"
             >
               <HiThumbUp className="inline" /> Accept
             </button>
@@ -58,10 +58,10 @@ export default function Layout({ children, path }) {
         <li>
           <a
             href="#main-content"
-            className="absolute z-50 -top-20 sm:left-1/4 text-2xl text-green-200 inline-block w-full sm:w-1/2 text-center bg-gray-900 bg-opacity-30 transform focus:translate-y-20 transition-all duration-500 ease-in-out"
+            className="absolute z-50 -top-20 sm:left-1/4 text-2xl text-emerald-200 inline-block w-full sm:w-1/2 text-center bg-gray-900 bg-opacity-30 transform focus:translate-y-20 transition-all duration-500 ease-in-out"
           >
             Skip to main content{" "}
-            <span className="text-gray-800 px-3 py-0 bg-green-200 text-base rounded-sm">
+            <span className="text-gray-800 px-3 py-0 bg-emerald-200 text-base rounded-sm">
               Return
               <BsArrowReturnLeft className="w-3 h-3 inline text-gray-800 ml-1" />
             </span>

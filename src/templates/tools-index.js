@@ -9,7 +9,7 @@ const ToolCard = ({ title, url, description, image }) => {
   return (
     <>
       <article className="relative group">
-        <div className="absolute -inset-1 bg-gradient-to-br from-green-500 to-yellow-200 dark:from-green-300 dark:to-white rounded filter blur opacity-75 transition duration-400 ease-in-out group-hover:opacity-100"></div>
+        <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500 to-yellow-200 dark:from-emerald-300 dark:to-white rounded filter blur opacity-75 transition duration-400 ease-in-out group-hover:opacity-100"></div>
         <div className="">
           <Link to={url}>
             <GatsbyImage
@@ -21,7 +21,7 @@ const ToolCard = ({ title, url, description, image }) => {
           </Link>
         </div>
       </article>
-      <p className="text-center font-teko my-2 md:my-3 lg:my-4 text-2xl text-green-800 dark:text-green-200">
+      <p className="text-center font-teko my-2 md:my-3 lg:my-4 text-2xl text-emerald-800 dark:text-emerald-200">
         {title}
       </p>
     </>
@@ -49,10 +49,10 @@ export default function Tools({
       />
       <div className="mx-auto flex flex-col justify-between ">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-green-800 dark:text-green-200 font-teko">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-200 font-teko">
             EdTech Tools
           </h1>
-          <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-green-700 dark:text-green-100 font-teko">
+          <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 font-teko">
             Page {currentPage} of {numPages}
           </h2>
         </header>

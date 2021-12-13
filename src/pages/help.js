@@ -87,11 +87,11 @@ export default function Help({ path }) {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <header className="mb-2 sm:mb-4 lg:mb-6 flex flex-col items-center">
           <div>
-            <h1 className="font-teko text-6xl my-3 md:my-4 lg:my-6 text-green-800 dark:text-green-200">
+            <h1 className="font-teko text-6xl my-3 md:my-4 lg:my-6 text-emerald-800 dark:text-emerald-200">
               Get Help
             </h1>
           </div>
-          <h2 className="text-sm dark:text-green-200 text-gray-700 max-w-screen-sm">
+          <h2 className="text-sm dark:text-emerald-200 text-gray-700 max-w-screen-sm">
             We are here to help. Tell us what you need.
           </h2>
         </header>
@@ -105,7 +105,7 @@ export default function Help({ path }) {
           )}
           {formComplete && (
             <div>
-              <h2 className="text-center text-3xl font-teko text-green-800 dark:text-green-200">
+              <h2 className="text-center text-3xl font-teko text-emerald-800 dark:text-emerald-200">
                 Huzzah! Your message was received!
               </h2>
               <p className="prose dark:prose-dark prose-lg lg:prose-xl text-center">
@@ -113,7 +113,7 @@ export default function Help({ path }) {
               </p>
               <button
                 onClick={() => setFormComplete(!formComplete)}
-                className="mt-3 block mx-auto text-center items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-800 dark:bg-green-200 dark:text-green-900 hover:bg-green-900 dark:hover:bg-green-100 focus:outline-none focus:border-green-200 focus:shadow-outline-blue active:bg-green-200 transition ease-in-out duration-150"
+                className="mt-3 block mx-auto text-center items-center justify-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-emerald-800 dark:bg-emerald-200 dark:text-emerald-900 hover:bg-emerald-900 dark:hover:bg-emerald-100 focus:outline-none focus:border-emerald-200 focus:shadow-outline-blue active:bg-emerald-200 transition ease-in-out duration-150"
               >
                 Contact Us Again
               </button>
@@ -125,7 +125,7 @@ export default function Help({ path }) {
           >
             <label
               htmlFor="name"
-              className="font-semibold text-lg text-green-800 dark:text-green-200 block"
+              className="font-semibold text-lg text-emerald-800 dark:text-emerald-200 block"
             >
               What is your name?
             </label>
@@ -136,7 +136,7 @@ export default function Help({ path }) {
               {...register("name", {
                 required: "Your name is required.",
               })}
-              className="form-input block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              className="form-input block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-emerald-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
             />
             {errors.name && (
               <p className="text-red-700 dark:text-yellow-300">
@@ -146,7 +146,7 @@ export default function Help({ path }) {
             )}
             <label
               htmlFor="email"
-              className="font-semibold text-lg text-green-800 dark:text-green-200"
+              className="font-semibold text-lg text-emerald-800 dark:text-emerald-200"
             >
               What is your email address?
             </label>
@@ -157,7 +157,7 @@ export default function Help({ path }) {
               {...register("email", {
                 required: "Your email address is required.",
               })}
-              className="form-input block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              className="form-input block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-emerald-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
             />
             {errors.email && (
               <p className="text-red-700 dark:text-yellow-300">
@@ -167,7 +167,7 @@ export default function Help({ path }) {
             )}
             <label
               htmlFor="reason"
-              className="font-semibold text-lg text-green-800 dark:text-green-200"
+              className="font-semibold text-lg text-emerald-800 dark:text-emerald-200"
             >
               What is your reason for contacting us today?
             </label>
@@ -177,7 +177,7 @@ export default function Help({ path }) {
                 required: "A reason is required.",
                 pattern: "^((?!Select).)*$",
               })}
-              className="form-select text-gray-500 block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-gray-900 dark:text-white"
+              className="form-select text-gray-500 block w-full mb-3 px-0.5 py-2 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-emerald-200 rounded-sm transition duration-150 ease-in-out dark:bg-gray-900 dark:text-white"
             >
               {selectReason.map((reason, i) => (
                 <option key={reason} value={reason}>
@@ -187,14 +187,14 @@ export default function Help({ path }) {
             </select>
             <label
               htmlFor="question"
-              className="font-semibold text-lg text-green-800 dark:text-green-200"
+              className="font-semibold text-lg text-emerald-800 dark:text-emerald-200"
             >
               How can we help you?
             </label>
             <textarea
               name="question"
               // placeholder="Enter your question or comment here..."
-              className="form-textarea block w-full mb-3 px-0.5 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
+              className="form-textarea block w-full mb-3 px-0.5 font-medium border-2 border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-emerald-200 rounded-sm transition duration-150 ease-in-out dark:bg-transparent dark:text-white"
               {...register("question", {
                 required: "Your question/comment is required.",
               })}
@@ -209,9 +209,9 @@ export default function Help({ path }) {
               name="submit"
               type="submit"
               value="Submit"
-              className={`w-1/3 px-6 py-3 mt-6 font-medium rounded-md text-white bg-green-800 dark:bg-green-200 dark:text-green-900 ${
+              className={`w-1/3 px-6 py-3 mt-6 font-medium rounded-md text-white bg-emerald-800 dark:bg-emerald-200 dark:text-emerald-900 ${
                 disabled && ` opacity-40 text-gray-50 `
-              } hover:bg-green-900 dark:hover:bg-green-100 focus:outline-none focus:ring-4 focus:ring-green-200 rounded-sm transition duration-150 ease-in-out`}
+              } hover:bg-emerald-900 dark:hover:bg-emerald-100 focus:outline-none focus:ring-4 focus:ring-emerald-200 rounded-sm transition duration-150 ease-in-out`}
             />
             <div className="mt-3 md:mt-4 lg:mt-6 prose prose-sm dark:prose-dark">
               <p>

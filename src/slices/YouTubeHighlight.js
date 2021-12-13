@@ -79,13 +79,13 @@ export const YouTubeHighlight = ({ slice }) => {
           {/* END LEFTSIDE VIDEO EMBED */}
           {/* BEGIN RIGHT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
-            <h2 className="text-green-800 dark:text-green-200 font-teko text-3xl md:text-4xl">
+            <h2 className="text-emerald-800 dark:text-emerald-200 font-teko text-3xl md:text-4xl">
               {youtube_title.richText
                 ? RichText.asText(youtube_title.richText)
                 : title}
             </h2>
-            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
-            <div className="prose prose-green md:prose-xl lg:prose-2xl dark:prose-dark">
+            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-emerald-800 to-transparent dark:from-transparent dark:via-emerald-400 dark:to-transparent" />
+            <div className="prose prose-emerald md:prose-xl lg:prose-2xl dark:prose-dark">
               <RichText
                 render={youtube_description.richText}
                 htmlSerializer={htmlSerializer}
@@ -102,13 +102,13 @@ export const YouTubeHighlight = ({ slice }) => {
         <div className="max-w-screen-2xl mx-auto grid md:grid-cols-2 p-4 gap-y-4 divide-y md:divide-y-0 md:gap-x-4">
           {/* BEGIN LEFT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
-            <h2 className="text-green-800 dark:text-green-200 font-teko text-3xl md:text-4xl">
+            <h2 className="text-emerald-800 dark:text-emerald-200 font-teko text-3xl md:text-4xl">
               {youtube_title.richText
                 ? RichText.asText(youtube_title.richText)
                 : title}
             </h2>
-            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
-            <div className="prose prose-green md:prose-xl lg:prose-2xl dark:prose-dark">
+            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-emerald-800 to-transparent dark:from-transparent dark:via-emerald-400 dark:to-transparent" />
+            <div className="prose prose-emerald md:prose-xl lg:prose-2xl dark:prose-dark">
               <RichText
                 render={youtube_description.richText}
                 htmlSerializer={htmlSerializer}

@@ -25,13 +25,13 @@ export const ImageHighlight = ({ slice }) => {
           {/* Left Side Prose Div */}
           <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading */}
-            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-green-800 dark:text-green-200">
+            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-emerald-800 dark:text-emerald-200">
               {RichText.asText(image_highlight_heading.richText)}
             </h2>
             {/* END HEADING DIV */}
-            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
+            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-emerald-800 to-transparent dark:from-transparent dark:via-emerald-400 dark:to-transparent" />
             {/* Image Description */}
-            <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6">
+            <div className="prose md:prose-xl prose-emerald dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
                 render={image_highlight_description.richText}
                 htmlSerializer={htmlSerializer}
@@ -46,7 +46,7 @@ export const ImageHighlight = ({ slice }) => {
                 {image_highlight_link.link_type === "Web" ? (
                   <a
                     href={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-emerald-800 dark:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                     style={{ textDecoration: "none" }}
                   >
                     {image_highlight_link_text.text
@@ -57,7 +57,7 @@ export const ImageHighlight = ({ slice }) => {
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
                   <Link
                     to={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-emerald-800 dark:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text
@@ -157,13 +157,13 @@ export const ImageHighlight = ({ slice }) => {
           {/* Right Side Prose Div */}
           <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading */}
-            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-green-800 dark:text-green-200">
+            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-emerald-800 dark:text-emerald-200">
               {RichText.asText(image_highlight_heading.richText)}
             </h2>
             {/* END HEADING DIV */}
-            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-green-800 to-transparent dark:from-transparent dark:via-green-400 dark:to-transparent" />
+            <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-emerald-800 to-transparent dark:from-transparent dark:via-emerald-400 dark:to-transparent" />
             {/* Image Description */}
-            <div className="prose md:prose-xl prose-green dark:prose-dark mb-3 md:mb-4 lg:mb-6">
+            <div className="prose md:prose-xl prose-emerald dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
                 render={image_highlight_description.richText}
                 htmlSerializer={htmlSerializer}
@@ -177,7 +177,7 @@ export const ImageHighlight = ({ slice }) => {
                 {image_highlight_link.link_type === "Web" ? (
                   <a
                     href={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-emerald-800 dark:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                     style={{ textDecoration: "none" }}
                   >
                     {image_highlight_link_text.text
@@ -188,7 +188,7 @@ export const ImageHighlight = ({ slice }) => {
                   // If Link is NOT "Web" then it is to Prismic Document -> Render a Gatsby Link
                   <Link
                     to={image_highlight_link.url}
-                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-green-800 dark:border-green-400 focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="px-6 py-2 rounded-md md:text-lg lg:text-xl  hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 border-2 border-emerald-800 dark:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                   >
                     {image_highlight_link_text.text
                       ? image_highlight_link_text.text

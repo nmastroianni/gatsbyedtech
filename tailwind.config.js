@@ -1,9 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 module.exports = {
-  mode: "jit",
   // These paths are just examples, customize them to match your project structure
-  purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
-  darkMode: "media", // or 'media' or 'class'
+  content: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
   theme: {
     extend: {
       fontFamily: {
@@ -74,7 +72,7 @@ module.exports = {
             },
           },
         },
-        green: {
+        emerald: {
           css: {
             a: {
               color: "#065F46",
@@ -85,17 +83,6 @@ module.exports = {
           },
         },
       }),
-    },
-  },
-  variants: {
-    extend: {
-      typography: ["dark"],
-      transitionProperty: ["focus"],
-      contrast: ["hover"],
-      saturate: ["hover"],
-      filter: ["hover"],
-      blur: ["hover"],
-      grayscale: ["hover"],
     },
   },
   plugins: [

@@ -44,10 +44,10 @@ export default function HeadlessMenu({ path }) {
     <div className="w-56 text-right">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus:ring-4 focus:ring-green-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+          <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus:ring-4 focus:ring-emerald-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             <span className="sr-only">Menu</span>
             <HiMenu
-              className="w-5 h-5 text-white hover:text-green-100"
+              className="w-5 h-5 text-white hover:text-emerald-100"
               aria-hidden="true"
             />
           </Menu.Button>
@@ -84,11 +84,11 @@ export default function HeadlessMenu({ path }) {
                           to={`${item.link.url}/`}
                           className={`${
                             active
-                              ? "bg-green-900 hover:text-white focus:text-white"
+                              ? "bg-emerald-900 hover:text-white focus:text-white"
                               : "text-gray-900 dark:text-gray-50"
                           } ${
                             path.includes(item.link.raw.url) &&
-                            `border-b-2 bg-green-200 text-black font-semibold shadow-sm `
+                            `border-b-2 bg-emerald-200 text-black font-semibold shadow-sm `
                           } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
                           {active ? (
@@ -98,7 +98,7 @@ export default function HeadlessMenu({ path }) {
                             />
                           ) : (
                             <MenuIcon
-                              className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
+                              className="w-5 h-5 mr-2 text-emerald-900 dark:text-emerald-200"
                               aria-hidden="true"
                             />
                           )}
@@ -119,7 +119,7 @@ export default function HeadlessMenu({ path }) {
                           to={item.link.raw.url.substring(22)}
                           className={`${
                             active
-                              ? "bg-green-900 text-white"
+                              ? "bg-emerald-900 text-white"
                               : "text-gray-900 dark:text-gray-50"
                           } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
@@ -130,7 +130,7 @@ export default function HeadlessMenu({ path }) {
                             />
                           ) : (
                             <MenuIcon
-                              className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
+                              className="w-5 h-5 mr-2 text-emerald-900 dark:text-emerald-200"
                               aria-hidden="true"
                             />
                           )}
@@ -147,7 +147,7 @@ export default function HeadlessMenu({ path }) {
                           href={item.link.raw.url}
                           className={`${
                             active
-                              ? "bg-green-700 text-white"
+                              ? "bg-emerald-700 text-white"
                               : "text-gray-900 dark:text-gray-50"
                           } focus:text-white group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                         >
@@ -158,7 +158,7 @@ export default function HeadlessMenu({ path }) {
                             />
                           ) : (
                             <MenuIcon
-                              className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
+                              className="w-5 h-5 mr-2 text-emerald-900 dark:text-emerald-200"
                               aria-hidden="true"
                             />
                           )}
@@ -179,7 +179,7 @@ export default function HeadlessMenu({ path }) {
                         to="/"
                         className={`${
                           active
-                            ? "bg-green-900 text-white"
+                            ? "bg-emerald-900 text-white"
                             : "text-gray-900 dark:text-gray-50"
                         } group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                       >
@@ -187,7 +187,7 @@ export default function HeadlessMenu({ path }) {
                           <FaHome className="w-5 h-5 mr-2" aria-hidden="true" />
                         ) : (
                           <FaHome
-                            className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
+                            className="w-5 h-5 mr-2 text-emerald-900 dark:text-emerald-200"
                             aria-hidden="true"
                           />
                         )}
@@ -203,7 +203,7 @@ export default function HeadlessMenu({ path }) {
                     to="/help/"
                     className={`${
                       active
-                        ? "bg-green-900 text-white"
+                        ? "bg-emerald-900 text-white"
                         : "text-gray-900 dark:text-gray-50"
                     } group flex rounded-md items-center w-full px-2 py-2 text-lg`}
                   >
@@ -214,7 +214,7 @@ export default function HeadlessMenu({ path }) {
                       />
                     ) : (
                       <FaQuestionCircle
-                        className="w-5 h-5 mr-2 text-green-900 dark:text-green-200"
+                        className="w-5 h-5 mr-2 text-emerald-900 dark:text-emerald-200"
                         aria-hidden="true"
                       />
                     )}

@@ -18,7 +18,7 @@ const PrismicTool = ({ data, path }) => {
         image={getSrc(document.tool_logo.gatsbyImageData)}
       />
       <header>
-        <div className="flex flex-col justify-center items-center md:flex-row md:divide-x-4 divide-green-700 dark:divide-green-200 py-6">
+        <div className="flex flex-col justify-center items-center md:flex-row md:divide-x-4 divide-emerald-700 dark:divide-emerald-200 py-6">
           <GatsbyImage
             image={getImage(document.tool_logo.gatsbyImageData)}
             alt={document.tool_logo.alt || "Tool Logo"}
@@ -26,13 +26,13 @@ const PrismicTool = ({ data, path }) => {
             imgClassName="rounded"
           />
           <div className="my-4 md:my-0">
-            <h1 className="text-center pl-0 md:pl-12  w-96 text-6xl text-green-800 dark:text-white font-teko">
+            <h1 className="text-center pl-0 md:pl-12  w-96 text-6xl text-emerald-800 dark:text-white font-teko">
               {document.tool_title.text}
             </h1>
-            <p className="text-sm text-center pl-0 md:pl-12 font-source text-green-700 dark:text-green-200">
+            <p className="text-sm text-center pl-0 md:pl-12 font-source text-emerald-700 dark:text-emerald-200">
               Last Updated:
             </p>
-            <p className="text-sm pl-0 md:pl-12 mb-3 md:mb-4 lg:mb-6 text-center text-green-700 dark:text-green-200">
+            <p className="text-sm pl-0 md:pl-12 mb-3 md:mb-4 lg:mb-6 text-center text-emerald-700 dark:text-emerald-200">
               {data.tool.last_publication_date}
             </p>
           </div>

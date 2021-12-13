@@ -36,10 +36,10 @@ export const ContentGrid = ({ slice }) => {
                 alt={alt || `${text} logo`}
                 className="w-40"
               />
-              <h3 className="text-green-800 dark:text-green-200 my-2 md:my-3 lg:my-6">
+              <h3 className="text-emerald-800 dark:text-emerald-200 my-2 md:my-3 lg:my-6">
                 <Link
                   to={url}
-                  className="mt-auto block px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
+                  className="mt-auto block px-4 py-3 border-2 border-emerald-800 dark:border-emerald-400 rounded-md hover:shadow-md hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                 >
                   <span className="sr-only">Learn More About </span>
                   {text}
@@ -105,7 +105,7 @@ export const ContentGrid = ({ slice }) => {
                 </div>
                 <Link
                   to={url}
-                  className="inline px-4 py-3 border-2 dark:text-green-200 border-green-800 dark:border-green-400 rounded-md hover:shadow-md transition duration-300 ease-in-out hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
+                  className="inline px-4 py-3 border-2 dark:text-emerald-200 border-emerald-800 dark:border-emerald-400 rounded-md hover:shadow-md transition duration-300 ease-in-out hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                 >
                   Take a Look
                 </Link>
@@ -129,14 +129,14 @@ export const ContentGrid = ({ slice }) => {
               className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source place-content-center"
               key={id}
             >
-              <CgWebsite className="w-24 h-24 text-green-800 dark:text-green-200" />
+              <CgWebsite className="w-24 h-24 text-emerald-800 dark:text-emerald-200" />
               <p className="prose dark:prose-dark prose-md md:prose-lg">
                 Check out the page below!
               </p>
-              <h3 className="text-green-800 dark:text-green-200 my-2 md:my-3 lg:my-6">
+              <h3 className="text-emerald-800 dark:text-emerald-200 my-2 md:my-3 lg:my-6">
                 <Link
                   to={url}
-                  className="mt-auto block px-4 py-3 border-2 border-green-800 dark:border-green-400 rounded-md hover:shadow-md hover:bg-green-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-green-300"
+                  className="mt-auto block px-4 py-3 border-2 border-emerald-800 dark:border-emerald-400 rounded-md hover:shadow-md hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-emerald-300"
                 >
                   <span className="sr-only">Visit the page </span>
                   {text}
@@ -164,14 +164,14 @@ export const ContentGrid = ({ slice }) => {
               className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source place-content-center"
               key={id}
             >
-              <h3 className="text-green-800 dark:text-green-200 my-2 md:my-3 lg:my-6 text-xl md:text-2xl text-center">
+              <h3 className="text-emerald-800 dark:text-emerald-200 my-2 md:my-3 lg:my-6 text-xl md:text-2xl text-center">
                 {text}
               </h3>
               <div className="p-3 md:p-4 bg-gray-200 dark:bg-gray-900 rounded-md shadow-sm group transition duration-500 ease-in-out hover:saturate-150 hover:shadow-md transform hover:scale-105">
                 {video_custom_thumbnail.gatsbyImageData && (
                   <Link
                     to={url}
-                    className="block rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="block rounded-md focus:outline-none focus:ring-4 focus:ring-emerald-300"
                   >
                     <GatsbyImage
                       image={getImage(video_custom_thumbnail.gatsbyImageData)}
@@ -183,7 +183,7 @@ export const ContentGrid = ({ slice }) => {
                 {!video_custom_thumbnail.gatsbyImageData && (
                   <Link
                     to={url}
-                    className="block rounded-md focus:outline-none focus:ring-4 focus:ring-green-300"
+                    className="block rounded-md focus:outline-none focus:ring-4 focus:ring-emerald-300"
                   >
                     <img
                       src={thumbnail_url}

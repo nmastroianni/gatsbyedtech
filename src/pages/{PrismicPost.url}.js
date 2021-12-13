@@ -25,7 +25,7 @@ const AuthorCard = ({ description, image, name, socials }) => {
         imgClassName="rounded-full"
       />
       <div className="flex-1">
-        <h1 className="font-teko text-green-800 dark:text-green-200 text-xl md:text-2xl lg:text-3xl">
+        <h1 className="font-teko text-emerald-800 dark:text-emerald-200 text-xl md:text-2xl lg:text-3xl">
           {name}
         </h1>
         <div className="prose dark:prose-dark">
@@ -36,7 +36,7 @@ const AuthorCard = ({ description, image, name, socials }) => {
         </div>
         {socials.length ? (
           <div className="flex items-center my-3 md:my-4 lg:my-6">
-            <h2 className="font-teko text-base md:text-lg lg:text-xl text-green-800 dark:text-green-200 mr-3 md:mr-4">
+            <h2 className="font-teko text-base md:text-lg lg:text-xl text-emerald-800 dark:text-emerald-200 mr-3 md:mr-4">
               Connect with me:
             </h2>
             <ul className={`list-none flex space-x-4`}>
@@ -54,9 +54,12 @@ const AuthorCard = ({ description, image, name, socials }) => {
                 } = social
                 const SocialIcon = icons[author_socials_platform]
                 return (
-                  <li className="text-green-800 dark:text-green-200" key={url}>
+                  <li
+                    className="text-emerald-800 dark:text-emerald-200"
+                    key={url}
+                  >
                     <a href={url}>
-                      <SocialIcon className="inline w-6 h-6 hover:text-green-900 dark:hover:text-green-100" />
+                      <SocialIcon className="inline w-6 h-6 hover:text-emerald-900 dark:hover:text-emerald-100" />
                       <span className="sr-only">
                         {`Connect with ${name} on ${author_socials_platform}`}
                       </span>
@@ -129,7 +132,7 @@ const PrismicPost = ({ data, path }) => {
           />
         </div>
         <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0  w-full">
-          <h2 className="font-teko text-center text-4xl md:text-6xl lg:text-7xl bg-green-900 text-white pt-3 pb-1.5">
+          <h2 className="font-teko text-center text-4xl md:text-6xl lg:text-7xl bg-emerald-900 text-white pt-3 pb-1.5">
             {post_title.text}
           </h2>
         </div>
@@ -143,9 +146,9 @@ const PrismicPost = ({ data, path }) => {
         <SliceZone sliceZone={body} />
       </div>
       <section id="author-info">
-        <h2 className="relative text-center font-teko text-green-800 dark:text-green-200 text-2xl md:text-3xl lg:text-4xl mt-3 md:mt-4 lg:mt-6">
+        <h2 className="relative text-center font-teko text-emerald-800 dark:text-emerald-200 text-2xl md:text-3xl lg:text-4xl mt-3 md:mt-4 lg:mt-6">
           Meet the {`${post_authors.length > 1 ? `Authors` : `Author`}`} ...
-          <span className="absolute h-8 w-3 border-green-800 dark:border-green-400 animate-pulse border-r-4"></span>
+          <span className="absolute h-8 w-3 border-emerald-800 dark:border-emerald-400 animate-pulse border-r-4"></span>
         </h2>
         <ul className="mb-3 md:mb-4 lg:mb-6">
           {post_authors.map((author, i) => {
@@ -176,7 +179,7 @@ const PrismicPost = ({ data, path }) => {
         </ul>
       </section>
       <div className="max-w-screen-md mx-auto px-3">
-        <h2 className="font-teko text-green-800 text-3xl md:text-4xl lg:text-6xl dark:text-green-200 text-center">
+        <h2 className="font-teko text-emerald-800 text-3xl md:text-4xl lg:text-6xl dark:text-emerald-200 text-center">
           Have Thoughts or Questions?
         </h2>
         <p className="font-source text-xl md:text-2xl lg:text-3xl text-center mb-2 md:mb-3 lg:mb-6 dark:text-white">

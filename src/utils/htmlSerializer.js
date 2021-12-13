@@ -94,7 +94,7 @@ const htmlSerializer = function (type, element, content, children, key) {
           <Link
             key={key}
             to={url}
-            className="underline focus:outline-none focus:ring-4 focus:ring-green-300"
+            className="underline focus:outline-none focus:ring-4 focus:ring-emerald-300"
           >
             {content}
           </Link>
@@ -107,7 +107,7 @@ const htmlSerializer = function (type, element, content, children, key) {
           <Link
             key={key}
             to={url.substring(22)}
-            className="underline focus:outline-none focus:ring-4 focus:ring-green-300"
+            className="underline focus:outline-none focus:ring-4 focus:ring-emerald-300"
           >
             {content}
           </Link>
@@ -120,7 +120,7 @@ const htmlSerializer = function (type, element, content, children, key) {
           href={url}
           target={element.data.target}
           rel={element.data.target ? "noopener" : undefined}
-          className="underline rounded-sm focus:outline-none focus:ring-4 focus:ring-green-300"
+          className="underline rounded-sm focus:outline-none focus:ring-4 focus:ring-emerald-300"
         >
           {children}
         </a>

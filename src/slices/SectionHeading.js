@@ -32,7 +32,7 @@ export const SectionHeading = ({ slice }) => {
           ""
         )}
         <button
-          className="relative text-green-900 text-opacity-0 dark:text-opacity-0 group-hover:text-opacity-100 focus:text-white focus:text-opacity-100 transition duration-300 ease-in-out group-hover:text-white inline"
+          className="relative text-emerald-900 text-opacity-0 dark:text-opacity-0 group-hover:text-opacity-100 focus:text-white focus:text-opacity-100 transition duration-300 ease-in-out group-hover:text-white inline"
           onClick={() => {
             setIsCopied(true)
             navigator.clipboard.writeText(`${url}#${section_heading_link.text}`)
