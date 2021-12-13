@@ -11,5 +11,8 @@ exports.linkResolver = doc => {
   if (doc.type === "video") {
     return `/videos/${doc.uid}`
   }
+  if (doc.type === "tag") {
+    return `/tag/${doc.uid}`
+  }
   return "/"
 }
