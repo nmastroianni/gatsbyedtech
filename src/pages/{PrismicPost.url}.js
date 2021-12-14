@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Disqus } from "gatsby-plugin-disqus"
 import Layout from "../components/Layout"
@@ -14,6 +14,7 @@ import {
   FaFacebook,
   FaYoutube,
 } from "react-icons/fa"
+import { HiTag } from "react-icons/hi"
 
 const AuthorCard = ({ description, image, name, socials }) => {
   return (
@@ -81,7 +82,14 @@ const PrismicPost = ({ data, path }) => {
   if (!data) return null
   const document = data.prismicPost
   const {
-    data: { body, post_authors, post_featured_image, post_title, post_excerpt },
+    data: {
+      body,
+      post_authors,
+      post_featured_image,
+      post_title,
+      post_excerpt,
+      tags,
+    },
     first_publication_date,
     uid,
     url,
@@ -137,10 +145,35 @@ const PrismicPost = ({ data, path }) => {
           </h2>
         </div>
       </section>
-      <div className=" mx-auto">
+      <div className="mx-auto">
         <h3 className="py-3 md:py-4 lg:py-6 font-teko text-center dark:text-white text-lg md:text-xl lg:text-2xl">
           Published on {first_publication_date}
         </h3>
+        {tags.length ? (
+          <ul className="flex text-emerald-800 dark:text-emerald-200 justify-center gap-1 md:gap-2 lg:gap-4">
+            {tags.map(tag => {
+              const {
+                tag: {
+                  url,
+                  document: {
+                    id,
+                    data: {
+                      title: { text },
+                    },
+                  },
+                },
+              } = tag
+              return (
+                <li key={id}>
+                  <Link to={url} className="hover:underline">
+                    <HiTag className="w-5 h-5 inline" />
+                    {text}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        ) : null}
       </div>
       <div>
         <SliceZone sliceZone={body} />
@@ -213,6 +246,21 @@ export const query = graphql`
         post_featured_image {
           alt
           gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+        }
+        tags {
+          tag {
+            url
+            document {
+              ... on PrismicTag {
+                id
+                data {
+                  title {
+                    text
+                  }
+                }
+              }
+            }
+          }
         }
         post_authors {
           post_authors_author {
