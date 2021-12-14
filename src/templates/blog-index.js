@@ -6,8 +6,9 @@ import htmlSerializer from "../utils/htmlSerializer"
 import Seo from "../components/Seo"
 import Layout from "../components/Layout"
 import { Pagination } from "../components/Pagination"
+import { HiTag } from "react-icons/hi"
 
-const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
+const BlogCard = ({ authors, excerpt, image, title, date, url, tags }) => {
   return (
     <article className="rounded-md shadow-md">
       <Link
@@ -28,12 +29,42 @@ const BlogCard = ({ authors, excerpt, image, title, date, url }) => {
           </div>
         </header>
       </Link>
-      <div className="dark:bg-gray-800 dark:text-white p-4">
+      <div className="dark:bg-gray-800 dark:text-white p-4 font-source">
+        {tags.length ? (
+          <div className="flex justify-center flex-wrap">
+            <ul className="grid grid-flow-col gap-3 divide-x-2 dark:divide-slate-700 mb-2 md:mb-3 lg:mb-4">
+              {tags.map(tag => {
+                const {
+                  tag: {
+                    document: {
+                      data: {
+                        title: { text },
+                      },
+                      id,
+                    },
+                    url,
+                  },
+                } = tag
+                return (
+                  <li
+                    key={id}
+                    className="text-emerald-600 dark:text-emerald-300 ml-1"
+                  >
+                    <Link to={url} className="hover:underline">
+                      <HiTag className="w-5 h-5 dark:text-emerald-200 inline mx-1 md:mx-2 lg:mx-3" />
+                      {text}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        ) : null}
         <div className="flex justify-center flex-wrap">
-          <p className="font-teko text-xl dark:text-emerald-200 ">
+          <p className="font-teko text-xl text-emerald-800 dark:text-emerald-200 ">
             Published on {date} by{" "}
           </p>
-          <ul className="list-none font-teko text-xl dark:text-emerald-200 ml-1">
+          <ul className="list-none font-teko text-xl text-emerald-800 dark:text-emerald-200 ml-1">
             {authors.map((author, i) => {
               return (
                 <li
@@ -118,6 +149,7 @@ export default function Blog({
                 post_excerpt,
                 post_featured_image,
                 post_title,
+                tags,
               },
               first_publication_date,
               prismicId,
@@ -132,6 +164,7 @@ export default function Blog({
                   image={post_featured_image}
                   date={first_publication_date}
                   url={url}
+                  tags={tags}
                 />
               </li>
             )
@@ -178,6 +211,21 @@ export const data = graphql`
           }
           post_excerpt {
             richText
+          }
+          tags {
+            tag {
+              url
+              document {
+                ... on PrismicTag {
+                  id
+                  data {
+                    title {
+                      text
+                    }
+                  }
+                }
+              }
+            }
           }
           post_authors {
             post_authors_author {

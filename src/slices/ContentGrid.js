@@ -4,6 +4,7 @@ import { RichText } from "prismic-reactjs"
 import htmlSerializer from "../utils/htmlSerializer"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { CgWebsite } from "react-icons/cg"
+import { HiTag } from "react-icons/hi"
 
 export const ContentGrid = ({ slice }) => {
   const { items } = slice
@@ -63,6 +64,8 @@ export const ContentGrid = ({ slice }) => {
                   post_excerpt: { richText },
                   post_authors,
                   post_featured_image,
+                  post_title: { text },
+                  tags,
                 },
               },
             },
@@ -75,10 +78,11 @@ export const ContentGrid = ({ slice }) => {
             >
               <GatsbyImage
                 image={getImage(post_featured_image.gatsbyImageData)}
-                alt={post_featured_image.alt || "Decorative Image"}
+                alt={post_featured_image.alt || ""}
                 className="w-3/4"
               />
               <div className="prose dark:prose-dark w-full">
+                <h2 className="text-center dark:text-white">{text}</h2>
                 <RichText render={richText} htmlSerializer={htmlSerializer} />
               </div>
               <div className="w-full mt-auto flex justify-between items-center">
@@ -96,7 +100,7 @@ export const ContentGrid = ({ slice }) => {
                       <GatsbyImage
                         image={getImage(author_profile_image.gatsbyImageData)}
                         alt="author profile"
-                        className="w-8 h-8 rounded-full mr-2 filter grayscale transition duration-300 ease-in-out hover:grayscale-0"
+                        className="w-8 h-8 rounded-full mr-2 filter grayscale transition duration-300 ease-in-out hover:grayscale-0 hover:scale-110"
                         title={`Authored by: ${author_title.text}`}
                         key={id}
                       />
@@ -110,6 +114,22 @@ export const ContentGrid = ({ slice }) => {
                   Take a Look
                 </Link>
               </div>
+              {tags.length ? (
+                <div className="place-self-start">
+                  <ul className="grid grid-flow-col gap-1 divide-x-2 divide-emerald-200 dark:divide-slate-700 text-sm text-emerald-600 dark:text-emerald-200">
+                    {tags.map(tag => {
+                      return (
+                        <li className="pl-1 hover:scale-105">
+                          <Link to={tag.tag.url} className="hover:underline">
+                            <HiTag className="w-4 h-4 inline" />
+                            {tag.tag.document.data.title.text}
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              ) : null}
             </li>
           )
         } else if (item.content_items.type === "page") {
@@ -257,6 +277,24 @@ export const query = graphql`
               post_featured_image {
                 alt
                 gatsbyImageData(placeholder: BLURRED)
+              }
+              post_title {
+                text
+              }
+              tags {
+                tag {
+                  url
+                  document {
+                    ... on PrismicTag {
+                      id
+                      data {
+                        title {
+                          text
+                        }
+                      }
+                    }
+                  }
+                }
               }
               post_excerpt {
                 richText
