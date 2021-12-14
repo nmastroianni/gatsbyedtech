@@ -32,7 +32,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url, tags }) => {
       <div className="dark:bg-gray-800 dark:text-white p-4 font-source">
         {tags.length ? (
           <div className="flex justify-center flex-wrap">
-            <ul className="grid grid-flow-col gap-3 divide-x-2 dark:divide-slate-700 mb-2 md:mb-3 lg:mb-4">
+            <ul className="grid grid-flow-col gap-3 divide-x-2 dark:divide-slate-500 mb-2 md:mb-3 lg:mb-4">
               {tags.map(tag => {
                 const {
                   tag: {

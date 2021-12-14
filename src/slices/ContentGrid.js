@@ -116,7 +116,7 @@ export const ContentGrid = ({ slice }) => {
               </div>
               {tags.length ? (
                 <div className="place-self-start">
-                  <ul className="grid grid-flow-col gap-1 divide-x-2 divide-emerald-200 dark:divide-slate-700 text-sm text-emerald-600 dark:text-emerald-200">
+                  <ul className="grid grid-flow-col gap-1 divide-x-2 divide-emerald-600 dark:divide-slate-500 text-sm text-emerald-800 dark:text-emerald-100">
                     {tags.map(tag => {
                       return (
                         <li className="pl-1 hover:scale-105">
