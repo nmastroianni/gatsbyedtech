@@ -48,7 +48,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url, tags }) => {
                 return (
                   <li
                     key={id}
-                    className="text-emerald-600 dark:text-emerald-300 ml-1"
+                    className="text-emerald-800 dark:text-emerald-200 ml-1"
                   >
                     <Link to={url} className="hover:underline">
                       <HiTag className="w-5 h-5 dark:text-emerald-200 inline mx-1 md:mx-2 lg:mx-3" />
