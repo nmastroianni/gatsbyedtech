@@ -35,7 +35,6 @@ const PrismicTag = ({ data, path }) => {
           <p className="text-center dark:text-white">
             Listed below are all of our posts that are related to {text}
           </p>
-          <HiArrowDown className=" animate-bounce w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 my-3 md:my-4 lg:my-6 mx-auto text-emerald-800" />
         </header>
         <ol className="flex flex-col gap-y-4 font-source dark:text-white p-2 md:p-3 text-xl md:text-2xl mx-auto max-w-md md:max-w-xl lg:max-w-2xl">
           {nodes.map(post => {
