@@ -5,12 +5,11 @@ import Layout from "../components/Layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Pagination } from "../components/Pagination"
 
-const ToolCard = ({ title, url, description, image }) => {
+const ToolCard = ({ title, url, image }) => {
   return (
     <>
-      <article className="relative group">
-        <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500 to-yellow-200 dark:from-emerald-300 dark:to-white rounded filter blur opacity-75 transition duration-400 ease-in-out group-hover:opacity-100"></div>
-        <div className="">
+      <article className="group">
+        <div>
           <Link to={url}>
             <GatsbyImage
               image={getImage(image.gatsbyImageData)}
