@@ -5,7 +5,6 @@ import Seo from "../../components/Seo"
 import { HiArrowDown } from "react-icons/hi"
 
 const PrismicTag = ({ data, path }) => {
-  console.log(data)
   const {
     allPrismicPost: { nodes },
     prismicTag: {
