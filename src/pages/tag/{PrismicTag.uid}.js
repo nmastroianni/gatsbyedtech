@@ -2,7 +2,6 @@ import * as React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
-import { HiArrowDown } from "react-icons/hi"
 
 const PrismicTag = ({ data, path }) => {
   const {
