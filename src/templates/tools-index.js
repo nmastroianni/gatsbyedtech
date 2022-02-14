@@ -51,9 +51,11 @@ export default function Tools({
           <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-200 font-teko">
             EdTech Tools
           </h1>
-          <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 font-teko">
-            Page {currentPage} of {numPages}
-          </h2>
+          {numPages > 1 && (
+            <h2 className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 font-teko">
+              Page {currentPage} of {numPages}
+            </h2>
+          )}
         </header>
         <div className="my-6">
           {numPages > 1 ? (

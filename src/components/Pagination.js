@@ -36,7 +36,7 @@ export const Pagination = ({ currentPage, pageCount, basePath }) => {
         <FaAngleLeft className="w-4 inline" /> Previous
       </Link>
       {/*  Render numeric pagination  */}
-      {Array.from({ length: pageCount }, (_, i) => {
+      {/* {Array.from({ length: pageCount }, (_, i) => {
         let numClass = "invisible"
         if (currentPage === i + 1) {
           numClass = "visible"
@@ -56,7 +56,7 @@ export const Pagination = ({ currentPage, pageCount, basePath }) => {
             </span>
           </Link>
         )
-      })}
+      })} */}
       <Link
         className={`${nextClass} dark:bg-black bg-opacity-50 px-4 py-2 rounded focus:outline-none focus:ring-4 focus:ring-emerald-300`}
         to={nextPagePath + "/"}
