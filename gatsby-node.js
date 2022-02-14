@@ -147,7 +147,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
   // Create tools-list pages
   const tools = toolsResult.data.allPrismicTool.nodes
-  const toolsPerPage = 6
+  const toolsPerPage = 12
   const numToolPages = Math.ceil(tools.length / toolsPerPage)
   Array.from({ length: numToolPages }).forEach((_, i) => {
     createPage({
