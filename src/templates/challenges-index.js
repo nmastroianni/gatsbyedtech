@@ -48,15 +48,15 @@ export default function Challenges({
             />
           </div>
         ) : null}
-        <ul className="list-none max-w-screen-md mx-auto">
+        <ul className="list-none max-w-screen-md mx-auto space-y-3 md:space-y-4 lg:space-y-6 py-3 md:py-4 lg:py-6">
           {nodes.map(node => {
             return (
-              <li className="rounded border text-center pb-3 md:pb-4 lg:pb-6">
+              <li className="rounded border text-center pb-3 md:pb-4 lg:pb-6 shadow shadow-emerald-100">
                 <GatsbyImage
                   image={getImage(node.data.challenge_featured_image)}
                   alt={``}
                   onClick={() => navigate(node.url)}
-                  className="cursor-pointer"
+                  className="cursor-pointer rounded-t"
                 />
                 <h2 className="font-teko my-3 md:my-4 lg:my-6 text-center text-emerald-900 dark:text-emerald-200 text-3xl md:text-4xl lg:text-5xl">
                   {node.data.title.text}
