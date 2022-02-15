@@ -5,12 +5,12 @@ import { Link } from "gatsby"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 
 // Create URL path for numeric pagination
-const getPageNumberPath = (currentIndex, basePath) => {
-  if (currentIndex === 0) {
-    return basePath
-  }
-  return `${basePath}/` + (currentIndex + 1)
-}
+// const getPageNumberPath = (currentIndex, basePath) => {
+//   if (currentIndex === 0) {
+//     return basePath
+//   }
+//   return `${basePath}/` + (currentIndex + 1)
+// }
 
 export const Pagination = ({ currentPage, pageCount, basePath }) => {
   if (!currentPage || !pageCount) return null
