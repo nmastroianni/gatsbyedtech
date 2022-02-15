@@ -163,4 +163,52 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+  // BEGIN CHALLENGES PAGES
+
+  const challengesResult = await graphql(
+    `
+      {
+        allPrismicChallenge(
+          sort: { fields: first_publication_date, order: DESC }
+        ) {
+          nodes {
+            url
+            prismicId
+            last_publication_date(formatString: "MMMM, Do YYYY")
+            data {
+              title {
+                text
+              }
+              challenge_featured_image {
+                gatsbyImageData
+                alt
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  if (challengesResult.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+  // Create challenges-list pages
+  const challenges = challengesResult.data.allPrismicChallenge.nodes
+  const challengesPerPage = 12
+  const numChallengePages = Math.ceil(challenges.length / challengesPerPage)
+  Array.from({ length: numChallengePages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/challenges/` : `/challenges/${i + 1}/`,
+      component: path.resolve("./src/templates/challenges-index.js"),
+      context: {
+        totalPosts: challenges.length,
+        limit: challengesPerPage,
+        skip: i * challengesPerPage,
+        numPages: numChallengePages,
+        currentPage: i + 1,
+        basePath: "/challenges",
+      },
+    })
+  })
 }
