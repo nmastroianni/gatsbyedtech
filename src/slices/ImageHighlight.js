@@ -303,4 +303,27 @@ export const query = graphql`
       image_highlight_position
     }
   }
+  fragment ChallengeDataBodyImageHighlight on PrismicChallengeDataBodyImageHighlight {
+    primary {
+      image_highlight_image {
+        alt
+        gatsbyImageData(placeholder: BLURRED)
+      }
+      image_highlight_heading {
+        richText
+      }
+      image_highlight_description {
+        richText
+      }
+      image_highlight_link {
+        url
+        link_type
+        uid
+      }
+      image_highlight_link_text {
+        text
+      }
+      image_highlight_position
+    }
+  }
 `

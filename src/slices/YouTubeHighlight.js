@@ -257,4 +257,26 @@ export const query = graphql`
       }
     }
   }
+  fragment ChallengeDataBodyYoutubeHighlight on PrismicChallengeDataBodyYoutubeHighlight {
+    id
+    primary {
+      youtube_description {
+        richText
+      }
+      youtube_embed {
+        embed_url
+        provider_name
+        thumbnail_url
+        title
+      }
+      youtube_position
+      youtube_thumbnail {
+        gatsbyImageData(srcSetMinWidth: 320)
+        url
+      }
+      youtube_title {
+        richText
+      }
+    }
+  }
 `

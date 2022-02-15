@@ -71,4 +71,13 @@ export const query = graphql`
       }
     }
   }
+  fragment ChallengeDataBodyText on PrismicChallengeDataBodyText {
+    id
+    primary {
+      text_prose
+      content {
+        richText
+      }
+    }
+  }
 `

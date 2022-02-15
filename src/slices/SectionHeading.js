@@ -96,4 +96,15 @@ export const query = graphql`
       }
     }
   }
+  fragment ChallengeDataBodySectionHeading on PrismicChallengeDataBodySectionHeading {
+    primary {
+      section_heading_background_color
+      section_heading_link {
+        text
+      }
+      section_heading_text {
+        richText
+      }
+    }
+  }
 `

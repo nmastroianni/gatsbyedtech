@@ -14,5 +14,8 @@ exports.linkResolver = doc => {
   if (doc.type === "tag") {
     return `/tag/${doc.uid}`
   }
+  if (doc.type === "challenge") {
+    return `/challenges/${doc.uid}`
+  }
   return "/"
 }

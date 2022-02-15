@@ -84,4 +84,16 @@ export const query = graphql`
       }
     }
   }
+  fragment ChallengeDataBodyFullWidthImage on PrismicChallengeDataBodyFullWidthImage {
+    primary {
+      full_width_image {
+        alt
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        url
+      }
+      full_width_image_caption {
+        richText
+      }
+    }
+  }
 `
