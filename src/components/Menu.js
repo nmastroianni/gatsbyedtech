@@ -2,7 +2,7 @@ import * as React from "react"
 import { Menu, Transition } from "@headlessui/react"
 import { Fragment } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import { HiMenu } from "react-icons/hi"
+import { HiMenu, HiPuzzle } from "react-icons/hi"
 import {
   FaVideo,
   FaTools,
@@ -74,6 +74,7 @@ export default function HeadlessMenu({ path }) {
                   Home: FaHome,
                   Question: FaQuestionCircle,
                   ArrowLeft: FaArrowLeft,
+                  Puzzle: HiPuzzle,
                 }
                 const MenuIcon = icons[item.link_icon]
                 if (item.link.raw.link_type === "Document") {
