@@ -58,7 +58,6 @@ module.exports = {
         repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         linkResolver: require("./src/utils/linkResolver").linkResolver,
-        releaseID: process.env.PRISMIC_RELEASE_ID,
       },
     },
     {
