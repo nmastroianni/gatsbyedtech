@@ -6,10 +6,7 @@ import HeadlessMenu from "./Menu"
 
 export default function Navbar({ path }) {
   return (
-    <Headroom
-      className="text-white"
-      style={{ background: "#064E3B", maxHeight: "72px" }}
-    >
+    <Headroom className="text-white">
       <div className="flex justify-between items-center mx-auto py-3 px-2 md:px-6">
         <div className="flex justify-start items-center" id="branding">
           <StaticImage

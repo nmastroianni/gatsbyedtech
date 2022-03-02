@@ -5,6 +5,11 @@
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+.headroom {
+  @apply bg-emerald-900;
+}
+
 /* Works on Firefox */
 
 * {
