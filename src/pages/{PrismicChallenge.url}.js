@@ -37,7 +37,7 @@ export default function PrismicChallenge({ data, path }) {
         <div className=" max-w-screen-2xl mx-auto">
           <GatsbyImage
             image={getImage(challenge_featured_image)}
-            alt={`${challenge_featured_image.alt || ``} `}
+            alt={`${challenge_featured_image.alt || ``}`}
             className="w-full"
           />
         </div>
@@ -61,11 +61,12 @@ export default function PrismicChallenge({ data, path }) {
                   toolUrl,
                   document: {
                     data: { tool_title, tool_logo },
+                    prismicId,
                   },
                 },
               } = tool
               return (
-                <li className="text-center">
+                <li key={prismicId} className="text-center">
                   <GatsbyImage
                     image={getImage(tool_logo)}
                     alt={tool_title.text}
@@ -107,6 +108,7 @@ export const query = graphql`
         }
         challenge_featured_image {
           gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+          alt
         }
         body {
           ... on PrismicSliceType {

@@ -51,10 +51,13 @@ export default function Challenges({
         <ul className="list-none max-w-screen-md mx-auto space-y-3 md:space-y-4 lg:space-y-6 py-3 md:py-4 lg:py-6">
           {nodes.map(node => {
             return (
-              <li className="rounded border text-center pb-3 md:pb-4 lg:pb-6 shadow shadow-emerald-100 transition ease-in-out duration-500 lg:hover:-rotate-1 lg:hover:scale-105">
+              <li
+                key={node.prismicId}
+                className="rounded border text-center pb-3 md:pb-4 lg:pb-6 shadow shadow-emerald-100 transition ease-in-out duration-500 lg:hover:-rotate-1 lg:hover:scale-105"
+              >
                 <GatsbyImage
                   image={getImage(node.data.challenge_featured_image)}
-                  alt={``}
+                  alt={node.data.challenge_featured_image.alt || ``}
                   onClick={() => navigate(node.url)}
                   className="cursor-pointer rounded-t"
                 />
