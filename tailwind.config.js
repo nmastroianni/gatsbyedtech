@@ -11,28 +11,31 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
-            color: "rgba(0,0,0,0.7)",
+            color: "#334155",
             fontFamily: `${theme("fontFamily.source")}`,
             fontWeight: "400",
+            strong: {
+              color: "#064e3b",
+            },
             h1: {
               fontFamily: `${theme("fontFamily.teko")}`,
-              fontWeight: "300",
+              fontWeight: "600",
               color: "rgba(0,0,0,0.85)",
             },
             h2: {
               fontFamily: `${theme("fontFamily.teko")}`,
-              fontWeight: "300",
-              color: "rgba(0,0,0,0.85)",
+              fontWeight: "600",
+              color: "#065f46",
             },
             h3: {
               fontFamily: `${theme("fontFamily.teko")}`,
-              fontWeight: "300",
-              color: "rgba(0,0,0,0.85)",
+              fontWeight: "600",
+              color: "#065f46",
             },
             h4: {
               fontFamily: `${theme("fontFamily.teko")}`,
-              fontWeight: "300",
-              color: "rgba(0,0,0,0.85)",
+              fontWeight: "600",
+              color: "#065f46",
             },
             hr: {
               border: `3px solid #064E3B`,
@@ -42,22 +45,23 @@ module.exports = {
         },
         dark: {
           css: {
-            color: "rgba(255,255,255, 0.95)",
+            color: "#d1d5db",
             fontFamily: `${theme("fontFamily.source")}`,
             fontWeight: "400",
             h2: {
               fontFamily: `${theme("fontFamily.teko")}`,
-              fontWeight: "300",
+              fontWeight: "600",
               color: "rgba(167, 243, 208, 1)",
+              fontSize: "10rem",
             },
             h3: {
               fontFamily: `${theme("fontFamily.teko")}`,
-              fontWeight: "300",
+              fontWeight: "600",
               color: "rgba(167, 243, 208, 1)",
             },
             h4: {
               fontFamily: `${theme("fontFamily.teko")}`,
-              fontWeight: "300",
+              fontWeight: "600",
               color: "rgba(167, 243, 208, 1)",
             },
             a: {
