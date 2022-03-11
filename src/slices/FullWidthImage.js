@@ -22,7 +22,7 @@ export const FullWidthImage = ({ slice }) => {
         </a>
       </div>
       {full_width_image_caption.richText.length ? (
-        <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 prose prose-sm md:prose-lg dark:prose-dark p-3 md:p-4 lg:p-6 text-center italic">
+        <div className="mx-auto bg-gray-50 dark:bg-gray-700  border-gray-800 max-w-screen-lg dark:text-[#d1d5db] p-3 md:p-4 lg:p-6 text-center italic">
           <RichText
             render={full_width_image_caption.richText}
             htmlSerializer={htmlSerializer}
