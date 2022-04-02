@@ -52,7 +52,6 @@ module.exports = {
               fontFamily: `${theme("fontFamily.teko")}`,
               fontWeight: "600",
               color: "rgba(167, 243, 208, 1)",
-              fontSize: "10rem",
             },
             h3: {
               fontFamily: `${theme("fontFamily.teko")}`,
