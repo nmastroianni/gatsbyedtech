@@ -21,6 +21,7 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     {
