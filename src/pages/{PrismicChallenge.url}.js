@@ -42,12 +42,12 @@ export default function PrismicChallenge({ data, path }) {
           />
         </div>
         <div className="w-full">
-          <h2 className="font-teko text-center text-4xl md:text-6xl lg:text-7xl bg-emerald-900 text-white pt-3 pb-1.5">
+          <h2 className=" text-center text-4xl md:text-6xl lg:text-7xl bg-emerald-900 text-white pt-3 pb-1.5">
             {title.text}
           </h2>
         </div>
         <div className="shadow-sm py-3 md:py-4 lg:py-6 ">
-          <h3 className="font-teko text-emerald-900 dark:text-emerald-200 py-3 text-center text-2xl md:text-4xl lg:text-5xl">
+          <h3 className=" text-emerald-900 dark:text-emerald-200 py-3 text-center text-2xl md:text-4xl lg:text-5xl">
             {related_tools.length === 1
               ? `Tool You Will Need`
               : `Tools You Will Need`}
@@ -85,7 +85,7 @@ export default function PrismicChallenge({ data, path }) {
           </ul>
         </div>
         <div className="mx-auto">
-          <h3 className="text-center py-3 md:py-4 lg:py-6 font-teko text-emerald-900 dark:text-emerald-200 text-lg md:text-xl lg:text-2xl">
+          <h3 className="text-center py-3 md:py-4 lg:py-6  text-emerald-900 dark:text-emerald-200 text-lg md:text-xl lg:text-2xl">
             Last Updated on {last_publication_date}
           </h3>
         </div>

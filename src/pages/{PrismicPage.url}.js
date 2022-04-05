@@ -15,7 +15,7 @@ const PrismicPage = ({ data, path }) => {
         url={`${data.site.siteMetadata.siteUrl}${data.page.url}`}
       />
       <div>
-        <h1 className="font-teko text-4xl md:text-5xl lg:text-7xl text-center py-3 md:py-4 lg:py-6 border-b-2 text-emerald-800 dark:text-emerald-200">
+        <h1 className=" text-4xl md:text-5xl lg:text-7xl text-center py-3 md:py-4 lg:py-6 border-b-2 text-emerald-800 dark:text-emerald-200">
           {document.page_title.text}
         </h1>
         <SliceZone sliceZone={document.body} />

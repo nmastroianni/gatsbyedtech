@@ -29,7 +29,7 @@ export const ContentGrid = ({ slice }) => {
           } = item
           return (
             <li
-              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 border-gray-200 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source place-content-center"
+              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 border-gray-200 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center  place-content-center"
               key={id}
             >
               <GatsbyImage
@@ -73,7 +73,7 @@ export const ContentGrid = ({ slice }) => {
 
           return (
             <li
-              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source place-content-center"
+              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center  place-content-center"
               key={id}
             >
               <GatsbyImage
@@ -146,7 +146,7 @@ export const ContentGrid = ({ slice }) => {
           } = item
           return (
             <li
-              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source place-content-center"
+              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center  place-content-center"
               key={id}
             >
               <CgWebsite className="w-24 h-24 text-emerald-800 dark:text-emerald-200" />
@@ -181,7 +181,7 @@ export const ContentGrid = ({ slice }) => {
           } = item
           return (
             <li
-              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center font-source place-content-center"
+              className="bg-gray-50 rounded-sm shadow-sm dark:shadow-none dark:bg-gray-800 border-4 dark:border-gray-600 p-3 md:p-4 lg:p-6 flex flex-col items-center  place-content-center"
               key={id}
             >
               <h3 className="text-emerald-800 dark:text-emerald-200 my-2 md:my-3 lg:my-6 text-xl md:text-2xl text-center">

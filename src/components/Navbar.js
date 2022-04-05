@@ -17,13 +17,13 @@ export default function Navbar({ path }) {
           />
           <Link to="/">
             <div>
-              <span className="hidden md:inline text-xl sm:text-2xl md:text-3xl lg:text-5xl font-teko">
+              <span className="hidden md:inline text-xl sm:text-2xl md:text-3xl lg:text-5xl ">
                 Educational Technology{" "}
               </span>
-              <span className="inline md:hidden text-xl sm:text-2xl md:text-3xl lg:text-5xl font-teko">
+              <span className="inline md:hidden text-xl sm:text-2xl md:text-3xl lg:text-5xl ">
                 EdTech{" "}
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-teko inline">
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-5xl  inline">
                 Department
               </span>
             </div>

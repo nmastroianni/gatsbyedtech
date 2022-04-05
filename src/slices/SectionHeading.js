@@ -45,7 +45,7 @@ export const SectionHeading = ({ slice }) => {
           <span className="sr-only">Copy heading link</span>
         </button>
       </div>
-      <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-teko inline">
+      <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl  inline">
         {RichText.asText(section_heading_text.richText)}
       </h2>
     </div>

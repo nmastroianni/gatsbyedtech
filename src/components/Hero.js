@@ -12,7 +12,7 @@ export default function Hero({
   const { alt, gatsbyImageData } = heroImage
   return (
     <>
-      <div className="mx-auto grid grid-cols-1 md:space-x-4 md:grid-cols-2 place-items-center flex-wrap bg-emerald-50 dark:bg-transparent py-3 px-3 font-source">
+      <div className="mx-auto grid grid-cols-1 md:space-x-4 md:grid-cols-2 place-items-center flex-wrap bg-emerald-50 dark:bg-transparent py-3 px-3 ">
         <div className="text-center py-3 md:py-6 lg:py-12">
           <GatsbyImage
             image={getImage(gatsbyImageData)}
@@ -21,7 +21,7 @@ export default function Hero({
           />
         </div>
         <div className=" dark:text-white my-4 text-center md:text-left">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-center md:text-left text-emerald-800 dark:text-emerald-200 font-teko">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-center md:text-left text-emerald-800 dark:text-emerald-200 ">
             {bannerTitle}
           </h2>
           <p className="text-base text-left sm:text-lg lg:text-xl xl:text-2xl my-3 my:mb-6 lg:max-w-3xl">

@@ -27,7 +27,7 @@ export const Pagination = ({ currentPage, pageCount, basePath }) => {
     currentPage === pageCount ? "pointer-events-none" : "enabled"
 
   return (
-    <div className="flex justify-center space-x-4 text-emerald-800 dark:text-emerald-200 text-xl font-source">
+    <div className="flex justify-center space-x-4 text-emerald-800 dark:text-emerald-200 text-xl ">
       <Link
         className={`${prevClass} dark:bg-black bg-opacity-50 px-4 py-2 rounded focus:outline-none focus:ring-4 focus:ring-emerald-300`}
         to={prevPagePath + "/"}

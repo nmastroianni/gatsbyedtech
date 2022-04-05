@@ -25,7 +25,7 @@ export const ImageHighlight = ({ slice }) => {
           {/* Left Side Prose Div */}
           <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading */}
-            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-emerald-800 dark:text-emerald-200">
+            <h2 className="text-center md:text-left  text-3xl md:text-4xl text-emerald-800 dark:text-emerald-200">
               {RichText.asText(image_highlight_heading.richText)}
             </h2>
             {/* END HEADING DIV */}
@@ -41,7 +41,7 @@ export const ImageHighlight = ({ slice }) => {
             {/* !# Conditionally Render Link if URL provided */}
 
             {image_highlight_link.url ? (
-              <p className="font-source text-center md:text-left">
+              <p className=" text-center md:text-left">
                 {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
                   <a
@@ -157,7 +157,7 @@ export const ImageHighlight = ({ slice }) => {
           {/* Right Side Prose Div */}
           <div className="mb-3 md:mb-4 lg:mb-6 p-3 md:p-4 lg:p-6 w-full dark:text-white">
             {/* Heading */}
-            <h2 className="text-center md:text-left font-teko text-3xl md:text-4xl text-emerald-800 dark:text-emerald-200">
+            <h2 className="text-center md:text-left  text-3xl md:text-4xl text-emerald-800 dark:text-emerald-200">
               {RichText.asText(image_highlight_heading.richText)}
             </h2>
             {/* END HEADING DIV */}
@@ -172,7 +172,7 @@ export const ImageHighlight = ({ slice }) => {
             {/* END IMAGE DESCRIPTION */}
             {/* !# Conditionally Render Link if URL provided */}
             {image_highlight_link.url !== null && image_highlight_link_text ? (
-              <p className="font-source text-center md:text-left">
+              <p className=" text-center md:text-left">
                 {/* Check if Link is Web */}
                 {image_highlight_link.link_type === "Web" ? (
                   <a

@@ -30,11 +30,11 @@ export default function Challenges({
       />
       <div className="mx-auto">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-100 font-teko">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-100 ">
             Challenges
           </h1>
           {numPages > 1 ? (
-            <p className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 font-teko">
+            <p className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 ">
               Page {currentPage} of {numPages}
             </p>
           ) : null}
@@ -61,7 +61,7 @@ export default function Challenges({
                   onClick={() => navigate(node.url)}
                   className="cursor-pointer rounded-t"
                 />
-                <h2 className="font-teko my-3 md:my-4 lg:my-6 text-center text-emerald-900 dark:text-emerald-200 text-3xl md:text-4xl lg:text-5xl">
+                <h2 className=" my-3 md:my-4 lg:my-6 text-center text-emerald-900 dark:text-emerald-200 text-3xl md:text-4xl lg:text-5xl">
                   {node.data.title.text}
                 </h2>
                 <Link

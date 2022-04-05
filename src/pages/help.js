@@ -87,7 +87,7 @@ export default function Help({ path }) {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <header className="mb-2 sm:mb-4 lg:mb-6 flex flex-col items-center">
           <div>
-            <h1 className="font-teko text-6xl my-3 md:my-4 lg:my-6 text-emerald-800 dark:text-emerald-200">
+            <h1 className=" text-6xl my-3 md:my-4 lg:my-6 text-emerald-800 dark:text-emerald-200">
               Get Help
             </h1>
           </div>
@@ -105,7 +105,7 @@ export default function Help({ path }) {
           )}
           {formComplete && (
             <div>
-              <h2 className="text-center text-3xl font-teko text-emerald-800 dark:text-emerald-200">
+              <h2 className="text-center text-3xl  text-emerald-800 dark:text-emerald-200">
                 Huzzah! Your message was received!
               </h2>
               <p className="prose dark:prose-dark prose-lg lg:prose-xl text-center">

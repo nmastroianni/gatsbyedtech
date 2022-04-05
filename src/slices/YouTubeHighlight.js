@@ -79,7 +79,7 @@ export const YouTubeHighlight = ({ slice }) => {
           {/* END LEFTSIDE VIDEO EMBED */}
           {/* BEGIN RIGHT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
-            <h2 className="text-emerald-800 dark:text-emerald-200 font-teko text-3xl md:text-4xl">
+            <h2 className="text-emerald-800 dark:text-emerald-200  text-3xl md:text-4xl">
               {youtube_title.richText
                 ? RichText.asText(youtube_title.richText)
                 : title}
@@ -102,7 +102,7 @@ export const YouTubeHighlight = ({ slice }) => {
         <div className="max-w-screen-2xl mx-auto grid md:grid-cols-2 p-4 gap-y-4 divide-y md:divide-y-0 md:gap-x-4">
           {/* BEGIN LEFT SIDE VIDEO DESCRIPTION */}
           <div className="w-full pt-4 mx-auto">
-            <h2 className="text-emerald-800 dark:text-emerald-200 font-teko text-3xl md:text-4xl">
+            <h2 className="text-emerald-800 dark:text-emerald-200  text-3xl md:text-4xl">
               {youtube_title.richText
                 ? RichText.asText(youtube_title.richText)
                 : title}

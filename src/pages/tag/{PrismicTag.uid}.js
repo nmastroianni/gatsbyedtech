@@ -27,14 +27,14 @@ const PrismicTag = ({ data, path }) => {
       />
       <div className="max-w-screen-sm mx-auto">
         <header className="">
-          <h1 className="font-teko dark:text-emerald-200 text-4xl md:text-5xl lg:text-7xl text-center text-emerald-900 mt-3 md:mt-4 lg:mt-6">
+          <h1 className=" dark:text-emerald-200 text-4xl md:text-5xl lg:text-7xl text-center text-emerald-900 mt-3 md:mt-4 lg:mt-6">
             {text}
           </h1>
           <p className="text-center dark:text-white">
             Listed below are all of our posts that are related to {text}
           </p>
         </header>
-        <ol className="flex flex-col gap-y-4 font-source dark:text-white p-2 md:p-3 text-xl md:text-2xl mx-auto max-w-md md:max-w-xl lg:max-w-2xl">
+        <ol className="flex flex-col gap-y-4  dark:text-white p-2 md:p-3 text-xl md:text-2xl mx-auto max-w-md md:max-w-xl lg:max-w-2xl">
           {nodes.map(post => {
             return (
               <li

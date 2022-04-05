@@ -3,10 +3,7 @@ import { StaticImage } from "gatsby-plugin-image"
 export default function Footer() {
   return (
     <footer className="mt-auto p-6 lg:p-12 bg-gray-100 dark:bg-black dark:text-white">
-      <div
-        id="district-branding"
-        className="flex justify-center items-center font-source"
-      >
+      <div id="district-branding" className="flex justify-center items-center ">
         <StaticImage
           src="../images/lbpsSeal.png"
           alt="Long Branch Public Schools Seal/Logo"

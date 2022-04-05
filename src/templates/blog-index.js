@@ -22,14 +22,14 @@ const BlogCard = ({ authors, excerpt, image, title, date, url, tags }) => {
             alt=""
           />
 
-          <div className="font-teko text-xl md:text-3xl lg:text-4xl bg-emerald-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
+          <div className=" text-xl md:text-3xl lg:text-4xl bg-emerald-200 bg-opacity-25 transition duration-300 ease-in-out hover:bg-opacity-0 absolute inset-0 flex items-center justify-center">
             <h1 className="text-center absolute -top-4 p-4 bg-emerald-900 bg-opacity-95 text-white rounded-md leading-none grayscale-0">
               {title.text}
             </h1>
           </div>
         </header>
       </Link>
-      <div className="dark:bg-gray-800 dark:text-white p-4 font-source">
+      <div className="dark:bg-gray-800 dark:text-white p-4 ">
         {tags.length ? (
           <div className="flex justify-center flex-wrap">
             <ul className="grid grid-flow-col gap-3 divide-x-2 dark:divide-slate-500 mb-2 md:mb-3 lg:mb-4">
@@ -61,10 +61,10 @@ const BlogCard = ({ authors, excerpt, image, title, date, url, tags }) => {
           </div>
         ) : null}
         <div className="flex justify-center flex-wrap">
-          <p className="font-teko text-xl text-emerald-800 dark:text-emerald-200 ">
+          <p className=" text-xl text-emerald-800 dark:text-emerald-200 ">
             Published on {date} by{" "}
           </p>
-          <ul className="list-none font-teko text-xl text-emerald-800 dark:text-emerald-200 ml-1">
+          <ul className="list-none  text-xl text-emerald-800 dark:text-emerald-200 ml-1">
             {authors.map((author, i) => {
               return (
                 <li
@@ -89,7 +89,7 @@ const BlogCard = ({ authors, excerpt, image, title, date, url, tags }) => {
       <footer className=" dark:bg-gray-800 dark:text-white py-8 rounded-b-md text-center">
         <Link
           to={`${url}`}
-          className="font-source px-4 py-3 border-2 border-emerald-800 dark:border-emerald-400 rounded-md hover:shadow-md hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-emerald-300"
+          className=" px-4 py-3 border-2 border-emerald-800 dark:border-emerald-400 rounded-md hover:shadow-md hover:bg-emerald-200 hover:bg-opacity-20 dark:hover:bg-black dark:hover:bg-opacity-70 focus:outline-none focus:ring-4 focus:ring-emerald-300"
         >
           Read This Article
         </Link>
@@ -119,11 +119,11 @@ export default function Blog({
       />
       <div className="mx-auto mb-12 px-3">
         <header className="bg-gray-50 dark:bg-gray-800 mb-2 sm:mb-4 lg:mb-6 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-100 font-teko">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl py-3 md:py-4 lg:py-6 text-emerald-800 dark:text-emerald-100 ">
             EdTech Blog
           </h1>
           {numPages > 1 ? (
-            <p className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 font-teko">
+            <p className="pb-3 md:pb-4 lg:pb-6 text-xl md:text-2xl lg:text-3xl text-emerald-700 dark:text-emerald-100 ">
               Page {currentPage} of {numPages}
             </p>
           ) : (
