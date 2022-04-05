@@ -24,7 +24,7 @@ export default function Hero({
           <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-center md:text-left text-emerald-800 dark:text-emerald-200 font-teko">
             {bannerTitle}
           </h2>
-          <p className="text-base text-left sm:text-lg lg:text-xl xl:text-2xl mb-3 md:mb-6 lg:max-w-3xl">
+          <p className="text-base text-left sm:text-lg lg:text-xl xl:text-2xl my-3 my:mb-6 lg:max-w-3xl">
             {bannerDescription}
           </p>
           <Link

@@ -20,7 +20,7 @@ const ToolCard = ({ title, url, image }) => {
           </Link>
         </div>
       </article>
-      <p className="text-center font-teko my-2 md:my-3 lg:my-4 text-2xl text-emerald-800 dark:text-emerald-200">
+      <p className="text-center my-2 md:my-3 lg:my-4 text-lg text-emerald-800 dark:text-emerald-200">
         {title}
       </p>
     </>

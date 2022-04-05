@@ -31,7 +31,7 @@ export const ImageHighlight = ({ slice }) => {
             {/* END HEADING DIV */}
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-emerald-800 to-transparent dark:from-transparent dark:via-emerald-400 dark:to-transparent" />
             {/* Image Description */}
-            <div className="prose md:prose-xl prose-emerald dark:prose-dark mb-3 md:mb-4 lg:mb-6">
+            <div className="prose md:prose-xl lg:prose-2xl prose-emerald dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
                 render={image_highlight_description.richText}
                 htmlSerializer={htmlSerializer}
@@ -163,7 +163,7 @@ export const ImageHighlight = ({ slice }) => {
             {/* END HEADING DIV */}
             <div className="h-1 my-3 rounded bg-gradient-to-r from-transparent via-emerald-800 to-transparent dark:from-transparent dark:via-emerald-400 dark:to-transparent" />
             {/* Image Description */}
-            <div className="prose md:prose-xl prose-emerald dark:prose-dark mb-3 md:mb-4 lg:mb-6">
+            <div className="prose md:prose-xl lg:prose-2xl prose-emerald dark:prose-dark mb-3 md:mb-4 lg:mb-6">
               <RichText
                 render={image_highlight_description.richText}
                 htmlSerializer={htmlSerializer}
