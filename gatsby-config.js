@@ -19,7 +19,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-image`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
@@ -47,20 +46,11 @@ module.exports = {
       __key: `pages`,
     },
     {
-      resolve: "gatsby-plugin-prismic-previews",
-      options: {
-        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-      },
-    },
-    {
       resolve: `gatsby-source-prismic`,
       options: {
-        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         linkResolver: require("./src/utils/linkResolver").linkResolver,
-        releaseID: process.env.PRISMIC_RELEASE_ID,
       },
     },
     {
@@ -76,13 +66,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-TPP7P3V",
-        includeInDevelopment: false,
-      },
-    },
-    {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: `edtechwave`,
@@ -91,7 +74,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        excludes: ["/preview/"],
+        excludes: [],
       },
     },
   ],

@@ -1,59 +1,11 @@
 import * as React from "react"
-import { useEffect } from "react"
-import { Link } from "gatsby"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import { BsArrowReturnLeft } from "react-icons/bs"
-import { HiThumbDown, HiThumbUp, HiX } from "react-icons/hi"
 
 export default function Layout({ children, path }) {
-  useEffect(() => {
-    if (process.env.NODE_ENV === "production") {
-      const consentModal = document.querySelector("#tracking-consent")
-      setTimeout(() => {
-        consentModal.classList.remove("invisible")
-        const closeButton = document.querySelector("#close-consent")
-        closeButton.addEventListener("click", () => {
-          consentModal.classList.add("invisible")
-        })
-      }, 1200)
-    }
-  })
   return (
     <div className="relative">
-      {process.env.NODE_ENV === "production" ? (
-        <div
-          id="tracking-consent"
-          className="fixed border-4 border-double border-yellow-300 transition duration-700 ease-in-out bg-gray-200 dark:bg-gray-700 rounded p-3 md:p-4 lg:p-6 w-full md:w-1/2 lg:w-1/3 left-1/2 transform -translate-x-1/2 top-10 z-50 invisible"
-        >
-          <button id="close-consent" className="absolute right-2 top-2">
-            <HiX className="text-gray-800 dark:text-white" />
-            <span className="sr-only">Close this consent window</span>
-          </button>
-          <header className="prose dark:prose-dark">
-            This site uses cookies to measure how visitors use our site.
-          </header>
-          <div className="text-xs text-emerald-800 dark:text-emerald-200 mb-3 md:mb-4 lg:mb-6">
-            <Link to="/privacy/">View Our Privacy Policy</Link>
-          </div>
-          <div className="grid grid-cols-2 text-emerald-800 dark:text-emerald-200">
-            <button
-              id="decline-tracking"
-              className="px-2 py-3 border border-emerald-800 dark:border-emerald-400 transition duration-300 ease-in-out dark:hover:text-emerald-300 hover:bg-emerald-200 dark:hover:bg-gray-800 hover:bg-opacity-50 rounded mr-3"
-            >
-              <HiThumbDown className="inline" /> Decline
-            </button>
-            <button
-              id="accept-tracking"
-              className="px-2 py-3 border border-emerald-800 dark:border-emerald-400 transition duration-300 ease-in-out dark:hover:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-gray-600 hover:bg-opacity-50 rounded ml-3"
-            >
-              <HiThumbUp className="inline" /> Accept
-            </button>
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
       <ul id="nav-access" className="relative mx-auto">
         <li>
           <a

@@ -13,17 +13,19 @@ export default function Navbar({ path }) {
             src="../images/lbpsSeal.png"
             alt="Long Branch Public Schools Seal/Logo"
             placeholder="blurred"
-            className="w-0 h-0 sm:w-10 sm:h-10 mr-1 sm:mr-2 md:mr-3 lg:mr-5"
+            className="hidden sm:block sm:w-10 sm:h-10 mr-1 sm:mr-2 md:mr-3 lg:mr-5"
+            width={40}
+            height={40}
           />
           <Link to="/">
             <div>
-              <span className="hidden md:inline text-xl sm:text-2xl md:text-3xl lg:text-5xl ">
+              <span className="hidden md:inline text-xl sm:text-2xl md:text-3xl lg:text-4xl ">
                 Educational Technology{" "}
               </span>
               <span className="inline md:hidden text-xl sm:text-2xl md:text-3xl lg:text-5xl ">
                 EdTech{" "}
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl lg:text-5xl  inline">
+              <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  inline">
                 Department
               </span>
             </div>

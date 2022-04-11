@@ -66,7 +66,7 @@ export default function Seo({
         },
         {
           property: "twitter:card",
-          content: "summary",
+          content: metaDescription,
         },
         {
           property: "twitter:image",
