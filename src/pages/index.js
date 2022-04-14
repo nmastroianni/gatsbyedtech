@@ -14,7 +14,7 @@ const PrismicHomepage = ({ data, path }) => {
     document
   return (
     <Layout path={path}>
-      <Seo title="Home" url="https://edtechwave.com" />
+      <Seo title="Home" url="https://www.edtechwave.com" />
       <Hero
         heroImage={banner_image}
         bannerTitle={banner_title.text}
