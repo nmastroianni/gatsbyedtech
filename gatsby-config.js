@@ -11,7 +11,7 @@ require("dotenv").config({
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    siteUrl: `https://edtechwave.com`,
+    siteUrl: `https://www.edtechwave.com`,
     title: "LBPS EdTech",
     description:
       "The EdTechWave at Long Branch Public Schools is dedicated to helping educators master technology.",
@@ -26,8 +26,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: `https://edtechwave.com/`,
-        sitemap: `https://edtechwave.com/sitemap/sitemap-index.xml`,
+        host: `https://www.edtechwave.com/`,
+        sitemap: `https://www.edtechwave.com/sitemap/sitemap-index.xml`,
         policy: [
           {
             userAgent: "*",
