@@ -11,9 +11,11 @@ export default function Help({ path }) {
   const [formComplete, setFormComplete] = useState(false)
   const [recaptchaPassed, setRecaptchaPassed] = useState(null)
   const selectReason = [
-    "Something Google Related",
-    "Seesaw",
+    "Flip",
+    "Google",
     "Mote",
+    "Seesaw",
+    "Wakelet",
     "Coding",
     "Video",
     "Volunteer to Write a Blog Post",

@@ -108,18 +108,23 @@ export default async function handler(req, res) {
         // Will need to manually update if lists are edited/added/removed
         const trelloLists = [
           {
-            id: "591c41d61fb4165a2f164ecb",
-            name: "Something Google Related",
-            members: [lois, neil],
+            id: '632b0f97fbd0560077bf2530',
+            name: 'Flip',
+            members: [lois, neil]
           },
           {
-            id: "591c41de34a9ac4d29e2fb75",
-            name: "Seesaw",
-            members: [lois],
+            id: "591c41d61fb4165a2f164ecb",
+            name: "Google",
+            members: [lois, neil],
           },
           {
             id: "613f88620463024c3767c9c7",
             name: "Mote",
+            members: [lois],
+          },
+          {
+            id: "591c41de34a9ac4d29e2fb75",
+            name: "Seesaw",
             members: [lois],
           },
           {
@@ -128,13 +133,18 @@ export default async function handler(req, res) {
             members: [neil],
           },
           {
+            id: "632b0facb9860202d6829679",
+            name: "Wakelet",
+            members: [lois, neil]
+          },
+          {
             id: "613f8874894edc79ab27cc56",
             name: "Video",
             members: [neil],
           },
           {
             id: "613f8b57a6298c6476656556",
-            name: "Volunteer to Write a Blog Post",
+            name: "Volunteer to Contribute",
             members: [lois, neil],
           },
           {
@@ -144,7 +154,7 @@ export default async function handler(req, res) {
           },
           {
             id: "594bba6053ed0a2edc55e58f",
-            name: "Other...",
+            name: "Other, please specify...",
             members: [lois, neil],
           },
         ]
