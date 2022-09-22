@@ -20,7 +20,7 @@ export default function Help({ path }) {
     "Video",
     "Volunteer to Write a Blog Post",
     "Website Issue",
-    "Other...",
+    "Other, please specify...",
   ]
   const {
     register,
