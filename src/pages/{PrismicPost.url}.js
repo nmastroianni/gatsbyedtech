@@ -140,7 +140,7 @@ const PrismicPost = ({ data, path }) => {
           />
         </div>
         <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0  w-full">
-          <h2 className=" text-center text-4xl md:text-6xl lg:text-7xl bg-emerald-900 text-white pt-3 pb-1.5">
+          <h2 className=" text-center text-4xl md:text-5xl lg:text-6xl bg-emerald-900 text-white py-4">
             {post_title.text}
           </h2>
         </div>
