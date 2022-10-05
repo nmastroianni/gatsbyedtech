@@ -119,7 +119,10 @@ export const ContentGrid = ({ slice }) => {
                   <ul className="grid grid-flow-col gap-1 divide-x-2 divide-emerald-600 dark:divide-slate-500 text-sm text-emerald-800 dark:text-emerald-100">
                     {tags.map(tag => {
                       return (
-                        <li className="pl-1 hover:scale-105">
+                        <li
+                          className="pl-1 hover:scale-105"
+                          key={tag.tag.document.id}
+                        >
                           <Link to={tag.tag.url} className="hover:underline">
                             <HiTag className="w-4 h-4 inline" />
                             {tag.tag.document.data.title.text}

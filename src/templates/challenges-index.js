@@ -12,7 +12,6 @@ export default function Challenges({
     allPrismicChallenge: { nodes },
   },
 }) {
-  console.log(nodes[0].data.challenge_featured_image)
   const canonical =
     currentPage === 1
       ? `https://edtechwave.com${basePath}/`
@@ -55,12 +54,13 @@ export default function Challenges({
                 key={node.prismicId}
                 className="rounded border text-center pb-3 md:pb-4 lg:pb-6 shadow shadow-emerald-100 transition ease-in-out duration-500 lg:hover:-rotate-1 lg:hover:scale-105"
               >
-                <GatsbyImage
-                  image={getImage(node.data.challenge_featured_image)}
-                  alt={node.data.challenge_featured_image.alt || ``}
-                  onClick={() => navigate(node.url)}
-                  className="cursor-pointer rounded-t"
-                />
+                <Link to={node.url}>
+                  <GatsbyImage
+                    image={getImage(node.data.challenge_featured_image)}
+                    alt={node.data.challenge_featured_image.alt || ``}
+                    className="cursor-pointer rounded-t"
+                  />
+                </Link>
                 <h2 className=" my-3 md:my-4 lg:my-6 text-center text-emerald-900 dark:text-emerald-200 text-3xl md:text-4xl lg:text-5xl">
                   {node.data.title.text}
                 </h2>
