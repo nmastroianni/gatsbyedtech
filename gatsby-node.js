@@ -1,6 +1,8 @@
 const path = require("path")
+const redirects = require("./redirects.json")
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
   const result = await graphql(
     `
       {
@@ -209,6 +211,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         currentPage: i + 1,
         basePath: "/challenges",
       },
+    })
+  })
+  redirects.forEach(redirect => {
+    console.log(redirect)
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
     })
   })
 }
