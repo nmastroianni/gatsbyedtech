@@ -214,7 +214,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
   redirects.forEach(redirect => {
-    console.log(redirect)
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
