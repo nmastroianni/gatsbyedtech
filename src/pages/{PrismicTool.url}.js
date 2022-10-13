@@ -18,15 +18,15 @@ const PrismicTool = ({ data, path }) => {
         image={getSrc(document.tool_logo.gatsbyImageData)}
       />
       <header>
-        <div className="flex flex-col justify-center items-center md:flex-row md:divide-x-4 divide-emerald-700 dark:divide-emerald-200 py-6">
+        <div className="grid md:grid-cols-2 gap-6 dark:divide-emerald-200 py-6 place-items-center md:divide-x-4">
           <GatsbyImage
             image={getImage(document.tool_logo.gatsbyImageData)}
             alt={document.tool_logo.alt || "Tool Logo"}
-            className="col-span-1 text-center rounded w-96 mr-0 md:mr-12"
+            className="col-span-1 text-center rounded w-96"
             imgClassName="rounded"
           />
-          <div className="my-4 md:my-0">
-            <h1 className="text-center pl-0 md:pl-12  w-96 text-6xl text-emerald-800 dark:text-white ">
+          <div className="my-4 md:my-0 w-full">
+            <h1 className="text-center pl-0 md:pl-12  text-6xl text-emerald-800 dark:text-white my-6">
               {document.tool_title.text}
             </h1>
             <p className="text-sm text-center pl-0 md:pl-12  text-emerald-700 dark:text-emerald-200">

@@ -8,7 +8,7 @@ export default function Navbar({ path }) {
   return (
     <Headroom className="text-white">
       <div className="flex justify-between items-center mx-auto py-3 px-2 md:px-6">
-        <div className="flex justify-start items-center" id="branding">
+        <div className="flex justify-start items-center py-3" id="branding">
           <StaticImage
             src="../images/lbpsSeal.png"
             alt="Long Branch Public Schools Seal/Logo"
